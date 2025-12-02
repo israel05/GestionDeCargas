@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.layout.*?>
+<GridPane xmlns:fx="http://javafx.com/fxml/1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
+          prefHeight="396.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21.0.4"
+          fx:controller="es.israeldelamo.transportes.controladores.BotoneraManualesController">
+    <columnConstraints>
+        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" percentWidth="33.0" prefWidth="100.0"/>
+        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" percentWidth="33.0" prefWidth="100.0"/>
+        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" percentWidth="33.0" prefWidth="100.0"/>
+    </columnConstraints>
+    <rowConstraints>
+        <RowConstraints minHeight="10.0" percentHeight="50.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+        <RowConstraints minHeight="10.0" percentHeight="50.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+        <RowConstraints minHeight="10.0" percentHeight="50.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+    </rowConstraints>
+    <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false"
+            onAction="#lanzarManualGuiaRapida" styleClass="btn" stylesheets="@../css/estilos.css" text="Guía Rápida"
+            GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+        <GridPane.margin>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+        </GridPane.margin>
+        <effect>
+            <DropShadow/>
+        </effect>
+        <tooltip>
+            <Tooltip text="Empty Tooltip"/>
+        </tooltip>
+    </Button>
+
+
+    <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false"
+            onAction="#lanzarManualGuiaReferencia" styleClass="btn" stylesheets="@../css/estilos.css"
+            text="Guía de Referencia" GridPane.columnIndex="1">
+        <GridPane.margin>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+        </GridPane.margin>
+        <effect>
+            <DropShadow/>
+        </effect>
+        <tooltip>
+            <Tooltip text="Empty Tooltip"/>
+        </tooltip>
+    </Button>
+    <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false"
+            onAction="#lanzarManualGuiaTecnica" styleClass="btn" stylesheets="@../css/estilos.css" text="Guía Técnica"
+            GridPane.columnIndex="2">
+        <GridPane.margin>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+        </GridPane.margin>
+        <effect>
+            <DropShadow/>
+        </effect>
+        <tooltip>
+            <Tooltip text="Empty Tooltip"/>
+        </tooltip>
+    </Button>
+    <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false"
+            onAction="#lanzarManualUsuario" styleClass="btn" stylesheets="@../css/estilos.css" text="Manual de Usuario"
+            GridPane.columnIndex="1" GridPane.rowIndex="2">
+        <GridPane.margin>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+        </GridPane.margin>
+        <effect>
+            <DropShadow/>
+        </effect>
+        <tooltip>
+            <Tooltip text="Empty Tooltip"/>
+        </tooltip>
+    </Button>
+    <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false"
+            onAction="#lanzarManualExplotacion" styleClass="btn" stylesheets="@../css/estilos.css"
+            text="Manual de Explotación" GridPane.rowIndex="1">
+        <GridPane.margin>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+        </GridPane.margin>
+        <effect>
+            <DropShadow/>
+        </effect>
+        <tooltip>
+            <Tooltip text="Empty Tooltip"/>
+        </tooltip>
+    </Button>
+    <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false"
+            onAction="#lanzarManualInstalacion" styleClass="btn" stylesheets="@../css/estilos.css"
+            text="Manual De Instalación" GridPane.columnIndex="1" GridPane.rowIndex="1">
+        <GridPane.margin>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+        </GridPane.margin>
+        <effect>
+            <DropShadow/>
+        </effect>
+        <tooltip>
+            <Tooltip text="Empty Tooltip"/>
+        </tooltip>
+    </Button>
+    <Button layoutX="20.0" layoutY="152.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308"
+            mnemonicParsing="false" onAction="#lanzarManualMantenimiento" styleClass="btn"
+            stylesheets="@../css/estilos.css" text="Manual De Matenimiento" GridPane.columnIndex="2"
+            GridPane.rowIndex="1">
+        <effect>
+            <DropShadow/>
+        </effect>
+        <GridPane.margin>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+        </GridPane.margin>
+        <tooltip>
+            <Tooltip text="Empty Tooltip"/>
+        </tooltip>
+    </Button>
+</GridPane>

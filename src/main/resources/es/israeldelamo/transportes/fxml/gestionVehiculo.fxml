@@ -1,0 +1,326 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<GridPane xmlns:fx="http://javafx.com/fxml/1" alignment="CENTER" maxHeight="1.7976931348623157E308"
+          maxWidth="1.7976931348623157E308" stylesheets="@../css/estilos.css" xmlns="http://javafx.com/javafx/23.0.1"
+          fx:controller="es.israeldelamo.transportes.controladores.GestionVehiculoController">
+    <columnConstraints>
+        <ColumnConstraints halignment="LEFT" hgrow="ALWAYS" maxWidth="1.7976931348623157E308" percentWidth="40.0"/>
+        <ColumnConstraints halignment="CENTER" hgrow="ALWAYS" maxWidth="1.7976931348623157E308" percentWidth="20.0"/>
+        <ColumnConstraints halignment="CENTER" hgrow="ALWAYS" maxWidth="1.7976931348623157E308" percentWidth="40.0"/>
+    </columnConstraints>
+    <rowConstraints>
+        <RowConstraints maxHeight="1.7976931348623157E308" percentHeight="5.0" prefHeight="32.399995422363304"
+                        valignment="CENTER" vgrow="NEVER"/>
+        <RowConstraints maxHeight="1.7976931348623157E308" minHeight="-Infinity" percentHeight="50.0"
+                        valignment="CENTER" vgrow="ALWAYS"/>
+        <RowConstraints maxHeight="1.7976931348623157E308" percentHeight="55.0" valignment="CENTER" vgrow="ALWAYS"/>
+    </rowConstraints>
+    <MenuBar maxWidth="1.7976931348623157E308" GridPane.columnSpan="2147483647" GridPane.halignment="CENTER"
+             GridPane.hgrow="ALWAYS" GridPane.valignment="CENTER" GridPane.vgrow="NEVER">
+        <Menu mnemonicParsing="false" text="Archivo">
+            <MenuItem fx:id="mi_salir" mnemonicParsing="false" onAction="#salir_app" text="Volver al menú anterior"/>
+        </Menu>
+        <Menu mnemonicParsing="false" text="Ayuda">
+            <MenuItem mnemonicParsing="false" onAction="#mostrarAyuda" text="Videotutorial"/>
+            <MenuItem mnemonicParsing="false" onAction="#mostrar_acercade" text="Acerca de"/>
+        </Menu>
+    </MenuBar>
+    <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" styleClass="recuadrado"
+          GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1"
+          GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+        <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308"
+               style="-fx-font-size: 20;" text="DESTINOS SELECCIONADOS">
+            <font>
+                <Font size="20.0"/>
+            </font>
+            <VBox.margin>
+                <Insets bottom="10.0" top="10.0"/>
+            </VBox.margin>
+        </Label>
+        <TableView fx:id="tv_destinos" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" prefHeight="400.0">
+            <columns>
+                <TableColumn fx:id="tc_pais_tv_destinos" maxWidth="83.0" prefWidth="83.0" style="-fx-pref-height: 20pt;"
+                             text="País"/>
+                <TableColumn fx:id="tc_provincia_tv_destinos" maxWidth="118.0" prefWidth="92.0"
+                             style="-fx-pref-height: 20pt;" text="Provincia"/>
+                <TableColumn fx:id="tc_localidad_tv_destinos" maxWidth="154.0" prefWidth="117.0"
+                             style="-fx-pref-height: 20pt;" text="Localidad"/>
+                <TableColumn fx:id="tc_codigpostal_tv_destinos" maxWidth="113.0" minWidth="9.0" prefWidth="98.0"
+                             style="-fx-pref-height: 20pt;" text="CP"/>
+            </columns>
+        </TableView>
+        <HBox alignment="CENTER" prefWidth="200.0">
+            <padding>
+                <Insets top="2.0"/>
+            </padding>
+            <VBox.margin>
+                <Insets bottom="10.0" top="10.0"/>
+            </VBox.margin>
+            <Button fx:id="btn_anyadir_mas_destinos" mnemonicParsing="false" onAction="#anyadir_destinos"
+                    styleClass="btn" text="Añadir más destinos">
+                <HBox.margin>
+                    <Insets right="10.0"/>
+                </HBox.margin>
+                <tooltip>
+                    <Tooltip text="Añadir más posibles destinos"/>
+                </tooltip>
+            </Button>
+            <Button fx:id="btn_eliminar_destinos_seleccioandos" mnemonicParsing="false" onAction="#borrar_destinos"
+                    styleClass="btn" text="Borrar destinos seleccionados">
+                <HBox.margin>
+                    <Insets left="10.0"/>
+                </HBox.margin>
+                <tooltip>
+                    <Tooltip text="Eliminar los destinos seleccionados"/>
+                </tooltip>
+            </Button>
+        </HBox>
+    </VBox>
+    <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" styleClass="recuadrado"
+          GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.valignment="CENTER"
+          GridPane.vgrow="ALWAYS">
+        <Label alignment="CENTER" contentDisplay="CENTER" graphicTextGap="1.0" maxHeight="1.7976931348623157E308"
+               maxWidth="1.7976931348623157E308" style="-fx-font-size: 20;" text="ÁMBITO DE CARGA">
+            <font>
+                <Font name="Arial Black" size="20.0"/>
+            </font>
+            <VBox.margin>
+                <Insets bottom="10.0" top="10.0"/>
+            </VBox.margin>
+        </Label>
+        <TableView fx:id="tv_origenes">
+            <columns>
+                <TableColumn fx:id="tc_pais_tv_origenes" maxWidth="94.0" prefWidth="94.0" style="-fx-pref-height: 20pt;"
+                             text="País"/>
+                <TableColumn fx:id="tc_provincia_tv_origenes" prefWidth="100.0" style="-fx-pref-height: 20pt;"
+                             text="Provincia"/>
+                <TableColumn fx:id="tc_localidad_tv_origenes" prefWidth="96.0" style="-fx-pref-height: 20pt;"
+                             text="Localidad"/>
+                <TableColumn fx:id="tc_codigpostal_tv_origenes" maxWidth="145.0" prefWidth="111.0"
+                             style="-fx-pref-height: 20pt;" text="CP"/>
+            </columns>
+        </TableView>
+        <HBox alignment="CENTER">
+            <VBox.margin>
+                <Insets bottom="10.0" top="10.0"/>
+            </VBox.margin>
+            <Button fx:id="btn_anyadir_mas_origenes" contentDisplay="CENTER" mnemonicParsing="false"
+                    onAction="#anyadir_origenes" styleClass="btn" text="Añadir más origenes">
+                <HBox.margin>
+                    <Insets right="10.0"/>
+                </HBox.margin>
+                <tooltip>
+                    <Tooltip text="Elegir más origenes posibles"/>
+                </tooltip>
+            </Button>
+            <Button fx:id="btn_eliminar_origenes_seleccioandos" alignment="TOP_RIGHT" contentDisplay="CENTER"
+                    mnemonicParsing="false" onAction="#borrar_origenes" styleClass="btn"
+                    text="Borrar origenes seleccionados" textAlignment="RIGHT">
+                <HBox.margin>
+                    <Insets left="10.0"/>
+                </HBox.margin>
+                <tooltip>
+                    <Tooltip text="Eliminar los destinos seleccionados"/>
+                </tooltip>
+            </Button>
+        </HBox>
+    </VBox>
+    <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" styleClass="recuadrado"
+          GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2" GridPane.valignment="CENTER"
+          GridPane.vgrow="ALWAYS">
+        <Label alignment="CENTER" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" style="-fx-font-size: 20;"
+               text="HORARIO Y TIPO DE MERCANCÍA" textAlignment="CENTER" wrapText="true">
+            <font>
+                <Font size="20.0"/>
+            </font>
+            <VBox.margin>
+                <Insets bottom="10.0" top="10.0"/>
+            </VBox.margin>
+        </Label>
+        <HBox alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308"
+              VBox.vgrow="ALWAYS">
+            <VBox.margin>
+                <Insets bottom="10.0" top="10.0"/>
+            </VBox.margin>
+            <VBox>
+                <CheckBox fx:id="cbxADR" mnemonicParsing="false" onKeyPressed="#clickEnADRTeclado"
+                          onMouseClicked="#clickEnADRRaton" text="ADR">
+                    <tooltip>
+                        <Tooltip text="Es una carga de tipo ADR"/>
+                    </tooltip>
+                    <VBox.margin>
+                        <Insets bottom="10.0" top="10.0"/>
+                    </VBox.margin>
+                </CheckBox>
+                <CheckBox fx:id="cbxATP" mnemonicParsing="false" onKeyPressed="#clickEnATPTeclado"
+                          onMouseClicked="#clickEnATPRaton" text="ATP">
+                    <tooltip>
+                        <Tooltip text="Es un cargo de tipo ATP"/>
+                    </tooltip>
+                    <VBox.margin>
+                        <Insets bottom="10.0" top="10.0"/>
+                    </VBox.margin>
+                </CheckBox>
+                <CheckBox fx:id="cbxIdaYVuelta" mnemonicParsing="false" text="Ida y vuelta">
+                    <tooltip>
+                        <Tooltip autoHide="true"
+                                 text="Marcar para &quot;ida y vuelta&quot;, desmarcar para solo &quot;ida&quot;">
+                            <font>
+                                <Font size="20.0"/>
+                            </font>
+                        </Tooltip>
+                    </tooltip>
+                    <VBox.margin>
+                        <Insets bottom="10.0" top="10.0"/>
+                    </VBox.margin>
+                </CheckBox>
+            </VBox>
+            <VBox>
+                <CheckBox fx:id="cbxDobleConductor" allowIndeterminate="true" indeterminate="true"
+                          mnemonicParsing="false" text="Doble conductor">
+                    <tooltip>
+                        <Tooltip text="Si necesita o no un doble conductor"/>
+                    </tooltip>
+                    <VBox.margin>
+                        <Insets bottom="10.0" top="10.0"/>
+                    </VBox.margin>
+                </CheckBox>
+                <CheckBox fx:id="cbxVehiculoConRampa" mnemonicParsing="false" text="Vehículo con rampa">
+                    <tooltip>
+                        <Tooltip text="Si necesita una rampa el vehículo"/>
+                    </tooltip>
+                    <VBox.margin>
+                        <Insets bottom="10.0" top="10.0"/>
+                    </VBox.margin>
+                </CheckBox>
+                <CheckBox fx:id="cbxCargaCompleta" mnemonicParsing="false" text="Carga completa">
+                    <tooltip>
+                        <Tooltip text="Marcar para &quot;Carga completa&quot;"/>
+                    </tooltip>
+                    <VBox.margin>
+                        <Insets bottom="10.0" top="10.0"/>
+                    </VBox.margin>
+                </CheckBox>
+            </VBox>
+        </HBox>
+        <HBox alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308"
+              VBox.vgrow="ALWAYS">
+            <VBox.margin>
+                <Insets bottom="10.0" top="10.0"/>
+            </VBox.margin>
+            <VBox alignment="CENTER"/>
+            <VBox>
+                <HBox.margin>
+                    <Insets left="2.0" right="10.0"/>
+                </HBox.margin>
+                <Label alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308"
+                       maxWidth="1.7976931348623157E308" text="Fecha y hora Inicio" textAlignment="CENTER"
+                       wrapText="true"/>
+                <DatePicker fx:id="dp_dia_inicio">
+                    <VBox.margin>
+                        <Insets bottom="10.0" top="10.0"/>
+                    </VBox.margin>
+                </DatePicker>
+                <TextField fx:id="tf_hora_inicio" alignment="CENTER" text="12:00"/>
+
+
+            </VBox>
+            <VBox>
+                <HBox.margin>
+                    <Insets bottom="10.0" left="10.0" right="10.0"/>
+                </HBox.margin>
+                <Label alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308"
+                       maxWidth="1.7976931348623157E308" text="Fecha y hora Fin" textAlignment="CENTER" wrapText="true">
+                    <VBox.margin>
+                        <Insets right="10.0"/>
+                    </VBox.margin>
+                </Label>
+                <DatePicker fx:id="dp_dia_fin">
+                    <VBox.margin>
+                        <Insets bottom="10.0" top="10.0"/>
+                    </VBox.margin>
+                </DatePicker>
+                <TextField fx:id="tf_hora_fin" alignment="CENTER" text="12:00"/>
+            </VBox>
+        </HBox>
+    </VBox>
+    <VBox alignment="CENTER" cache="true" cacheHint="QUALITY" depthTest="ENABLE" maxHeight="1.7976931348623157E308"
+          maxWidth="1.7976931348623157E308" prefHeight="247.0" prefWidth="204.0" styleClass="recuadrado"
+          GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2"
+          GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+        <opaqueInsets>
+            <Insets/>
+        </opaqueInsets>
+        <GridPane.margin>
+            <Insets/>
+        </GridPane.margin>
+        <padding>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+        </padding>
+        <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="88.0" prefWidth="90.0" style="-fx-font-size: 20;"
+               text="FILTRAR" textAlignment="CENTER" wrapText="true" VBox.vgrow="SOMETIMES">
+            <font>
+                <Font size="20.0"/>
+            </font>
+        </Label>
+        <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#filtrarPorOpciones"
+                prefHeight="25.0" prefWidth="112.0" styleClass="btn" text="Aplicar Filtros" VBox.vgrow="ALWAYS">
+            <tooltip>
+                <Tooltip text="Aplicar los filtros seleccionados"/>
+            </tooltip>
+            <VBox.margin>
+                <Insets bottom="10.0" top="10.0"/>
+            </VBox.margin>
+        </Button>
+        <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#mostrarTodoSinFiltrar"
+                prefHeight="25.0" prefWidth="112.0" styleClass="btn" text="Mostrar todos">
+            <tooltip>
+                <Tooltip text="Mostrar todas las cargas sin filtros"/>
+            </tooltip>
+            <VBox.margin>
+                <Insets bottom="10.0" top="10.0"/>
+            </VBox.margin>
+        </Button>
+        <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#limpiarTodaLaPantalla"
+                prefHeight="25.0" prefWidth="110.0" styleClass="btn" text="Limpiar filtros">
+            <tooltip>
+                <Tooltip text="Limpiar los filtros"/>
+            </tooltip>
+            <VBox.margin>
+                <Insets bottom="10.0" top="10.0"/>
+            </VBox.margin>
+        </Button>
+    </VBox>
+    <VBox fx:id="cuadranteNaturalezaMercancia" disable="true" maxHeight="1.7976931348623157E308"
+          maxWidth="1.7976931348623157E308" styleClass="recuadrado" GridPane.columnIndex="2"
+          GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2" GridPane.valignment="CENTER"
+          GridPane.vgrow="ALWAYS">
+        <padding>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+        </padding>
+        <Label alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308"
+               maxWidth="1.7976931348623157E308" style="-fx-font-size: 20;" text="NATURALEZA DE LA MERCANCÍA"
+               VBox.vgrow="NEVER">
+            <font>
+                <Font size="20.0"/>
+            </font>
+            <VBox.margin>
+                <Insets/>
+            </VBox.margin>
+        </Label>
+        <ComboBox fx:id="cmbbx_naturaleza_tv_origenes" maxWidth="1.7976931348623157E308" VBox.vgrow="ALWAYS"/>
+    </VBox>
+    <VBox alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308"
+          GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.vgrow="ALWAYS">
+        <Label alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" style="-fx-font-size: 20;"
+               text="BUSCADOR DE CARGAS" textAlignment="CENTER" wrapText="true" VBox.vgrow="ALWAYS">
+            <font>
+                <Font name="System Bold" size="29.0"/>
+            </font>
+        </Label>
+    </VBox>
+</GridPane>

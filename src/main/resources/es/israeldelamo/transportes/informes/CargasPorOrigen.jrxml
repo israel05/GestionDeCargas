@@ -1,0 +1,291 @@
+<!-- Created with Jaspersoft Studio version 7.0.1.final using JasperReports Library version 7.0.1-573496633c2b4074e32f433154b543003f7d2498  -->
+<jasperReport name="CargasPorOrigen" language="java" pageWidth="842" pageHeight="595" orientation="Landscape"
+              columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20"
+              uuid="c368610e-5bee-4e75-8f1e-ecda64380534">
+    <property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+    <property name="com.jaspersoft.studio.data.defaultdataadapter" value="ConrtraICJ"/>
+    <style name="Title" forecolor="#FFFFFF" fontName="Times New Roman" fontSize="50.0" bold="false"/>
+    <style name="SubTitle" forecolor="#666666" fontName="Times New Roman" fontSize="18.0" bold="false"/>
+    <style name="Column header" forecolor="#666666" fontName="Times New Roman" fontSize="14.0" bold="true"/>
+    <style name="Detail" mode="Transparent" fontName="Times New Roman"/>
+    <style name="Row" mode="Transparent" fontName="Times New Roman" pdfFontName="Times-Roman">
+        <conditionalStyle mode="Opaque" backcolor="#F0EFEF">
+            <conditionExpression><![CDATA[$V{REPORT_COUNT}%2 == 0]]></conditionExpression>
+        </conditionalStyle>
+    </style>
+    <dataset name="PieChartDataset" uuid="21b70311-b650-4678-a39c-887917366bf0"/>
+    <parameter name="IMAGE_PATH" class="java.lang.String"/>
+    <query language="SQL"><![CDATA[SELECT cod_carga,
+	pais_origen,
+	peso_unitario,
+	provincia_origen,
+	localidad_origen,
+	pais_destino,
+	cp_origen,
+	cp_destino,
+	localidad_destino,
+	provincia_destino,
+	fecha_creaccion
+FROM transportes.`CargasPorOrigenMAL`
+ORDER BY pais_origen]]></query>
+    <field name="cod_carga" class="java.lang.Integer">
+        <property name="com.jaspersoft.studio.field.name" value="cod_carga"/>
+        <property name="com.jaspersoft.studio.field.label" value="cod_carga"/>
+        <property name="com.jaspersoft.studio.field.tree.path" value="CargasPorOrigenMAL"/>
+    </field>
+    <field name="pais_origen" class="java.lang.String">
+        <property name="com.jaspersoft.studio.field.name" value="pais_origen"/>
+        <property name="com.jaspersoft.studio.field.label" value="pais_origen"/>
+        <property name="com.jaspersoft.studio.field.tree.path" value="CargasPorOrigenMAL"/>
+    </field>
+    <field name="peso_unitario" class="java.math.BigDecimal">
+        <property name="com.jaspersoft.studio.field.name" value="peso_unitario"/>
+        <property name="com.jaspersoft.studio.field.label" value="peso_unitario"/>
+        <property name="com.jaspersoft.studio.field.tree.path" value="CargasPorOrigenMAL"/>
+    </field>
+    <field name="provincia_origen" class="java.lang.String">
+        <property name="com.jaspersoft.studio.field.name" value="provincia_origen"/>
+        <property name="com.jaspersoft.studio.field.label" value="provincia_origen"/>
+        <property name="com.jaspersoft.studio.field.tree.path" value="CargasPorOrigenMAL"/>
+    </field>
+    <field name="localidad_origen" class="java.lang.String">
+        <property name="com.jaspersoft.studio.field.name" value="localidad_origen"/>
+        <property name="com.jaspersoft.studio.field.label" value="localidad_origen"/>
+        <property name="com.jaspersoft.studio.field.tree.path" value="CargasPorOrigenMAL"/>
+    </field>
+    <field name="pais_destino" class="java.lang.String">
+        <property name="com.jaspersoft.studio.field.name" value="pais_destino"/>
+        <property name="com.jaspersoft.studio.field.label" value="pais_destino"/>
+        <property name="com.jaspersoft.studio.field.tree.path" value="CargasPorOrigenMAL"/>
+    </field>
+    <field name="cp_origen" class="java.lang.Integer">
+        <property name="com.jaspersoft.studio.field.name" value="cp_origen"/>
+        <property name="com.jaspersoft.studio.field.label" value="cp_origen"/>
+        <property name="com.jaspersoft.studio.field.tree.path" value="CargasPorOrigenMAL"/>
+    </field>
+    <field name="cp_destino" class="java.lang.Integer">
+        <property name="com.jaspersoft.studio.field.name" value="cp_destino"/>
+        <property name="com.jaspersoft.studio.field.label" value="cp_destino"/>
+        <property name="com.jaspersoft.studio.field.tree.path" value="CargasPorOrigenMAL"/>
+    </field>
+    <field name="localidad_destino" class="java.lang.String">
+        <property name="com.jaspersoft.studio.field.name" value="localidad_destino"/>
+        <property name="com.jaspersoft.studio.field.label" value="localidad_destino"/>
+        <property name="com.jaspersoft.studio.field.tree.path" value="CargasPorOrigenMAL"/>
+    </field>
+    <field name="provincia_destino" class="java.lang.String">
+        <property name="com.jaspersoft.studio.field.name" value="provincia_destino"/>
+        <property name="com.jaspersoft.studio.field.label" value="provincia_destino"/>
+        <property name="com.jaspersoft.studio.field.tree.path" value="CargasPorOrigenMAL"/>
+    </field>
+    <field name="fecha_creaccion" class="java.sql.Timestamp">
+        <property name="com.jaspersoft.studio.field.name" value="fecha_creaccion"/>
+        <property name="com.jaspersoft.studio.field.label" value="fecha_creaccion"/>
+        <property name="com.jaspersoft.studio.field.tree.path" value="CargasPorOrigenMAL"/>
+    </field>
+    <group name="Group1">
+        <expression><![CDATA[$F{pais_origen}]]></expression>
+        <groupHeader>
+            <band height="31">
+                <element kind="frame" uuid="f4dcb66c-b415-4c03-b80f-d37cc7d7e4f1" mode="Opaque" x="4" y="7" width="798"
+                         height="24" forecolor="#B89F7D" backcolor="#70A9C6">
+                    <element kind="textField" uuid="28a206df-70e0-4131-ac68-390d711bd9c4" x="3" y="1" width="263"
+                             height="23" forecolor="#FFFFFF" fontName="Arial" textAdjust="StretchHeight"
+                             blankWhenNull="true" printRepeatedValues="false" bold="false" style="SubTitle">
+                        <expression><![CDATA[$F{pais_origen}]]></expression>
+                    </element>
+                </element>
+            </band>
+        </groupHeader>
+        <groupFooter>
+            <band height="6"/>
+        </groupFooter>
+    </group>
+    <background height="520" splitType="Stretch">
+        <element kind="image" uuid="2dd7034b-c40a-4d52-87b0-1b978eeb3b65" x="100" y="10" width="630" height="510">
+            <expression><![CDATA[$P{IMAGE_PATH}+"fondo.png"]]></expression>
+        </element>
+    </background>
+    <title height="94" splitType="Stretch">
+        <element kind="frame" uuid="83f5e806-cc04-4161-87a9-07633f604bc1" mode="Opaque" x="-20" y="0" width="822"
+                 height="65" forecolor="#006699" backcolor="#006699">
+            <element kind="staticText" uuid="f5cd9ee0-5caa-4e48-8946-c7e84d82a845" x="231" y="0" width="578" height="65"
+                     fontSize="54.0" bold="false" hTextAlign="Right" style="Title">
+                <text><![CDATA[Cargas por país de origen]]></text>
+            </element>
+        </element>
+        <element kind="image" uuid="d3e99303-be2c-421e-8b66-3cf67793bbbc" x="22" y="0" width="98" height="94">
+            <expression><![CDATA[$P{IMAGE_PATH}+"logoICJ.png"]]></expression>
+        </element>
+    </title>
+    <pageHeader splitType="Stretch"/>
+    <columnHeader height="14" splitType="Stretch">
+        <element kind="frame" uuid="2a3d298d-90eb-4db1-919a-c9b2ed28c222" x="240" y="0" width="562" height="14">
+            <element kind="staticText" uuid="a7b805a3-f87d-4e4b-98be-d5d91e72244e" positionType="Float" x="-229" y="0"
+                     width="63" height="14" forecolor="#000000" fontName="Arial" fontSize="12.0" bold="true"
+                     style="Column header">
+                <text><![CDATA[Cód. carga]]></text>
+                <property name="com.jaspersoft.studio.spreadsheet.connectionID"
+                          value="4eccc780-507e-4ac9-a92c-e3eb01d3ef17"/>
+            </element>
+            <element kind="staticText" uuid="a3fcef44-90a0-4fa4-9b96-8546478a7f11" positionType="Float" x="-152" y="0"
+                     width="63" height="14" forecolor="#000000" fontName="Arial" fontSize="12.0" bold="true"
+                     style="Column header">
+                <text><![CDATA[Peso (kg)]]></text>
+                <property name="com.jaspersoft.studio.spreadsheet.connectionID"
+                          value="e136695e-6c4c-4d0e-afd9-5744843d9104"/>
+            </element>
+            <element kind="staticText" uuid="d4f908eb-af04-4711-a228-866e5a1373c6" positionType="Float" x="73" y="0"
+                     width="63" height="14" forecolor="#000000" fontName="Arial" fontSize="12.0" bold="true"
+                     style="Column header">
+                <text><![CDATA[Provincia]]></text>
+                <property name="com.jaspersoft.studio.spreadsheet.connectionID"
+                          value="d51f288f-204c-4d65-bc50-bda36c630560"/>
+            </element>
+            <element kind="staticText" uuid="c67e35a4-d8c0-4fd5-aa06-cbb3e4df4b8a" positionType="Float" x="136" y="0"
+                     width="63" height="14" forecolor="#000000" fontName="Arial" fontSize="12.0" bold="true"
+                     style="Column header">
+                <text><![CDATA[Localidad]]></text>
+                <property name="com.jaspersoft.studio.spreadsheet.connectionID"
+                          value="4b563e68-5d1b-471b-9fa4-a23d36a59cd4"/>
+            </element>
+            <element kind="staticText" uuid="33cc4387-dcac-4d08-8fd8-a29918910afd" positionType="Float" x="318" y="0"
+                     width="63" height="14" forecolor="#000000" fontName="Arial" fontSize="12.0" bold="true"
+                     style="Column header">
+                <text><![CDATA[País destino]]></text>
+                <property name="com.jaspersoft.studio.spreadsheet.connectionID"
+                          value="55e88ceb-5c89-4631-85a5-9e49b4417617"/>
+            </element>
+            <element kind="staticText" uuid="c4bc2a56-4f73-42a9-a662-9a869152f2c7" positionType="Float" x="200" y="0"
+                     width="63" height="14" forecolor="#000000" fontName="Arial" fontSize="12.0" bold="true"
+                     style="Column header">
+                <text><![CDATA[C.P.]]></text>
+                <property name="com.jaspersoft.studio.spreadsheet.connectionID"
+                          value="7a522e54-1035-4753-899c-f2781771921c"/>
+            </element>
+            <element kind="staticText" uuid="c1d449f3-d394-45ce-a9fe-d160b4bd0d62" positionType="Float" x="513" y="0"
+                     width="44" height="14" forecolor="#000000" fontName="Arial" fontSize="12.0" bold="true"
+                     style="Column header">
+                <text><![CDATA[CP]]></text>
+                <property name="com.jaspersoft.studio.spreadsheet.connectionID"
+                          value="006c63fb-6a10-4d1b-930e-dbe00420b01d"/>
+            </element>
+            <element kind="staticText" uuid="cb089ac5-5ea9-4e39-a916-7781807d4f4d" positionType="Float" x="447" y="0"
+                     width="63" height="14" forecolor="#000000" fontName="Arial" fontSize="12.0" bold="true"
+                     style="Column header">
+                <text><![CDATA[Localidad]]></text>
+                <property name="com.jaspersoft.studio.spreadsheet.connectionID"
+                          value="d3ee2797-2a74-48f9-b8a8-2885f1d63aa1"/>
+            </element>
+            <element kind="staticText" uuid="afefa03b-6d2d-41f0-9825-d6bc6c5ca23a" positionType="Float" x="383" y="0"
+                     width="63" height="14" forecolor="#000000" fontName="Arial" fontSize="12.0" bold="true"
+                     style="Column header">
+                <text><![CDATA[Provincia]]></text>
+                <property name="com.jaspersoft.studio.spreadsheet.connectionID"
+                          value="15f1ed4f-a6aa-4c9f-982f-436f6e315de3"/>
+            </element>
+        </element>
+        <element kind="staticText" uuid="9179e94f-1870-4810-a17a-e333a2faf193" x="154" y="0" width="146" height="14"
+                 bold="true">
+            <text><![CDATA[Fecha de creacción carga]]></text>
+            <property name="com.jaspersoft.studio.spreadsheet.connectionID"
+                      value="fb790aa5-e4f2-429d-ba56-28fce49cdbcf"/>
+        </element>
+    </columnHeader>
+    <detail>
+        <band height="15" splitType="Stretch">
+            <element kind="frame" uuid="822bafe9-34ee-4b4f-aa76-3eae029c4911" x="240" y="0" width="562" height="14">
+                <element kind="textField" uuid="0d99382d-7953-40d5-afca-ffa4081b3040" positionType="Float" x="-229"
+                         y="0" width="63" height="14" fontName="Arial" fontSize="12.0" textAdjust="StretchHeight"
+                         blankWhenNull="true" bold="false" style="Detail">
+                    <expression><![CDATA[$F{cod_carga}]]></expression>
+                    <property name="com.jaspersoft.studio.spreadsheet.connectionID"
+                              value="4eccc780-507e-4ac9-a92c-e3eb01d3ef17"/>
+                </element>
+                <element kind="textField" uuid="18176fce-f454-4dc3-8f1c-375dc66ad00d" positionType="Float" x="-152"
+                         y="0" width="63" height="14" fontName="Arial" fontSize="12.0" textAdjust="StretchHeight"
+                         blankWhenNull="true" bold="false" style="Detail">
+                    <expression><![CDATA[$F{peso_unitario}]]></expression>
+                    <property name="com.jaspersoft.studio.spreadsheet.connectionID"
+                              value="e136695e-6c4c-4d0e-afd9-5744843d9104"/>
+                </element>
+                <element kind="textField" uuid="7708ba1b-38cf-4d21-85a2-4556bc38ea3d" positionType="Float" x="73" y="0"
+                         width="63" height="14" fontName="Arial" fontSize="12.0" textAdjust="StretchHeight"
+                         blankWhenNull="true" bold="false" style="Detail">
+                    <expression><![CDATA[$F{provincia_origen}]]></expression>
+                    <property name="com.jaspersoft.studio.spreadsheet.connectionID"
+                              value="d51f288f-204c-4d65-bc50-bda36c630560"/>
+                </element>
+                <element kind="textField" uuid="91b4e2fa-e0db-439b-b797-2c4ee4a895ee" positionType="Float" x="136" y="0"
+                         width="63" height="14" fontName="Arial" fontSize="12.0" textAdjust="StretchHeight"
+                         blankWhenNull="true" bold="false" style="Detail">
+                    <expression><![CDATA[$F{localidad_origen}]]></expression>
+                    <property name="com.jaspersoft.studio.spreadsheet.connectionID"
+                              value="4b563e68-5d1b-471b-9fa4-a23d36a59cd4"/>
+                </element>
+                <element kind="textField" uuid="c3d1f29b-7150-4436-aa33-334bfb18abc8" positionType="Float" x="318" y="0"
+                         width="63" height="14" fontName="Arial" fontSize="12.0" textAdjust="StretchHeight"
+                         blankWhenNull="true" bold="false" style="Detail">
+                    <expression><![CDATA[$F{pais_destino}]]></expression>
+                    <property name="com.jaspersoft.studio.spreadsheet.connectionID"
+                              value="55e88ceb-5c89-4631-85a5-9e49b4417617"/>
+                </element>
+                <element kind="textField" uuid="6eb33229-f582-444a-93b2-b7fd6a60e5b9" positionType="Float" x="200" y="0"
+                         width="63" height="14" fontName="Arial" fontSize="12.0" textAdjust="StretchHeight"
+                         blankWhenNull="true" bold="false" style="Detail">
+                    <expression><![CDATA[$F{cp_origen}]]></expression>
+                    <property name="com.jaspersoft.studio.spreadsheet.connectionID"
+                              value="7a522e54-1035-4753-899c-f2781771921c"/>
+                </element>
+                <element kind="textField" uuid="16e331b6-7b11-467d-b863-c190ae7775b8" positionType="Float" x="513" y="0"
+                         width="44" height="14" fontName="Arial" fontSize="12.0" textAdjust="StretchHeight"
+                         blankWhenNull="true" bold="false" style="Detail">
+                    <expression><![CDATA[$F{cp_destino}]]></expression>
+                    <property name="com.jaspersoft.studio.spreadsheet.connectionID"
+                              value="006c63fb-6a10-4d1b-930e-dbe00420b01d"/>
+                </element>
+                <element kind="textField" uuid="1e74acab-1343-4e0c-ae18-bc9550acfa3f" positionType="Float" x="447" y="0"
+                         width="63" height="14" fontName="Arial" fontSize="12.0" textAdjust="StretchHeight"
+                         blankWhenNull="true" bold="false" style="Detail">
+                    <expression><![CDATA[$F{localidad_destino}]]></expression>
+                    <property name="com.jaspersoft.studio.spreadsheet.connectionID"
+                              value="d3ee2797-2a74-48f9-b8a8-2885f1d63aa1"/>
+                </element>
+                <element kind="textField" uuid="a44a6981-638b-4407-9430-6c0a27c950f8" positionType="Float" x="383" y="0"
+                         width="63" height="14" fontName="Arial" fontSize="12.0" textAdjust="StretchHeight"
+                         blankWhenNull="true" bold="false" style="Detail">
+                    <expression><![CDATA[$F{provincia_destino}]]></expression>
+                    <property name="com.jaspersoft.studio.spreadsheet.connectionID"
+                              value="15f1ed4f-a6aa-4c9f-982f-436f6e315de3"/>
+                </element>
+            </element>
+            <element kind="textField" uuid="bda511dd-f092-475d-b08f-eb36e33e0d43" x="154" y="0" width="116" height="14">
+                <expression><![CDATA[$F{fecha_creaccion}]]></expression>
+                <property name="com.jaspersoft.studio.spreadsheet.connectionID"
+                          value="fb790aa5-e4f2-429d-ba56-28fce49cdbcf"/>
+            </element>
+        </band>
+    </detail>
+    <columnFooter splitType="Stretch"/>
+    <pageFooter height="16" splitType="Stretch">
+        <element kind="frame" uuid="6f4fe8ef-88ca-4d5d-b46a-054826bb7893" mode="Opaque" x="2" y="0" width="800"
+                 height="16" forecolor="#D0B48E" backcolor="#006699">
+            <element kind="textField" uuid="970781d6-87a0-4d3d-a07b-5ae173a1317a" x="753" y="0" width="40" height="16"
+                     forecolor="#FFFFFF" fontName="Arial" fontSize="12.0" evaluationTime="Report" bold="false"
+                     vTextAlign="Middle" style="Column header">
+                <expression><![CDATA[" " + $V{PAGE_NUMBER}]]></expression>
+            </element>
+            <element kind="textField" uuid="42664b34-c87b-42f8-911b-bd9c2ab9111e" x="673" y="0" width="80" height="16"
+                     forecolor="#FFFFFF" fontName="Arial" fontSize="12.0" bold="false" hTextAlign="Right"
+                     vTextAlign="Middle" style="Column header">
+                <expression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></expression>
+            </element>
+            <element kind="textField" uuid="06b3d6e8-b4a5-4251-b1fb-f640689933e8" x="2" y="0" width="197" height="16"
+                     forecolor="#FFFFFF" fontName="Arial" fontSize="12.0" pattern="EEEEE dd MMMMM yyyy" bold="false"
+                     vTextAlign="Middle" style="Column header">
+                <expression><![CDATA[new java.util.Date()]]></expression>
+            </element>
+        </element>
+    </pageFooter>
+    <summary splitType="Stretch"/>
+</jasperReport>

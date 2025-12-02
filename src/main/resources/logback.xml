@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <!-- Configuración del appender para la consola -->
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>AVISO CONSOLA --> %d{yyyy-MM-dd HH:mm:ss} - %msg%n</pattern>
+        </encoder>
+    </appender>
+    <!-- Configuración del appender de tipo RollingFileAppender -->
+    <appender name="FILE_ROLLER" class="ch.qos.logback.core.FileAppender">
+        <file>logs/registroDeApp1MB.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeBasedRollingPolicy">
+            <maxFileSize>1MB</maxFileSize>
+            <fileNamePattern>registroDeApp1MB.%i.log</fileNamePattern>
+        </rollingPolicy>
+        <encoder>
+            <pattern>%d [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+    <!-- Configuración del appender de tipo RollingFileAppender para errores -->
+    <appender name="FILE_ROLLER_ERROR" class="ch.qos.logback.core.FileAppender">
+        <file>logs/registroDeAppERRORES1MB.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeBasedRollingPolicy">
+            <maxFileSize>1MB</maxFileSize>
+            <fileNamePattern>registroDeApp1MB.%i.log</fileNamePattern>
+        </rollingPolicy>
+        <encoder>
+            <pattern>%d [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+    <!-- Configuración del appender para el archivo -->
+    <appender name="FILE_GIGANTE" class="ch.qos.logback.core.FileAppender">
+        <file>logs/registroDeApp.log</file>  <!-- Ruta del archivo de log -->
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss} - %msg%n</pattern>
+        </encoder>
+    </appender>
+    <!-- Configuración del logger -->
+    <logger name="es.israeldelamo.transportes" level="INFO">
+        <appender-ref ref="CONSOLE"/>
+        <appender-ref ref="FILE_GIGANTE"/>
+        <appender-ref ref="FILE_ROLLER"/>
+    </logger>
+    <!-- Configuración del root logger -->
+    <root level="DEBUG">
+        <appender-ref ref="CONSOLE"/>
+        <appender-ref ref="FILE_GIGANTE"/>
+        <appender-ref ref="FILE_ROLLER"/>
+    </root>
+    <!-- Configuración del root logger -->
+    <root level="ERROR">
+        <appender-ref ref="FILE_ROLLER_ERROR"/>
+    </root>
+</configuration>

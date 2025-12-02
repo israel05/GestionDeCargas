@@ -1,0 +1,483 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+<GridPane xmlns:fx="http://javafx.com/fxml/1" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308"
+          minHeight="-Infinity" minWidth="-Infinity" stylesheets="@../css/estilos.css"
+          xmlns="http://javafx.com/javafx/21.0.4"
+          fx:controller="es.israeldelamo.transportes.controladores.CrearEnvioController">
+    <columnConstraints>
+        <ColumnConstraints hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" percentWidth="100.0"/>
+    </columnConstraints>
+    <rowConstraints>
+        <RowConstraints percentHeight="5.0" prefHeight="27.199998474121095" vgrow="SOMETIMES"/>
+        <RowConstraints maxHeight="1.7976931348623157E308" percentHeight="25.0" vgrow="SOMETIMES"/>
+        <RowConstraints maxHeight="1.7976931348623157E308" percentHeight="40.0" vgrow="SOMETIMES"/>
+        <RowConstraints maxHeight="1.7976931348623157E308" minHeight="10.0" percentHeight="35.0"
+                        prefHeight="208.00004882812493" vgrow="SOMETIMES"/>
+    </rowConstraints>
+    <MenuBar maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" GridPane.columnSpan="2147483647"
+             GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+        <Menu mnemonicParsing="false" text="Archivo">
+            <MenuItem mnemonicParsing="false" onAction="#salir_app" text="Volver al menú anterior"/>
+            <MenuItem mnemonicParsing="false" onAction="#mi_salir_del_todo" text="Salir de la aplicacion"/>
+        </Menu>
+        <Menu mnemonicParsing="false" text="Editar">
+            <MenuItem mnemonicParsing="false" text="Delete"/>
+        </Menu>
+        <Menu mnemonicParsing="false" text="Ayuda">
+            <MenuItem mnemonicParsing="false" text="Tutorial"/>
+        </Menu>
+    </MenuBar>
+    <HBox alignment="TOP_CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308"
+          minHeight="-Infinity" minWidth="-Infinity" styleClass="recuadrado" stylesheets="@../css/estilos.css"
+          GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.valignment="CENTER"
+          GridPane.vgrow="ALWAYS">
+        <GridPane maxWidth="1.7976931348623157E308" prefHeight="145.0" prefWidth="1150.0">
+            <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                <ColumnConstraints hgrow="SOMETIMES"/>
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="80.0" minWidth="0.0" prefWidth="9.0"/>
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="1.7976931348623157E308"/>
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="1.7976931348623157E308"/>
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="1.7976931348623157E308"/>
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="1.7976931348623157E308"/>
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="1.7976931348623157E308"/>
+            </columnConstraints>
+            <rowConstraints>
+                <RowConstraints minHeight="-Infinity" vgrow="SOMETIMES"/>
+                <RowConstraints minHeight="-Infinity" vgrow="SOMETIMES"/>
+                <RowConstraints maxHeight="39.39999694824219" minHeight="-Infinity" prefHeight="28.599993896484378"
+                                vgrow="SOMETIMES"/>
+                <RowConstraints maxHeight="74.60000610351564" minHeight="-Infinity" prefHeight="29.199993896484372"
+                                vgrow="SOMETIMES"/>
+                <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="SOMETIMES"/>
+            </rowConstraints>
+            <Label alignment="CENTER_RIGHT" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308"
+                   text="Dni" GridPane.halignment="RIGHT" GridPane.hgrow="NEVER" GridPane.valignment="CENTER"
+                   GridPane.vgrow="SOMETIMES">
+                <padding>
+                    <Insets right="10.0"/>
+                </padding>
+            </Label>
+            <TextField fx:id="tf_dni_conductor" disable="true" GridPane.columnIndex="1">
+                <opaqueInsets>
+                    <Insets left="10.0"/>
+                </opaqueInsets>
+                <tooltip>
+                    <Tooltip text="El dni del conductor"/>
+                </tooltip>
+            </TextField>
+            <Label alignment="CENTER_RIGHT" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308"
+                   text="Nombre" GridPane.halignment="RIGHT" GridPane.hgrow="NEVER" GridPane.rowIndex="1"
+                   GridPane.valignment="CENTER" GridPane.vgrow="SOMETIMES">
+                <padding>
+                    <Insets right="10.0"/>
+                </padding>
+            </Label>
+            <TextField fx:id="tf_nombre_conductor" disable="true" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                <opaqueInsets>
+                    <Insets left="10.0"/>
+                </opaqueInsets>
+                <tooltip>
+                    <Tooltip text="Nombre del conductor"/>
+                </tooltip>
+            </TextField>
+            <Label alignment="CENTER_RIGHT" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308"
+                   text="Apellido" GridPane.halignment="RIGHT" GridPane.hgrow="NEVER" GridPane.rowIndex="2"
+                   GridPane.valignment="CENTER" GridPane.vgrow="SOMETIMES">
+                <padding>
+                    <Insets right="10.0"/>
+                </padding>
+            </Label>
+            <TextField fx:id="tf_apellido_conductor" disable="true" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                <opaqueInsets>
+                    <Insets left="10.0"/>
+                </opaqueInsets>
+                <tooltip>
+                    <Tooltip text="Apellido del conductor"/>
+                </tooltip>
+            </TextField>
+            <Label alignment="CENTER_RIGHT" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308"
+                   text="País" GridPane.columnIndex="3" GridPane.halignment="RIGHT" GridPane.hgrow="NEVER"
+                   GridPane.valignment="CENTER" GridPane.vgrow="SOMETIMES">
+                <padding>
+                    <Insets right="10.0"/>
+                </padding>
+            </Label>
+            <TextField fx:id="tf_pais_conductor" disable="true" GridPane.columnIndex="4">
+                <opaqueInsets>
+                    <Insets left="10.0"/>
+                </opaqueInsets>
+                <tooltip>
+                    <Tooltip text="Páis de residencia del conductor"/>
+                </tooltip>
+            </TextField>
+            <Label alignment="CENTER_RIGHT" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308"
+                   text="Provincia" GridPane.columnIndex="3" GridPane.halignment="RIGHT" GridPane.hgrow="NEVER"
+                   GridPane.rowIndex="1" GridPane.valignment="CENTER" GridPane.vgrow="SOMETIMES">
+                <padding>
+                    <Insets right="10.0"/>
+                </padding>
+            </Label>
+            <TextField fx:id="tf_provincia_conductor" disable="true" GridPane.columnIndex="4" GridPane.rowIndex="1">
+                <opaqueInsets>
+                    <Insets left="10.0"/>
+                </opaqueInsets>
+                <tooltip>
+                    <Tooltip text="Provincia de residencia del conductor"/>
+                </tooltip>
+            </TextField>
+            <Label alignment="CENTER_RIGHT" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308"
+                   text="Localidad" GridPane.columnIndex="3" GridPane.halignment="RIGHT" GridPane.hgrow="NEVER"
+                   GridPane.rowIndex="2" GridPane.valignment="CENTER" GridPane.vgrow="SOMETIMES">
+                <padding>
+                    <Insets right="10.0"/>
+                </padding>
+            </Label>
+            <TextField fx:id="tf_localidad_conductor" disable="true" GridPane.columnIndex="4" GridPane.rowIndex="2">
+                <opaqueInsets>
+                    <Insets left="10.0"/>
+                </opaqueInsets>
+                <tooltip>
+                    <Tooltip text="Localidad de residencia del conductor"/>
+                </tooltip>
+            </TextField>
+            <Label alignment="CENTER_RIGHT" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308"
+                   text="CP" GridPane.columnIndex="3" GridPane.halignment="RIGHT" GridPane.hgrow="NEVER"
+                   GridPane.rowIndex="3" GridPane.valignment="CENTER" GridPane.vgrow="SOMETIMES">
+                <padding>
+                    <Insets right="10.0"/>
+                </padding>
+            </Label>
+            <TextField fx:id="tf_cp_conductor" disable="true" GridPane.columnIndex="4" GridPane.rowIndex="3">
+                <opaqueInsets>
+                    <Insets left="10.0"/>
+                </opaqueInsets>
+                <tooltip>
+                    <Tooltip text="CP de residencia del conductor"/>
+                </tooltip>
+            </TextField>
+            <Label alignment="CENTER_RIGHT" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308"
+                   text="Contacto de recogida" GridPane.columnIndex="5" GridPane.halignment="RIGHT"
+                   GridPane.hgrow="NEVER" GridPane.valignment="CENTER" GridPane.vgrow="SOMETIMES">
+                <padding>
+                    <Insets right="10.0"/>
+                </padding>
+            </Label>
+            <TextField fx:id="tf_contacto_conductor" disable="true" GridPane.columnIndex="6">
+                <opaqueInsets>
+                    <Insets left="10.0"/>
+                </opaqueInsets>
+                <tooltip>
+                    <Tooltip text="Contacto del conductor"/>
+                </tooltip>
+            </TextField>
+            <Label alignment="CENTER_RIGHT" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308"
+                   text="Correo electrónico" GridPane.columnIndex="5" GridPane.halignment="RIGHT" GridPane.hgrow="NEVER"
+                   GridPane.rowIndex="1" GridPane.valignment="CENTER" GridPane.vgrow="SOMETIMES">
+                <padding>
+                    <Insets right="10.0"/>
+                </padding>
+            </Label>
+            <TextField fx:id="tf_correo_conductor" disable="true" GridPane.columnIndex="6" GridPane.rowIndex="1">
+                <opaqueInsets>
+                    <Insets left="10.0"/>
+                </opaqueInsets>
+                <tooltip>
+                    <Tooltip text="Correo electrónico del conductor"/>
+                </tooltip>
+            </TextField>
+            <Label alignment="CENTER_RIGHT" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308"
+                   text="Permiso internacional" GridPane.columnIndex="5" GridPane.halignment="RIGHT"
+                   GridPane.hgrow="NEVER" GridPane.rowIndex="2" GridPane.valignment="CENTER" GridPane.vgrow="SOMETIMES">
+                <padding>
+                    <Insets right="10.0"/>
+                </padding>
+            </Label>
+            <CheckBox fx:id="cb_internacional_conductor" disable="true" mnemonicParsing="false" GridPane.columnIndex="6"
+                      GridPane.rowIndex="2">
+                <tooltip>
+                    <Tooltip text="Permiso para internacional"/>
+                </tooltip>
+            </CheckBox>
+            <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" maxHeight="1.7976931348623157E308"
+                   maxWidth="1.7976931348623157E308" text="Tipo de carnet" textAlignment="RIGHT"
+                   GridPane.columnIndex="5" GridPane.halignment="RIGHT" GridPane.hgrow="ALWAYS" GridPane.rowIndex="3"
+                   GridPane.valignment="CENTER" GridPane.vgrow="SOMETIMES">
+                <padding>
+                    <Insets right="10.0"/>
+                </padding>
+            </Label>
+            <TextField fx:id="tf_tipo_carnet" disable="true" GridPane.columnIndex="6" GridPane.hgrow="ALWAYS"
+                       GridPane.rowIndex="3">
+                <opaqueInsets>
+                    <Insets left="10.0"/>
+                </opaqueInsets>
+                <tooltip>
+                    <Tooltip text="Tipo de carnet que tiene (C1, B1)"/>
+                </tooltip>
+            </TextField>
+            <Label alignment="CENTER_RIGHT" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308"
+                   text="Teléfono" GridPane.columnIndex="5" GridPane.halignment="RIGHT" GridPane.hgrow="NEVER"
+                   GridPane.rowIndex="4" GridPane.valignment="CENTER" GridPane.vgrow="SOMETIMES">
+                <padding>
+                    <Insets right="10.0"/>
+                </padding>
+            </Label>
+            <TextField fx:id="tf_telefono_conductor" disable="true" GridPane.columnIndex="6" GridPane.rowIndex="4">
+                <opaqueInsets>
+                    <Insets left="10.0"/>
+                </opaqueInsets>
+                <tooltip>
+                    <Tooltip text="Teléfono del conductor"/>
+                </tooltip>
+            </TextField>
+            <ImageView fx:id="img_foto_conductor" fitHeight="138.0" fitWidth="139.0" pickOnBounds="true"
+                       preserveRatio="true" styleClass="recuadrado" GridPane.columnIndex="7"
+                       GridPane.rowSpan="2147483647"/>
+        </GridPane>
+    </HBox>
+    <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" GridPane.halignment="CENTER"
+          GridPane.hgrow="ALWAYS" GridPane.rowIndex="2" GridPane.valignment="CENTER" GridPane.vgrow="NEVER">
+        <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" styleClass="h2"
+               text="↓ Elije tu vehículo aquí ↓" textAlignment="CENTER">
+            <font>
+                <Font name="System Bold" size="26.0"/>
+            </font>
+        </Label>
+        <ComboBox fx:id="cbx_elegir_vehiculo" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308">
+            <tooltip>
+                <Tooltip text="Vehículos asociados al conductor"/>
+            </tooltip>
+        </ComboBox>
+        <GridPane minWidth="-Infinity" prefHeight="270.0" prefWidth="1024.0" styleClass="recuadrado"
+                  stylesheets="@../css/estilos.css">
+            <columnConstraints>
+                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="187.0" minWidth="84.0000244140625"
+                                   prefWidth="178.0"/>
+                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="147.5999755859375"
+                                   minWidth="83.7999755859375" prefWidth="98.0"/>
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="242.60000000000002" minWidth="98.60002441406249"
+                                   prefWidth="195.0"/>
+                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="290.99993286132815"
+                                   minWidth="32.39998779296877" prefWidth="65.0"/>
+                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="592.8000366210938"
+                                   minWidth="388.8000671386719" prefWidth="474.0"/>
+            </columnConstraints>
+            <rowConstraints>
+                <RowConstraints maxHeight="37.99999809265137" minHeight="-Infinity" prefHeight="37.60000419616699"
+                                vgrow="SOMETIMES"/>
+                <RowConstraints maxHeight="62.000024414062494" minHeight="-Infinity" prefHeight="26.799995803833"
+                                vgrow="SOMETIMES"/>
+                <RowConstraints maxHeight="76.59998779296875" minHeight="-Infinity" prefHeight="31.400000000000006"
+                                vgrow="SOMETIMES"/>
+                <RowConstraints maxHeight="64.99998931884764" minHeight="-Infinity" prefHeight="31.600012207031256"
+                                vgrow="SOMETIMES"/>
+                <RowConstraints maxHeight="64.99998931884764" minHeight="10.0" prefHeight="31.600012207031256"
+                                vgrow="SOMETIMES"/>
+                <RowConstraints maxHeight="59.59996337890625" minHeight="-Infinity" prefHeight="30.79998168945312"
+                                vgrow="SOMETIMES"/>
+                <RowConstraints maxHeight="43.999963378906244" minHeight="-Infinity" prefHeight="36.000018310546864"
+                                vgrow="SOMETIMES"/>
+            </rowConstraints>
+            <Label alignment="CENTER_RIGHT" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308"
+                   text="Código del vehiculo" textAlignment="CENTER" wrapText="true" GridPane.halignment="RIGHT"
+                   GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+                <padding>
+                    <Insets left="2.0" right="10.0" top="2.0"/>
+                </padding>
+                <GridPane.margin>
+                    <Insets/>
+                </GridPane.margin>
+            </Label>
+            <Label alignment="CENTER_RIGHT" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308"
+                   text="Dimensiones A (cm)" textAlignment="CENTER" wrapText="true" GridPane.halignment="RIGHT"
+                   GridPane.rowIndex="2" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+                <padding>
+                    <Insets right="10.0"/>
+                </padding>
+            </Label>
+            <Label alignment="CENTER_RIGHT" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308"
+                   text="MMA (kg)" textAlignment="CENTER" GridPane.halignment="RIGHT" GridPane.rowIndex="1"
+                   GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+                <padding>
+                    <Insets right="10.0"/>
+                </padding>
+            </Label>
+            <Label alignment="CENTER_RIGHT" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308"
+                   text="Dimensiones L (cm)" textAlignment="CENTER" wrapText="true" GridPane.halignment="RIGHT"
+                   GridPane.rowIndex="3" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+                <padding>
+                    <Insets right="10.0"/>
+                </padding>
+            </Label>
+            <Label alignment="CENTER_RIGHT" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308"
+                   text="Dimensiones H (cm)" textAlignment="CENTER" wrapText="true" GridPane.halignment="RIGHT"
+                   GridPane.rowIndex="4" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+                <padding>
+                    <Insets right="10.0"/>
+                </padding>
+            </Label>
+            <Label alignment="CENTER_RIGHT" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308"
+                   text="Carga útil" GridPane.halignment="RIGHT" GridPane.rowIndex="5" GridPane.valignment="CENTER"
+                   GridPane.vgrow="ALWAYS">
+                <padding>
+                    <Insets right="10.0"/>
+                </padding>
+            </Label>
+            <Label alignment="CENTER_RIGHT" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308"
+                   text="Tiene Carga Lateral" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.rowIndex="1"
+                   GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+                <padding>
+                    <Insets right="10.0"/>
+                </padding>
+            </Label>
+            <TextField fx:id="tf_cod_vehiculo_vehiculo" disable="true" editable="false" GridPane.columnIndex="1">
+                <tooltip>
+                    <Tooltip text="El código de tu vehículo"/>
+                </tooltip>
+            </TextField>
+            <TextField fx:id="tf_mma_vehiculo" disable="true" editable="false" GridPane.columnIndex="1"
+                       GridPane.rowIndex="1">
+                <tooltip>
+                    <Tooltip text="Masa Máxima Autorizada del vehículo"/>
+                </tooltip>
+            </TextField>
+            <TextField fx:id="tf_dim_a_vehiculo" disable="true" editable="false" GridPane.columnIndex="1"
+                       GridPane.rowIndex="2"/>
+            <TextField fx:id="tf_dim_l_vehiculo" disable="true" editable="false" GridPane.columnIndex="1"
+                       GridPane.rowIndex="3"/>
+            <TextField fx:id="tf_dim_h_vehiculo" disable="true" editable="false" GridPane.columnIndex="1"
+                       GridPane.rowIndex="4"/>
+            <TextField fx:id="tf_carga_util_vehiculo" disable="true" editable="false" GridPane.columnIndex="1"
+                       GridPane.rowIndex="5"/>
+            <Label alignment="CENTER_RIGHT" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308"
+                   text="Tiene Carga Superior" GridPane.columnIndex="2" GridPane.halignment="RIGHT"
+                   GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+                <padding>
+                    <Insets right="10.0"/>
+                </padding>
+            </Label>
+            <Label alignment="CENTER_RIGHT" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308"
+                   text="LOLO" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.rowIndex="2"
+                   GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+                <padding>
+                    <Insets right="10.0"/>
+                </padding>
+            </Label>
+            <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308"
+                   text="Estipulacion" GridPane.columnIndex="4" GridPane.halignment="CENTER"
+                   GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+                <padding>
+                    <Insets right="10.0"/>
+                </padding>
+            </Label>
+            <Label alignment="CENTER_RIGHT" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308"
+                   text="Tiene Rampa" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.rowIndex="4"
+                   GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+                <padding>
+                    <Insets right="10.0"/>
+                </padding>
+            </Label>
+            <Label alignment="CENTER_RIGHT" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308"
+                   text="Puede ADR" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.rowIndex="5"
+                   GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+                <padding>
+                    <Insets right="10.0"/>
+                </padding>
+            </Label>
+            <Label alignment="CENTER_RIGHT" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308"
+                   text="Puede ADP" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.rowIndex="6"
+                   GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+                <padding>
+                    <Insets right="10.0"/>
+                </padding>
+            </Label>
+            <TextField fx:id="tf_estipulacion_vehiculo" disable="true" editable="false" GridPane.columnIndex="4"
+                       GridPane.rowIndex="1"/>
+            <CheckBox fx:id="cb_atp_vehiculos" allowIndeterminate="true" disable="true" mnemonicParsing="false"
+                      GridPane.columnIndex="3" GridPane.rowIndex="6"/>
+            <CheckBox fx:id="cb_adr_vehiculos" allowIndeterminate="true" disable="true" mnemonicParsing="false"
+                      GridPane.columnIndex="3" GridPane.rowIndex="5"/>
+            <CheckBox fx:id="cb_lolo_vehiculos" allowIndeterminate="true" disable="true" mnemonicParsing="false"
+                      GridPane.columnIndex="3" GridPane.rowIndex="2"/>
+            <CheckBox fx:id="cb_carga_superior_vehiculos" allowIndeterminate="true" disable="true"
+                      mnemonicParsing="false" GridPane.columnIndex="3"/>
+            <CheckBox fx:id="cb_carga_lateral_vehiculos" allowIndeterminate="true" disable="true"
+                      mnemonicParsing="false" GridPane.columnIndex="3" GridPane.rowIndex="1"/>
+            <CheckBox fx:id="cb_rampa_vehiculos" allowIndeterminate="true" disable="true" mnemonicParsing="false"
+                      GridPane.columnIndex="3" GridPane.rowIndex="4"/>
+            <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308"
+                   text="Instrucciones" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="2"/>
+            <TextField fx:id="tf_instrucciones_vehiculos" disable="true" prefHeight="95.0" prefWidth="507.0"
+                       GridPane.columnIndex="4" GridPane.hgrow="SOMETIMES" GridPane.rowIndex="3" GridPane.rowSpan="3"/>
+            <Label alignment="CENTER_RIGHT" layoutX="335.0" layoutY="87.0" maxHeight="1.7976931348623157E308"
+                   maxWidth="1.7976931348623157E308" text="RORO" GridPane.columnIndex="2" GridPane.rowIndex="3">
+                <padding>
+                    <Insets right="10.0"/>
+                </padding>
+            </Label>
+            <CheckBox fx:id="cb_roro_vehiculos" allowIndeterminate="true" disable="true" mnemonicParsing="false"
+                      GridPane.columnIndex="3" GridPane.rowIndex="3"/>
+        </GridPane>
+    </VBox>
+    <GridPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" GridPane.halignment="CENTER"
+              GridPane.hgrow="ALWAYS" GridPane.rowIndex="3" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+        <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+        </columnConstraints>
+        <rowConstraints>
+            <RowConstraints maxHeight="1.7976931348623157E308" percentHeight="15.0" vgrow="SOMETIMES"/>
+            <RowConstraints maxHeight="332.0000057220459" minHeight="10.0" percentHeight="85.0"
+                            prefHeight="165.19998922348023" vgrow="SOMETIMES"/>
+        </rowConstraints>
+        <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="0.0"
+               prefWidth="1024.0" styleClass="h2" text="↓ Elije tu carga aquí con doble click ↓" textAlignment="CENTER">
+            <font>
+                <Font name="System Bold" size="27.0"/>
+            </font>
+        </Label>
+        <TableView fx:id="tvCargasYEntregas" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308"
+                   styleClass="column-header" tableMenuButtonVisible="true" GridPane.halignment="CENTER"
+                   GridPane.rowIndex="1" GridPane.valignment="CENTER">
+            <columns>
+                <TableColumn fx:id="tc_cod_carga" prefWidth="50.0" style="-fx-rorate: 90;" text="Código carga"/>
+                <TableColumn fx:id="tc_franja_horario_recogida" prefWidth="71.0" text="Franja recogida"/>
+                <TableColumn fx:id="tc_franja_horario_entrega" prefWidth="69.0" text="Franja entrega"/>
+                <TableColumn fx:id="tc_dimension_l" prefWidth="46.0" text="Dim L (cm)"/>
+                <TableColumn fx:id="tc_dimension_a" prefWidth="53.0" text="Dim A (cm)"/>
+                <TableColumn fx:id="tc_dimension_h" prefWidth="55.0" text="Dim H (cm)"/>
+                <TableColumn fx:id="tc_peso_unitario" prefWidth="57.0" text="Peso unitario (Kg)"/>
+                <TableColumn fx:id="tc_manipulacion_carga_bool" prefWidth="60.0" text="Manipulacion carga"/>
+                <TableColumn fx:id="tc_remontable" prefWidth="73.0" text="Remontable"/>
+                <TableColumn fx:id="tc_tipo_bulto" prefWidth="76.0" text="Tipo de bulto"/>
+                <TableColumn fx:id="tc_doble_conductor" prefWidth="50.0" text="DblConductor"/>
+                <TableColumn fx:id="tc_es_naturaleza_peligrosa" prefWidth="65.0" text="NaturalezaPeligrosa"/>
+                <TableColumn fx:id="tc_carga_completa_o_grupaje" prefWidth="60.0" text="Completa O Grupaje"/>
+                <TableColumn fx:id="tc_necesita_rampa" prefWidth="50.0" text="Necesita Rampa"/>
+                <TableColumn fx:id="tc_NATURALEZAS_PELIGROSAS_cod_naturaleza_peligrosa" maxWidth="78.0" prefWidth="69.0"
+                             text="Naturaleza Peligrosa"/>
+                <TableColumn fx:id="tc_pais_origen" prefWidth="75.0" text="Pais origen"/>
+                <TableColumn fx:id="tc_provincia_origen" prefWidth="75.0" text="Provincia origen"/>
+                <TableColumn fx:id="tc_localidad_origen" prefWidth="75.0" text="Localidad origen"/>
+                <TableColumn fx:id="tc_cp_origen" prefWidth="75.0" text="CP Origen"/>
+                <TableColumn fx:id="tc_pais_destino" prefWidth="75.0" text="País Destino"/>
+                <TableColumn fx:id="tc_provincia_destino" prefWidth="75.0" text="Provincia Destino"/>
+                <TableColumn fx:id="tc_localidad_destino" prefWidth="75.0" text="Localidad Destino"/>
+                <TableColumn fx:id="tc_cp_destino" prefWidth="75.0" text="CP Destino"/>
+                <TableColumn fx:id="tc_instrucciones" prefWidth="75.0" text="Instrucciones"/>
+                <TableColumn fx:id="tc_reembolso_cantidad" prefWidth="75.0" text="Reembolso"/>
+                <TableColumn fx:id="tc_con_vuelta" prefWidth="75.0" text="Con vuelta"/>
+                <TableColumn fx:id="tc_precio" prefWidth="75.0" text="Precio"/>
+                <TableColumn fx:id="tc_seguro" prefWidth="75.0" text="Seguro"/>
+                <TableColumn fx:id="tc_es_adr" prefWidth="75.0" text="ADR"/>
+                <TableColumn fx:id="tc_es_atp" prefWidth="75.0" text="ATP"/>
+                <TableColumn fx:id="tc_cantidad_bultos" prefWidth="75.0" text="Cantidad_bultos"/>
+            </columns>
+        </TableView>
+    </GridPane>
+</GridPane>

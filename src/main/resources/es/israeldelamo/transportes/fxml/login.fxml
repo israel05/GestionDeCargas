@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.Tooltip?>
+<?import javafx.scene.effect.InnerShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.SVGPath?>
+
+<GridPane alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="480.0" minWidth="640.0" prefHeight="640.0" prefWidth="740.0" stylesheets="@../css/estilos.css" xmlns="http://javafx.com/javafx/24" xmlns:fx="http://javafx.com/fxml/1" fx:controller="es.israeldelamo.transportes.controladores.LoginController">
+
+    <!-- Columnas de la cuadrícula -->
+    <columnConstraints>
+        <ColumnConstraints hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" percentWidth="100.0" />
+    </columnConstraints>
+
+    <!-- Filas de la cuadrícula -->
+    <rowConstraints>
+        <RowConstraints minHeight="200.0" percentHeight="10.0" valignment="CENTER" vgrow="NEVER" />
+        <RowConstraints maxHeight="538.2000122070312" minHeight="300.0" percentHeight="60.0" prefHeight="323.0" valignment="CENTER" vgrow="NEVER" />
+        <RowConstraints maxHeight="134.0" minHeight="95.5" percentHeight="15.0" prefHeight="134.0" valignment="CENTER" vgrow="ALWAYS" />
+        <RowConstraints maxHeight="1.7976931348623157E308" minHeight="200.0" percentHeight="20.0" prefHeight="200.0" valignment="CENTER" vgrow="NEVER" />
+    </rowConstraints>
+
+    <!-- Contenido del formulario -->
+    <ImageView fitHeight="300.0" fitWidth="300.0" preserveRatio="true" GridPane.halignment="CENTER" GridPane.hgrow="NEVER" GridPane.rowIndex="1" GridPane.valignment="CENTER" GridPane.vgrow="NEVER">
+        <effect>
+            <InnerShadow choke="0.21" offsetX="1.0" radius="18.7325" width="55.93" />
+        </effect>
+        <Image url="@../imagenes/logo2.jpg" />
+    </ImageView>
+
+    <!-- Contenedor para los botones de opciones -->
+    <HBox alignment="CENTER" GridPane.columnSpan="2147483647" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+        <GridPane.margin>
+            <Insets bottom="10.0" top="10.0" />
+        </GridPane.margin>
+        <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" HBox.hgrow="SOMETIMES">
+            <children>
+
+                <!-- Botón de ADMINISTRADOR -->
+                <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="50.0" minWidth="200.0" mnemonicParsing="false" onAction="#logeoAdministrador" styleClass="btn" text="%Administrador">
+                    <tooltip>
+                        <Tooltip text="Entrar como administrador" />
+                    </tooltip>
+                </Button>
+                <SVGPath fx:id="abrirTutorialAdm" content="M 8 12 H 56 C 58 12 58 14 58 16 V 48 C 58 50 56 52 54 52 H 10 C 8 52 6 50 6 48 V 16 C 6 14 8 12 10 12 Z &#10;M 28 22 L 28 42 L 46 32 Z&#10;M 16 50 L 48 50 &#10;M 12 50 L 12 58 L 52 58 L 52 50 &#10;" fill="#c11c1c" onMouseClicked="#abrirTutorialAdm">
+                    <VBox.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                    </VBox.margin>
+                </SVGPath>
+                <Label alignment="CENTER" contentDisplay="CENTER" text="Tutorial" textAlignment="CENTER" />
+            </children>
+            <HBox.margin>
+                <Insets left="20.0" right="20.0" />
+            </HBox.margin>
+        </VBox>
+        <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" onMouseClicked="#abrirTutorialCnd" HBox.hgrow="SOMETIMES">
+            <children>
+                <!-- Botón de CONDUCTOR -->
+                <Button alignment="CENTER" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" minHeight="50.0" minWidth="200.0" mnemonicParsing="false" onAction="#logueoConductor" text="%Conductor" textAlignment="CENTER">
+                    <styleClass>
+                        <String fx:value="btn" />
+                    </styleClass>
+                    <tooltip>
+                        <Tooltip text="Entrar como conductor" />
+                    </tooltip>
+                </Button>
+                <SVGPath content="M 8 12 H 56 C 58 12 58 14 58 16 V 48 C 58 50 56 52 54 52 H 10 C 8 52 6 50 6 48 V 16 C 6 14 8 12 10 12 Z &#10;M 28 22 L 28 42 L 46 32 Z&#10;M 16 50 L 48 50 &#10;M 12 50 L 12 58 L 52 58 L 52 50 &#10;" fill="#c11c1c">
+                    <VBox.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                    </VBox.margin>
+                </SVGPath>
+                <Label text="Tutorial" />
+            </children>
+            <HBox.margin>
+                <Insets left="20.0" right="20.0" />
+            </HBox.margin>
+        </VBox>
+        <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" onMouseClicked="#abrirTutorialGst" HBox.hgrow="SOMETIMES">
+            <children>
+
+                <!-- Botón de GESTOR -->
+                <Button maxWidth="1.7976931348623157E308" minHeight="50.0" minWidth="200.0" mnemonicParsing="false" onAction="#logueoGestor" text="%Gestor">
+                    <styleClass>
+                        <String fx:value="btn" />
+                    </styleClass>
+                    <tooltip>
+                        <Tooltip text="Entrar como gestor" />
+                    </tooltip>
+                </Button>
+                <SVGPath content="M 8 12 H 56 C 58 12 58 14 58 16 V 48 C 58 50 56 52 54 52 H 10 C 8 52 6 50 6 48 V 16 C 6 14 8 12 10 12 Z &#10;M 28 22 L 28 42 L 46 32 Z&#10;M 16 50 L 48 50 &#10;M 12 50 L 12 58 L 52 58 L 52 50 &#10;" fill="#c11c1c">
+                    <VBox.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                    </VBox.margin>
+                </SVGPath>
+                <Label text="Tutorial" />
+            </children>
+            <HBox.margin>
+                <Insets left="20.0" right="20.0" />
+            </HBox.margin>
+        </VBox>
+    </HBox>
+
+    <!-- Formulario para ingresar usuario y contraseña -->
+    <VBox maxHeight="400" maxWidth="400" styleClass="container" GridPane.columnSpan="2147483647" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="3" GridPane.valignment="CENTER" GridPane.vgrow="SOMETIMES">
+        <GridPane.margin>
+            <Insets bottom="20.0" left="10.0" right="10.0" top="10.0" />
+        </GridPane.margin>
+        <Label alignment="CENTER" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" text="USUARIO" VBox.vgrow="ALWAYS" />
+        <TextField fx:id="fld_user" promptText="tu usuario" styleClass="label" stylesheets="@../css/estilos.css" />
+        <Label alignment="CENTER" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" text="PASSWORD" VBox.vgrow="ALWAYS" />
+        <PasswordField fx:id="fld_passw" promptText="tu contraseña" styleClass="label" stylesheets="@../css/estilos.css" />
+    </VBox>
+
+    <!-- Contenedor para los botones adicionales (Ayuda, Salir) -->
+    <HBox alignment="CENTER" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" GridPane.columnSpan="2147483647" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.valignment="CENTER" GridPane.vgrow="NEVER">
+        <!-- Botón de AYUDA -->
+        <Button contentDisplay="CENTER" minWidth="200.0" mnemonicParsing="false" onAction="#mostrarAyuda" styleClass="btn" text="%PreguntasFrecuentes">
+            <tooltip>
+                <Tooltip text="Ayuda en linea sobre este programa" />
+            </tooltip>
+            <HBox.margin>
+                <Insets left="10.0" right="10.0" />
+            </HBox.margin>
+        </Button>
+
+        <!-- Mensaje central -->
+        <Label alignment="CENTER" contentDisplay="CENTER" styleClass="h1" stylesheets="@../css/estilos.css" text="BOLSAS DE CARGA" textAlignment="CENTER">
+            <HBox.margin>
+                <Insets left="20.0" right="20.0" />
+            </HBox.margin>
+        </Label>
+
+        <!-- Botón de SALIR -->
+        <Button fx:id="btn_salir" minWidth="200.0" mnemonicParsing="false" onAction="#salirDeLaApp" styleClass="btn" text="%Salir">
+            <tooltip>
+                <Tooltip text="Salir del programa" />
+            </tooltip>
+            <HBox.margin>
+                <Insets left="10.0" right="10.0" />
+            </HBox.margin>
+        </Button>
+    </HBox>
+</GridPane>

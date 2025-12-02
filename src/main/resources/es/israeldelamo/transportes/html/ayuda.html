@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="es" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Acordeón de Títulos</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 2em;
+        }
+
+        .titulo {
+            cursor: pointer;
+            padding: 1em;
+            background-color: #f2f2f2;
+            border: 1px solid #ccc;
+            margin-top: 10px;
+            transition: background-color 0.3s;
+        }
+
+        .titulo:hover {
+            background-color: #e0e0e0;
+        }
+
+        .contenido {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease-out, padding 0.5s;
+            padding: 0 1em;
+            background-color: #fafafa;
+            border: 1px solid #ddd;
+            border-top: none;
+        }
+
+        .contenido.activo {
+            padding: 1em;
+            max-height: 400px; /* Puedes ajustarlo según el contenido */
+        }
+    </style>
+</head>
+<body>
+
+<div class="acordeon">
+    <div class="titulo">¿QUE ES ESTA APP?</div>
+    <div class="contenido">Una bolsa de cargas es un servicio online donde transportistas y cargadores (empresas que necesitan transportar mercancías) se conectan para encontrar oportunidades de transporte.</div>
+
+    <div class="titulo">¿QUE ÁMBITO DE OPERACIÓN?</div>
+    <div class="contenido">Nacional y europeo.</div>
+
+    <div class="titulo">¿TIENE UN COSTO DE INSCRIPCIÓN O MANTENIMIENTO?</div>
+    <div class="contenido">No,  es un servicio online gratuito y de código abierto.</div>
+
+    <div class="titulo">¿COMO FUNCIONA?</div>
+    <div class="contenido">
+        <h4> Transportistas:</h4>
+        <ul>
+            <li>Registro de transportistas</li>
+
+            <li>Publicación de sus vehículos, rutas y disponibilidad para transportar cargas.</li>
+
+            <li>Selección de ofertas de transporte</li>
+
+            <li>Reserva de la oferta</li>
+
+            <li>Activa notificaciones para ser informado de inmediato cuando se publiquen ofertas de transporte por carretera en su área de disponibilidad</li>
+
+        </ul>
+        <h4>Empresas Cargadoras</h4>
+        <ul>
+
+
+       <li> Registro de cargadores</li>
+
+            <li>Publicación de las cargas que necesitan transportar y sus requerimientos (origen, destino, tipo de mercancía, etc.).</li>
+        </ul>
+        <h4>La plataforma</h4>
+        <ul>
+            <li>
+        Conecta a los transportistas con las empresas cargadores que coincidan en cargas, envíos y condiciones.
+            </li>
+        </ul>
+    <div class="titulo">¿PUEDO IMPORTAR DATOS DESDE EXCEL A LA APP?</div>
+    <div class="contenido">Esta opción aparecerá en las siguientes versiones</div>
+
+    <div class="titulo">NO RECUERDO LA CONTRASEÑA Y USUARIO, ¿QUÉ PUEDO HACER?</div>
+    <div class="contenido">Pide ayuda al administrador de la plataforma por correo electrónico.</div>
+
+    <div class="titulo">NO SE ABRE LA APLICACIÓN, ¿QUÉ PUEDO HACER?</div>
+    <div class="contenido">Verifica los pasos del manual de usuario y ponte en comunicación con el equipo de desarrollo por correo electrónico.</div>
+
+<div class="titulo">¿DESDE QUE “DISPOSITIVO???” PUEDO ACCEDER A LA APP?</div>
+    <div class="contenido">Cualquier dispositivo capaz de correr una máquina virtual de Java y tener conexión a internet permanente</div>
+
+    <div class="titulo">EN QUE IDIOMAS FUNCIONA LA APP</div>
+    <div class="contenido">En la versión 1.0 no se contemplan más idiomas que el español, en sucesivas ediciones se añadirán bajo demananda. Es software libre, siéntete libre de traducirlo..</div>
+
+
+
+</div>
+
+<script>
+    const titulos = document.querySelectorAll('.titulo');
+
+    titulos.forEach(titulo => {
+        titulo.addEventListener('click', () => {
+            const contenido = titulo.nextElementSibling;
+            contenido.classList.toggle('activo');
+        });
+    });
+</script>
+
+</body>
+</html>

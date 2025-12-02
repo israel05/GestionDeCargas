@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+    <g fill="none" stroke="#000" stroke-width="2">
+        <!-- Pantalla del video -->
+        <rect x="8" y="12" width="48" height="32" rx="4" stroke-linecap="round" stroke-linejoin="round"/>
+        <!-- Triángulo para representar el "play" -->
+        <polygon points="28,22 28,42 46,32" fill="#000"/>
+        <!-- Línea de texto abajo (representando el tutorial) -->
+        <line x1="16" y1="50" x2="48" y2="50" stroke-linecap="round"/>
+        <!-- Icono de "Libro" para indicar aprendizaje -->
+        <path d="M12 50 L12 58 L52 58 L52 50" stroke-linecap="round"/>
+        <path d="M12 50 L32 50 L32 58" stroke-linecap="round"/>
+    </g>
+</svg>

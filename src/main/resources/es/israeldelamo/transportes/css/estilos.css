@@ -1,0 +1,94 @@
+.root {
+    -fx-body-color: #F5F5F5;
+    -fx-outer-border: #cecece;
+}
+
+VBox > .text-area.first {
+    -fx-border-radius: 4 4 0 0;
+    -fx-background-radius: 4 4 0 0;
+}
+
+.arrow-button:pressed {
+    -fx-background-color: #e6e6e6;
+    -fx-border-color: #acacac;
+    -fx-effect: innershadow(gaussian, #adadad, 10, 0, 0, 3);
+}
+
+.recuadrado {
+    -fx-border-color: black;
+    -fx-border-insets: 5;
+    -fx-border-width: 2;
+}
+
+
+.table-view .column-header .label .anchor-pane {
+
+    -fx-pref-height: 10pt;
+    -fx-font-size: 16px;
+    -fx-wrap-text: true;
+    -fx-alignment: center;
+}
+
+/* Botones */
+.btn {
+    -fx-font-size: 14px;
+    -fx-padding: 10px 5px 10px 5px;
+    -fx-background-radius: 10;
+    -fx-text-fill: white;
+
+    -fx-border-insets: 5px;
+    -fx-background-insets: 5px;
+    -fx-background-color: #006699;
+    -fx-border-color: #0056b3;
+    -fx-border-width: 1;
+
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 10, 0.5, 0, 5);
+
+}
+
+.btn:hover {
+    -fx-background-color: #0dbce39c;
+}
+
+
+/* Etiquetas */
+.label {
+    -fx-font-family: 'Segoe UI', sans-serif;
+    -fx-font-size: 16px;
+    -fx-text-fill: #333;
+}
+
+
+/* Títulos */
+.h1 {
+    -fx-font-size: 28px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #444;
+}
+
+.h2 {
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #444;
+}
+
+/* Campos de texto */
+.text-field, .password-field {
+    -fx-border-color: #ccc;
+    -fx-border-width: 1;
+    -fx-background-radius: 5;
+    -fx-padding: 5 10;
+}
+
+
+.text-field:focused, .password-field:focused {
+    -fx-border-color: #007bff;
+}
+
+.table-view .row {
+    -fx-background-color: derive(red, 20%);
+}
+
+.table-view .row:odd {
+    -fx-background-color: derive(blue, 20%);
+}

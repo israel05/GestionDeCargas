@@ -1,0 +1,1533 @@
+@startuml
+class es.israeldelamo.transportes.dao.DaoEnvio {
+- {static} Logger logger
++ String[] cod_trackingArray
++ String[] cod_conductorArray
++ String[] cod_vehiculoArray
++ String[] cod_carga_entregaArray
++ {static} ObservableList<ModeloEnvio> cargarListadoEnvios()
++ {static} boolean modificarEnvio(String,ModeloEnvio)
++ {static} boolean eliminarEnvio(String)
++ {static} boolean nuevoEnvio(ModeloEnvio)
++ {static} ObservableList<ModeloEnvio> cargarListadoUltimosDiezEnvios()
++ ModeloEnvioUnico cargarEnvioUnicoAArray(int)
+}
+
+
+class es.israeldelamo.transportes.utilidades.ImageTableCellParaDocumentosCapacitacion {
+- {static} Logger logger
+- ImageView imageView
+# void updateItem(Blob,boolean)
+}
+
+
+class es.israeldelamo.transportes.utilidades.Alertas {
+- {static} Logger logger
++ void mostrarInformacion(String)
++ void mostrarError(String)
++ void mostrarAviso(String)
++ void mostrarAlertaConfirmacion(String)
++ void mostrarAlertaCabecera(String)
+}
+
+
+class es.israeldelamo.transportes.Lanzador {
+- {static} Logger logger
++ {static} void main(String[])
+}
+
+
+class es.israeldelamo.transportes.modelos.ModeloLogin {
+- {static} Logger logger
+- String user
+- String pass
+- String rol
++ String getUser()
++ void setUser(String)
++ String getPass()
++ void setPass(String)
++ String getRol()
++ void setRol(String)
++ String toString()
++ boolean equals(Object)
++ int hashCode()
+}
+
+
+class es.israeldelamo.transportes.modelos.ModeloPais {
+- {static} Logger logger
+- String pais
++ String getPais()
++ void setPais(String)
++ boolean equals(Object)
++ int hashCode()
+}
+
+
+class es.israeldelamo.transportes.utilidades.ConversorDataPickerTimeStamp {
+- {static} Logger logger
++ {static} Timestamp DeStringATimeStamp(String)
+}
+
+
+class es.israeldelamo.transportes.modelos.ModeloSistemaCargaVehiculo {
+- {static} Logger logger
+- int cod_sistema_carga
+- String descripcion
++ int getCod_sistema_carga()
++ void setCod_sistema_carga(int)
++ String getDescripcion()
++ void setDescripcion(String)
+}
+
+
+class es.israeldelamo.transportes.dao.DaoNaturalezaPeligrosa {
+- {static} Logger logger
++ {static} ObservableList<ModeloNaturalezasPeligrosas> cargarListadoNaturalezasPeligrosas()
++ {static} boolean modificarCodigoYNaturaleza(float,String)
++ {static} ModeloNaturalezasPeligrosas devuelvemeLaNaturalezaPeligrosaPCompletaPorCodigo(float)
++ {static} boolean nuevaNaturalezaPeligrosa(ModeloNaturalezasPeligrosas)
++ {static} boolean eliminarNaturalezaPeligrosa(String)
++ {static} String devuelvemeLaNaturalezaPeligrosaPorCodigo(Float)
+}
+
+
+class es.israeldelamo.transportes.dao.DaoPaisYProvinciaYLocalidad {
+- {static} Logger logger
++ {static} ObservableList<ModeloPaisYProvinciaYLocalidad> cargarListadoLocalidades(String,String)
++ {static} ObservableList<ModeloPaisYProvinciaYLocalidad> cargarListadoLocalidades()
++ {static} boolean modificarLocalidad(ModeloPaisYProvinciaYLocalidad,String)
++ {static} boolean nuevoPaisYProvinciaYLocalidades(ModeloPaisYProvinciaYLocalidad)
++ {static} boolean eliminarLocalidad(ModeloPaisYProvinciaYLocalidad)
+}
+
+
+class es.israeldelamo.transportes.dao.DaoSistemaCargaVehiculo {
+- {static} Logger logger
++ {static} ObservableList<ModeloSistemaCargaVehiculo> cargarListadoSistemaCargaVehiculo()
++ {static} ModeloSistemaCargaVehiculo cargarUnSistemaDeCargaConcreto(int)
++ {static} boolean modificarModeloSistemaCargaVehiculo(ModeloSistemaCargaVehiculo,String)
++ {static} boolean nuevoModeloSistemaCargaVehiculo(ModeloSistemaCargaVehiculo)
++ {static} boolean eliminarModeloSistemaCargaVehiculo(String)
+}
+
+
+class es.israeldelamo.transportes.controladores.GestionAdministradorController {
+- {static} Logger logger
+- TableView<ModeloEnvio> tv_envios
+- TableColumn<ModeloEnvio,String> tc_tracker_tv_envio
+- TableColumn<ModeloEnvio,String> tc_carga_entrega_tv_envio
+- TableColumn<ModeloEnvio,String> tc_conductor_tv_envio
+- TableColumn<ModeloEnvio,String> tc_vehiculo_tv_envio
+- TextField tf_tracker_tv_envio
+- TableView<ModeloCargaYEntrega> tv_carga_entrega
+- TableColumn<ModeloCargaYEntrega,String> tc_cod_carga
+- TableColumn<ModeloCargaYEntrega,Timestamp> tc_franja_horario_recogida
+- TableColumn<ModeloCargaYEntrega,Timestamp> tc_franja_horario_entrega
+- TableColumn<ModeloCargaYEntrega,Timestamp> tc_fecha_creaccion
+- TableColumn<ModeloCargaYEntrega,Float> tc_dimension_l
+- TableColumn<ModeloCargaYEntrega,Float> tc_dimension_a
+- TableColumn<ModeloCargaYEntrega,Float> tc_dimension_h
+- TableColumn<ModeloCargaYEntrega,Float> tc_peso_unitario
+- TableColumn<ModeloCargaYEntrega,Boolean> tc_manipulacion_carga_bool
+- TableColumn<ModeloCargaYEntrega,Boolean> tc_remontable
+- TableColumn<ModeloCargaYEntrega,Boolean> tc_es_naturaleza_peligrosa
+- TableColumn<ModeloCargaYEntrega,Integer> tc_tipo_bulto
+- TableColumn<ModeloCargaYEntrega,Boolean> tc_doble_conductor
+- TableColumn<ModeloCargaYEntrega,Boolean> tc_carga_completa_o_grupaje
+- TableColumn<ModeloCargaYEntrega,Boolean> tc_necesita_rampa
+- TableColumn<ModeloCargaYEntrega,String> tc_NATURALEZAS_PELIGROSAS_cod_naturaleza_peligrosa
+- TableColumn<ModeloCargaYEntrega,String> tc_pais_origen
+- TableColumn<ModeloCargaYEntrega,String> tc_provincia_origen
+- TableColumn<ModeloCargaYEntrega,String> tc_localidad_origen
+- TableColumn<ModeloCargaYEntrega,String> tc_cp_origen
+- TableColumn<ModeloCargaYEntrega,String> tc_pais_destino
+- TableColumn<ModeloCargaYEntrega,String> tc_provincia_destino
+- TableColumn<ModeloCargaYEntrega,String> tc_localidad_destino
+- TableColumn<ModeloCargaYEntrega,String> tc_cp_destino
+- TableColumn<ModeloCargaYEntrega,String> tc_instrucciones
+- TableColumn<ModeloCargaYEntrega,String> tc_reembolso_cantidad
+- TableColumn<ModeloCargaYEntrega,Boolean> tc_con_vuelta
+- TableColumn<ModeloCargaYEntrega,String> tc_precio
+- TableColumn<ModeloCargaYEntrega,String> tc_seguro
+- TableColumn<ModeloCargaYEntrega,Boolean> tc_es_adr
+- TableColumn<ModeloCargaYEntrega,Boolean> tc_es_atp
+- TableColumn<ModeloCargaYEntrega,Boolean> tc_cantidad_bultos
+- TextField tf_codigo_carga_tab_carga_entrega
+- DatePicker dp_dia_inicio_carga_entrega
+- DatePicker dp_dia_fin_carga_entrega
+- DatePicker dp_fecha_creaccion
+- TextField tf_hora_inicio_carga_entrega
+- TextField tf_hora_fin_carga_entrega
+- CheckBox cxbx_manipulacion_carga_entrega
+- ComboBox<ModeloNaturalezasPeligrosas> combo_naturaleza_peligrosa_carga_entrega
+- ComboBox<ModeloPais> combo_pais_origen_carga_entrega
+- ComboBox<ModeloPaisYProvincia> combo_provincia_origen_carga_entrega
+- ComboBox<ModeloPaisYProvinciaYLocalidad> combo_localidad_origen_carga_entrega
+- ComboBox<ModeloPaisYProvinciaYLocalidadYCodigoPostal> combo_cp_origen_carga_entrega
+- ComboBox<ModeloTipoDeBulto> combo_tipo_bulto_carga_entrega
+- TableView<ModeloSistemaCargaVehiculo> tv_sistema_de_carga_de_vehiculo
+- TableColumn<ModeloSistemaCargaVehiculo,Integer> tc_cod_sistema_carga_tv_sistema_carga
+- TableColumn<ModeloSistemaCargaVehiculo,String> tc_descripcion_tv_sistema_carga
+- TextField tf_cod_sistema_carga_tv_sistema_carga
+- TableView<ModeloDocumentoCapacitacion> tv_documento_capacitacion
+- TableColumn<ModeloDocumentoCapacitacion,String> tc_codigo_capactiaciontv_documento_capacitacion
+- TableColumn<ModeloDocumentoCapacitacion,String> tc_peligrosidadtv_documento_capacitacion
+- TableColumn<ModeloDocumentoCapacitacion,Blob> tc_fototv_documento_capacitacion
+- TextField tf_codigo_capactiacion_tab_documento_capacitacion
+- ImageView img_foto_tv_documento_capacitacion
+- Button btn_carga_imagen_documento_capacitacion
+- TableView<ModeloTipoDeVehiculo> tv_tipo_de_vehiculo
+- TableColumn<ModeloTipoDeVehiculo,String> tc_codigo_tipo_de_vehiculo_tab_tipo_de_vehiculo
+- TableColumn<ModeloTipoDeVehiculo,Boolean> tc_carga_lateral_tab_tipo_de_vehiculo
+- TableColumn<ModeloTipoDeVehiculo,Boolean> tc_carga_superior_tab_tipo_de_vehiculo
+- TableColumn<ModeloTipoDeVehiculo,Boolean> tc_lolo_roro_tab_tipo_de_vehiculo
+- TableColumn<ModeloTipoDeVehiculo,String> tc_estipulacion_tab_tipo_de_vehiculo
+- TableColumn<ModeloTipoDeVehiculo,Blob> tc_foto_tab_tipo_de_vehiculo
+- TableColumn<ModeloTipoDeVehiculo,String> tc_instrucciones_tab_tipo_de_vehiculo
+- TableColumn<ModeloTipoDeVehiculo,Boolean> tc_atp_tab_tipo_de_vehiculo
+- TableColumn<ModeloTipoDeVehiculo,Boolean> tc_adr_tab_tipo_de_vehiculo
+- TableColumn<ModeloTipoDeVehiculo,Integer> tc_sistema_de_carga_tab_tipo_de_vehiculo
+- TableColumn<ModeloTipoDeVehiculo,Boolean> tc_rampa_tab_tipo_de_vehiculo
+- ImageView img_foto_tv_tipo_vehiculo
+- TextField tf_codigo_vehiculo_tab_tipo_vehiculo
+- CheckBox cxbx_carga_lateral_tab_tipo_vehiculo
+- TableView<ModeloEmpresa> tv_empresa
+- TableColumn<ModeloEmpresa,String> tc_empresas_cif
+- TableColumn<ModeloEmpresa,String> tc_empresas_nombre
+- TableColumn<ModeloEmpresa,String> tc_empresas_domicilio
+- TableColumn<ModeloEmpresa,String> tc_empresas_localidad
+- TableColumn<ModeloEmpresa,String> tc_empresas_provincia
+- TableColumn<ModeloEmpresa,String> tc_empresas_pais
+- TableColumn<ModeloEmpresa,Integer> tc_empresas_codigo_postal
+- TableColumn<ModeloEmpresa,Integer> tc_empresas_correo
+- TableColumn<ModeloEmpresa,Integer> tc_empresas_telefono
+- TableColumn<ModeloEmpresa,Integer> tc_empresas_persona_contacto
+- TextField tf_cif_tab_empresas
+- ComboBox<ModeloPaisYProvinciaYLocalidadYCodigoPostal> cmb_cp_modal_empresas
+- ComboBox<ModeloPais> cmb_pais_empresas
+- ComboBox<ModeloPaisYProvinciaYLocalidad> cmb_localidad_empresas
+- ComboBox<ModeloPaisYProvincia> cmb_provincias_empresas
+- TextField tf_papel_tab_login
+- TableView<ModeloLogin> tv_login
+- TableColumn<ModeloLogin,String> tc_login_pass
+- TableColumn<ModeloLogin,String> tc_login_rol
+- TableColumn<ModeloLogin,String> tc_login_user
+- TextField tf_carnet_tab_tipo_carnet
+- TableView<ModeloDeCarnet> tv_tipo_carnet
+- TableColumn<ModeloDeCarnet,String> tc_carnet_tv_tipo_carnet
+- TableColumn<ModeloPais,String> tc_paises_tv_paises
+- TableView<ModeloPais> tv_paises
+- TextField tf_pais_tab_paises
+- TableView<ModeloPaisYProvincia> tv_provincias
+- TableColumn<ModeloPaisYProvincia,String> tc_paises_tv_provincias
+- TableColumn<ModeloPaisYProvincia,String> tc_provincias_tv_provincias
+- TextField tf_pais_tab_paisesyprovincias
+- TableColumn<ModeloPaisYProvinciaYLocalidad,String> tc_provincia_tv_localidades
+- TableColumn<ModeloPaisYProvinciaYLocalidad,String> tc_localidad_tv_localidades
+- TableColumn<ModeloPaisYProvinciaYLocalidad,String> tc_pais_tv_localidades
+- TableView<ModeloPaisYProvinciaYLocalidad> tv_localidades
+- TextField tf_pais_tab_localidades
+- TableColumn<ModeloPaisYProvinciaYLocalidadYCodigoPostal,String> tc_codigo_postal_tv_codigo_postal
+- TableColumn<ModeloPaisYProvinciaYLocalidadYCodigoPostal,String> tc_provincia_tv_codigo_postal
+- TableColumn<ModeloPaisYProvinciaYLocalidadYCodigoPostal,String> tc_localidad_tv_codigo_postal
+- TableColumn<ModeloPaisYProvinciaYLocalidadYCodigoPostal,String> tc_pais_tv_codigo_postal
+- TableView<ModeloPaisYProvinciaYLocalidadYCodigoPostal> tv_codigo_postal
+- TextField tf_pais_tab_codigo_postales
+- TableColumn<ModeloNaturalezasPeligrosas,Float> tc_codigo_naturaleza_peligrosa_tv_naturaleza_peligrosa
+- TableColumn<ModeloNaturalezasPeligrosas,String> tc_descripcion_naturaleza_peligrosa_tv_naturaleza_peligrosa
+- TableView<ModeloNaturalezasPeligrosas> tv_naturaleza_peligrosa
+- TextField tf_codigo_naturaleza_peligrosa_tab_naturaleza_peligrosa
+- TableColumn<ModeloVehiculo,String> tc_codigo_vehiculo_tv_vehiculos
+- TableColumn<ModeloVehiculo,String> tc_cod_tipo_vehiculo_tv_vehiculos
+- TableColumn<ModeloVehiculo,Float> tc_mma_tv_vehiculos
+- TableColumn<ModeloVehiculo,Float> tc_dim_a_tv_vehiculos
+- TableColumn<ModeloVehiculo,Float> tc_dim_l_tv_vehiculos
+- TableColumn<ModeloVehiculo,Float> tc_dim_h_tv_vehiculos
+- TableColumn<ModeloVehiculo,Float> tc_carga_util_tv_vehiculos
+- TableView<ModeloVehiculo> tv_vehiculos
+- TextField tf_codigo_vehiculo_tab_vehiculos
+- TableColumn<ModeloTipoDeBulto,Blob> tc_imageColumn_tv_tipo_bulto
+- TableView<ModeloTipoDeBulto> tv_tipo_bulto
+- TableColumn<ModeloTipoDeBulto,Integer> tc_codigo_bulto_tv_tipo_bulto
+- TableColumn<ModeloTipoDeBulto,Blob> tc_nombre_bulto_tv_tipo_bulto
+- TextField tf_codigo_tipo_bulto_tab_tipo_bulto
+- TextField tf_nombre_tipo_bulto_tab_tipo_bulto
+- ImageView img_imagen_tipo_bulto_tab_tipo_bulto
+- Button btn_carga_imagen_tipo_bulto
+- TableColumn<ModeloConductorTieneVehiculo,String> tc_vehiculo_tv_conductor_tiene_vehiculo
+- TableColumn<ModeloConductorTieneVehiculo,String> tc_conductor_tv_conductor_tiene_vehiculo
+- TableView<ModeloConductorTieneVehiculo> tv_conductor_tiene_vehiculo
+- TextField tf_codigo_conductor_conductor_tiene_vehiculo
+- TextField tf_codigo_vehiculo_conductor_tiene_vehiculo
+- TableColumn<ModeloConductor,String> tc_dni_tv_conductor
+- TableColumn<ModeloConductor,String> tc_nombre_tv_conductor
+- TableColumn<ModeloConductor,String> tc_apellido_tv_conductor
+- TableColumn<ModeloConductor,String> tc_contacto_recogida_tv_conductor
+- TableColumn<ModeloConductor,String> tc_correo_tv_conductor
+- TableColumn<ModeloConductor,Blob> tc_foto_tv_conductor
+- TableColumn<ModeloConductor,Boolean> tc_internacional_tv_conductor
+- TableColumn<ModeloConductor,Integer> tc_cp_tv_conductor
+- TableColumn<ModeloConductor,String> tc_localidad_tv_conductor
+- TableColumn<ModeloConductor,String> tc_provincia_tv_conductor
+- TableColumn<ModeloConductor,String> tc_pais_conductor_tv_conductor
+- TableColumn<ModeloConductor,String> tc_tipo_carnet_tv_conductor
+- TableColumn<ModeloConductor,String> tc_telefono_tv_conductor
+- TableColumn<ModeloConductor,String> tc_nacionalidad_tv_conductor
+- TableColumn<ModeloConductor,String> tc_motivo_lista_negra_tv_conductor
+- TableView<ModeloConductor> tv_conductores
+- Tab tab_vehiculos
+- Tab tab_login
+- Tab tab_paises
+- Tab tab_provincias
+- Tab tab_localidades
+- Tab tab_codigos_postales
+- Tab tab_tipo_carnet
+- Tab tab_naturalezas_peligrosas
+- Tab tab_tipo_bulto
+- Tab tab_conductorTieneVehiculo
+- Tab tab_empresas
+- Tab tab_tipo_de_vehiculo
+- Tab tab_documento_capacitacion
+- Tab tab_sistema_carga_vehiculo
+- Tab tab_carga_entrega
+- Tab tab_envios
+- Tab tab_conductores
+- ModeloPais paisSeleccionadoTemporalDesdeDobleClick
+- ModeloPaisYProvincia paisYProvinciaSeleccionadoTemporalDesdeDobleClick
+- ModeloPaisYProvinciaYLocalidad paisYProvinciaYLocalidadSeleccionadoTemporalDesdeDobleClick
+- ModeloPaisYProvinciaYLocalidadYCodigoPostal paisYProvinciaYLocalidadYCodigoPostalSeleccionadoTemporalDesdeDobleClick
+- ModeloLogin loginSeleccionadoTemporalDesdeDobleClick
+- ModeloVehiculo vehiculoSeleccionadoTemporalDesdeDobleClick
+- ModeloNaturalezasPeligrosas naturalezaPeligrosaTemporalDesdeDobleClick
+- ModeloTipoDeBulto tipoDeBultoTemporalDesdeDobleClick
+- ModeloConductor conductorTemporalDesdeDobleClick
+- ModeloDeCarnet carnetSeleccionadoTemporalDesdeDobleClick
+- ModeloConductorTieneVehiculo conductorTieneVehiculoTemporalDesdeDobleClick
+- ModeloEmpresa empresaSeleccionadoTemporalDesdeDobleClick
+- ModeloTipoDeVehiculo tipoDeVehiculoTemporalDesdeDobleClick
+- ModeloDocumentoCapacitacion documentoCapacitacionTemporalDesdeDobleClick
+- ModeloSistemaCargaVehiculo sistemaCargaVehiculoTemporalDesdeDobleClick
+- ModeloCargaYEntrega cargaYEntregaTemporalDesdeDobleClick
+- ModeloEnvio envioTemporalDesdeDobleClick
+- Stage previousStage
+~ ModeloPaisYProvinciaYLocalidadYCodigoPostal ambitoOrigenTemporal
+~ ModeloPaisYProvinciaYLocalidadYCodigoPostal ambitoDestinoTemporal
++ void setPreviousStage(Stage)
+~ void mostrarTablaEnvios()
+~ void mostrarTablaCargaYEntrega()
+~ void mostrarTablaTipoDeVehiculo()
+~ void mostrarTablaEmpresas()
+~ void mostrarTablaSistemaCargaVehiculos()
+~ void mostrarTablaConductorTieneVehiculo()
+~ void mostrarTablaConductores()
+~ void mostrarTablaVehiculos()
+~ void mostrarTablaTiposDeBulto()
+~ void mostrarTablaDocumentosCapacitacion()
+~ void mostrarTablaNaturalezaPeligrosa()
+~ void mostrarTablaTipoDeCarnet()
+~ void mostrarTablaPaises()
+~ void mostrarTablaPaisesYProvincias()
+~ void mostrarTablaPaisesYProvinciasYLocalidades()
+~ void mostrarTablaPaisesYProvinciasYLocalidadesYCodigosPostales()
+~ void mostrarTablaLogin()
+- void funcionDobleClickParaTableViewEnvios()
+- void funcionDobleClickParaTableViewTipoDeVehiculo()
+- void funcionDobleClickParaTableViewSistemaCargaVehiculo()
+- void funcionDobleClickParaTableViewConductorTieneVehiculo()
+- void funcionDobleClickParaTableViewModeloCapacitacion()
+- void funcionDobleClickParaTableViewEmpresas()
+- void funcionDobleClickParaTableViewNaturalezasPeligrosas()
+- void funcionDobleClickParaTableViewConductor()
+- void funcionDobleClickParaTableViewTipoDeBulto()
+- void funcionDobleClickParaTableViewLogin()
+- void funcionDobleClickParaTableViewTipoDeCarnet()
+- void funcionDobleClickParaTableViewPaises()
+- void funcionDobleClickParaTableViewPaisesYProvincias()
+- void funcionDobleClickParaTableViewPaisesYProvinciasYLocalidades()
+- void funcionDobleClickParaTableViewPaisesYProvinciasYLocalidadesYCodigosPostales()
+- void funcionDobleClickTableViewVehiculos()
+- void funcionDobleClickTableViewCargaYEntrega()
+- void onBotonLimpiarEnvio()
+- void onBotonLimpiarCargaEntrega()
+- void onBotonLimpiarTabSistemaDeCarga()
+- void onBotonLimpiarTabEmpresas()
+- void onBotonLimpiarTabLogin()
+- void onBotonLimpiarTabTipoDeCarnet()
+- void onBotonLimpiarTabPaises()
+- void onBotonLimpiarTabPaisesYProvincias()
+- void onBotonLimpiarTabPaisesYProvinciasYLocalidades()
+- void onBotonLimpiarTabPaisesYProvinciasYLocalidadesYCodigosPostales()
++ void onBotonLimpiarTabVehiculos()
++ void onBotonLimpiarTabNaturalezaPeligrosa()
++ void onBotonLimpiarTabTipoBultos()
++ void onBotonLimpiarTabcConductorTieneVehiculo()
++ void onBotonLimpiarTipoDeVehiculoTabTipoDeVehiculos()
++ void onBotonLimpiarTabDocumentoCapacitacion()
+- void limpiarTextFieldsEnTabView(Tab)
+- void limpiarCheckBoxesEnTabView(Tab)
+- void limpiarComboBoxesEnTabView(Tab)
+- void onBotonEliminarEnvio()
+- void onBotonBorrarCargaEntrega()
+- void onBotonEliminarTabSistemaCargaVehiculo()
+- void onBotonEliminarDocumentoCapactiacionTabDocumentosCapacitacion()
+- void onBotonEliminarTipoDeVehiculoTabTipoDeVehiculo()
+- void onBotonEliminarEmpresaTabEmpresa()
+- void onBotonEliminarConductorTieneVehiculoTabConductorTieneVehiculo()
+- void onBotonEliminarRolTabLogin()
+- void onBotonEliminarTipoDeCarnetTabTipoDeCarnet()
+- void onBotonEliminarTipoDeBultoTabTipoDeBulto()
+- void onEliminarTabPaises()
+- void onEliminarRolTabLogin()
+- void onBotonEliminarNaturalezaPeligrosaTabNaturalezaPeligrosa()
+- void onBotonEliminarVehiculoTabVehiculos()
+- void onBotonEliminarTabPaisesYProvinciasYLocalidadesYCodigosPostales()
+- void onEliminarTabProvincias()
+- void onBotonEliminarTabLocalidad()
+- void onBotonModificarEnvio()
+- void onModificarTabProvincia()
+- void onBotonModificarCargaEntrega()
+- void onBotonModificarDocumentoCapacitacion()
+- void onBotonModificarTipoDeBultoTabTipoDeBultos()
+- void onBotonModificarEmpresaTabEmpresas()
+- void onBotonModificarTabSistemaCargaVehiculo()
+- void onBotonModificarConductorTieneVehiculo()
+- void onBotonModificarPaisTabPais()
+- void onBotonModificarNaturalezaPeligrosaTabNaturalezaPeligrosa()
+- void onBotonModificarRolTabLogin()
++ void onBotonModificarTabVehiculos()
+- void onBotonModificarPaisYProvinciaTabPaisYProvincia()
+- void onBotonModificarPaisYProvinciaYCodigoPostalTabPaisYProvinciaYCodigoPostal()
+- void onBotonModificarTipoDeCarnetTabTipoDeCarnet()
+- void onBotonModificarTipoDeVehiculoTabTipoDeVehiculo()
+- void onBotonModificarTabLocalidad()
+- void onBotonNuevoEnvio()
+- void onBotonNuevoSistemaCargaTabSistemaCargaVehiculo()
+- void onBotonNuevaCargaEntrega()
+- void onBotonNuevoTabConductor()
+- void onBotonNuevaEmpresaTabEmpresa()
+- ModeloEmpresa getModeloEmpresa()
+- void onBotonNuevoTabTipoDeVehiculos()
+- void onBotonNuevoTabConductorTieneVehiculo()
+- void onBotonNuevaNaturalezaPeligrosaTabNaturalezaPeligrosa()
+- void onBotonNuevoTabPaisesYProvincias()
+- void onBotonNuevoCodigoPostalTabCodigoPostal()
+- void onBotonNuevoDocumentoCapacitacion()
+- void onBotonNuevoPaisTabPais()
+- void onBotonNuevoTabLocalidad()
+- void onBotonNuevoTabLogin()
+- void onBotonNuevoTipoDeCarnetTabTipoDeCarnet()
+- void onBotonNuevoVehiculoTabVehiculos()
+- ModeloVehiculo getModeloVehiculo()
+- void onBotonNuevoTipoDeVehiculoTabTipoDeVehiculo()
+- void onBotonNuevoTipoDeBultoTabTipoDeBultos()
+~ void lanzadorDeInformes(String)
+~ void crearInformeDeUltimos20CargasCreadas()
+~ void crearInformeDeLogins()
+~ void crearInformeDeCargasPorPaisOrigen()
+~ void crearInformeDeCargasPorPaisDestino()
+~ void crearInformeDeTiposDeCarnet()
+~ void crearInformeDeUltimosDiezEnvios()
+~ void crearInformeDeEmpresas()
+~ void crearInformeDeConductor()
+~ void seleccionarImagenTipoBulto()
+~ void seleccionarImagenDocumentoCapacitacion()
+~ void seleccionarImagenTipoVehiculo()
+~ void salir_programa()
+- void inicializarTablas()
+- void funcionalidesDobleClickParaTablas()
+~ void comb_pais_origen_cambio()
+~ void comb_pais_destino_cambio()
+~ void comb_provincia_origen_cambio()
+~ void comb_provincia_destino_cambio()
+~ void comb_localidad_origen_cambio()
+~ void comb_localidad_destino_cambio()
+- void rellenaComboBoxProvinciasOrigenes()
+- void rellenaComboBoxProvinciasDestinos()
+- void rellenaComboBoxesPaises()
+- void rellenaComboBoxLocalidadesOrigenes()
+- void rellenaComboBoxLocalidadesDestinos()
+- void rellenaComboBoxCPOrigen()
+- void rellenaComboBoxCPDestino()
+- void relleneComboBoxNaturalezaPeligrosa()
+- void relleneComboBoxTipoDeBulto()
+- void inicizalizarTabs()
+- void inicializarTabCargaYEntrega()
++ void initialize(URL,ResourceBundle)
+}
+
+
+class es.israeldelamo.transportes.modelos.ModeloNaturalezasPeligrosas {
+- {static} Logger logger
+- float codigo_naturaleza_peligrosa
+- String descripcion_naturaleza_peligrosa
++ float getCodigo_naturaleza_peligrosa()
++ void setCodigo_naturaleza_peligrosa(float)
++ String getDescripcion_naturaleza_peligrosa()
++ void setDescripcion_naturaleza_peligrosa(String)
++ int hashCode()
++ String toString()
+}
+
+
+class es.israeldelamo.transportes.utilidades.ImageTableCellParaConductores {
+- {static} Logger logger
+- ImageView imageView
+# void updateItem(Blob,boolean)
+}
+
+
+class es.israeldelamo.transportes.utilidades.PaisYProvinciaYLocalidadYCodigoPostalStringConverter {
+- {static} Logger logger
++ String toString(ModeloPaisYProvinciaYLocalidadYCodigoPostal)
++ ModeloPaisYProvinciaYLocalidadYCodigoPostal fromString(String)
+}
+
+
+class es.israeldelamo.transportes.dao.DaoPaisYProvinciaYLocalidadYCodigoPostal {
+- {static} Logger logger
++ {static} ObservableList<ModeloPaisYProvinciaYLocalidadYCodigoPostal> cargarListadoPaisesYProvinciasYLocalidadesYCodigosPostalesFiltrado(String,String,String)
++ {static} ObservableList<ModeloPaisYProvinciaYLocalidadYCodigoPostal> cargarListadoPaisesYProvinciasYLocalidadesYCodigosPostales()
++ {static} boolean modificarCodigoPostal(ModeloPaisYProvinciaYLocalidadYCodigoPostal,Integer)
++ {static} boolean eliminarCodigoPostal(ModeloPaisYProvinciaYLocalidadYCodigoPostal)
++ {static} boolean nuevoCodigoPostal(ModeloPaisYProvinciaYLocalidadYCodigoPostal)
+}
+
+
+class es.israeldelamo.transportes.utilidades.ImageTableCellParaTipoDeVehiculos {
+- {static} Logger logger
+- ImageView imageView
+# void updateItem(Blob,boolean)
+}
+
+
+class es.israeldelamo.transportes.dao.DaoTipoDeVehiculo {
+- {static} Logger logger
++ {static} ObservableList<ModeloTipoDeVehiculo> cargarListadoVehiculos()
++ {static} ModeloTipoDeVehiculo recuperaUnTipoDeVehiculo(String)
++ {static} boolean modificarTipoDeVehiculo(ModeloTipoDeVehiculo,ModeloTipoDeVehiculo)
++ {static} boolean nuevoTipoDeVehiculo(ModeloTipoDeVehiculo)
++ {static} boolean eliminarTipoDeVehiculo(String)
++ void cargarListadoTiposDeVehiculosAARrays()
+}
+
+
+class es.israeldelamo.transportes.controladores.SeleccionOrigenesController {
+- {static} Logger logger
+- ModeloPaisYProvinciaYLocalidadYCodigoPostal paisYProvinciaYLocalidadYCodigoPostalSeleccionadoTemporalDesdeDobleClick
+- TableColumn<ModeloPaisYProvinciaYLocalidadYCodigoPostal,String> tc_codigpostal_tv_origenes
+- TableColumn<ModeloPaisYProvinciaYLocalidadYCodigoPostal,String> tc_pais_tv_origenes
+- TableColumn<ModeloPaisYProvinciaYLocalidadYCodigoPostal,String> tc_provincia_tv_origenes
+- TableColumn<ModeloPaisYProvinciaYLocalidadYCodigoPostal,String> tc_localidad_tv_origenes
+- TableView<ModeloPaisYProvinciaYLocalidadYCodigoPostal> tv_origenes
+~ void cerrarVentana()
+~ void mostrarTablaPaisesYProvinciasYCodigosPostales()
+- void funcionDobleClickParaTableViewPaisesYProvinciasYLocalidadesYCodigosPostales()
++ void initialize(URL,ResourceBundle)
+}
+
+
+class es.israeldelamo.transportes.controladores.SeleccionDestinosController {
+- {static} Logger logger
+- ModeloPaisYProvinciaYLocalidadYCodigoPostal paisYProvinciaYLocalidadYCodigoPostalSeleccionadoTemporalDesdeDobleClick
+- TableColumn<ModeloPaisYProvinciaYLocalidadYCodigoPostal,String> tc_codigpostal_tv_origenes
+- TableColumn<ModeloPaisYProvinciaYLocalidadYCodigoPostal,String> tc_pais_tv_origenes
+- TableColumn<ModeloPaisYProvinciaYLocalidadYCodigoPostal,String> tc_localidad_tv_origenes
+- TableColumn<ModeloPaisYProvinciaYLocalidadYCodigoPostal,String> tc_provincia_tv_origenes
+- TableView<ModeloPaisYProvinciaYLocalidadYCodigoPostal> tv_origenes
+~ void cerrarVentana()
+~ void mostrarTablaPaisesYProvinciasYCodigosPostales()
+- void funcionDobleClickParaTableViewPaisesYProvinciasYLocalidadYCodigosPostales()
++ void initialize(URL,ResourceBundle)
+}
+
+
+class es.israeldelamo.transportes.controladores.VisorAyudaController {
+- {static} Logger logger
+- WebView visor
+- WebEngine webEngine
++ void initialize(URL,ResourceBundle)
+}
+
+
+class es.israeldelamo.transportes.dao.DaoConductor {
+- {static} Logger logger
++ String[] dniArray
++ String[] nombreArray
++ String[] apellidosArray
++ String[] contactoRecogidaArray
++ String[] correoArray
++ String[] telefonoArray
++ java.awt.Image[] imagenesArray
++ {static} ObservableList<ModeloConductor> cargarListadoConductores()
++ {static} boolean actualizarConductor(ModeloConductor)
++ {static} boolean nuevoConductor(ModeloConductor)
++ {static} ObservableList<ModeloConductor> cargarUnConductorConcreto(String)
++ void cargarListadoConductoresAArrays()
+}
+
+
+class es.israeldelamo.transportes.dao.DaoDocumentoCapacitacion {
+- {static} Logger logger
++ {static} ObservableList<ModeloDocumentoCapacitacion> cargarListadoDocumentosCapacitacion()
++ {static} boolean modificarDocumentoCapacitacion(ModeloDocumentoCapacitacion,ModeloDocumentoCapacitacion)
++ {static} boolean nuevoDocumentoCapacitacion(ModeloDocumentoCapacitacion)
++ {static} boolean eliminarDocumentoCapacitacion(String)
++ void cargarListadoDocumentoCapacitaciónAARrays()
+}
+
+
+class es.israeldelamo.transportes.controladores.CrearEnvioController {
+- {static} Logger logger
+- TableView<ModeloCargaYEntrega> tvCargasYEntregas
+- TableColumn<ModeloCargaYEntrega,String> tc_cod_carga
+- TableColumn<ModeloCargaYEntrega,Date> tc_franja_horario_recogida
+- TableColumn<ModeloCargaYEntrega,Date> tc_franja_horario_entrega
+- TableColumn<ModeloCargaYEntrega,Integer> tc_dimension_l
+- TableColumn<ModeloCargaYEntrega,Integer> tc_peso_unitario
+- TableColumn<ModeloCargaYEntrega,Boolean> tc_manipulacion_carga_bool
+- TableColumn<ModeloCargaYEntrega,Boolean> tc_remontable
+- TableColumn<ModeloCargaYEntrega,Boolean> tc_es_naturaleza_peligrosa
+- TableColumn<ModeloCargaYEntrega,Integer> tc_tipo_bulto
+- TableColumn<ModeloCargaYEntrega,Boolean> tc_doble_conductor
+- TableColumn<ModeloCargaYEntrega,Boolean> tc_carga_completa_o_grupaje
+- TableColumn<ModeloCargaYEntrega,Boolean> tc_necesita_rampa
+- TableColumn<ModeloCargaYEntrega,String> tc_NATURALEZAS_PELIGROSAS_cod_naturaleza_peligrosa
+- TableColumn<ModeloCargaYEntrega,String> tc_pais_origen
+- TableColumn<ModeloCargaYEntrega,String> tc_provincia_origen
+- TableColumn<ModeloCargaYEntrega,String> tc_localidad_origen
+- TableColumn<ModeloCargaYEntrega,String> tc_cp_origen
+- TableColumn<ModeloCargaYEntrega,String> tc_pais_destino
+- TableColumn<ModeloCargaYEntrega,String> tc_provincia_destino
+- TableColumn<ModeloCargaYEntrega,String> tc_localidad_destino
+- TableColumn<ModeloCargaYEntrega,String> tc_cp_destino
+- TableColumn<ModeloCargaYEntrega,String> tc_instrucciones
+- TableColumn<ModeloCargaYEntrega,String> tc_reembolso_cantidad
+- TableColumn<ModeloCargaYEntrega,Boolean> tc_con_vuelta
+- TableColumn<ModeloCargaYEntrega,String> tc_precio
+- TableColumn<ModeloCargaYEntrega,String> tc_seguro
+- TableColumn<ModeloCargaYEntrega,Boolean> tc_es_adr
+- TableColumn<ModeloCargaYEntrega,Boolean> tc_es_atp
+- TableColumn<ModeloCargaYEntrega,Integer> tc_cantidad_bultos
+- ComboBox<ModeloVehiculo> cbx_elegir_vehiculo
+- TextField tf_cod_vehiculo_vehiculo
+- TextField tf_mma_vehiculo
+- TextField tf_dim_a_vehiculo
+- TextField tf_dim_l_vehiculo
+- TextField tf_dim_h_vehiculo
+- TextField tf_carga_util_vehiculo
+- TextField tf_sistema_carga_vehiculo
+- TextField tf_estipulacion_vehiculo
+- TextField tf_descripcion_sistema_carga_vehiculo
+- CheckBox cb_carga_superior_vehiculos
+- CheckBox cb_carga_lateral_vehiculos
+- CheckBox cb_lolo_vehiculos
+- CheckBox cb_rampa_vehiculos
+- CheckBox cb_adr_vehiculos
+- CheckBox cb_atp_vehiculos
+- TextField tf_dni_conductor
+- TextField tf_nombre_conductor
+- TextField tf_apellido_conductor
+- TextField tf_pais_conductor
+- TextField tf_provincia_conductor
+- TextField tf_localidad_conductor
+- TextField tf_cp_conductor
+- TextField tf_contacto_conductor
+- TextField tf_correo_conductor
+- TextField tf_tipo_carnet
+- CheckBox cb_internacional_conductor
+- TextField tf_telefono_conductor
+- ImageView img_foto_conductor
+- String elFiltroSQLRecibido
+- String dniPasadoDesdeGestionVehiculos
+- String cadenPasadaDesdeGestionVehiculos
+- {static} ModeloConductor elConductorCargado
+- {static} ModeloVehiculo elVehiculoQueHeLeido
++ {static} void cargarElConductorElegido(String)
+- void funcionDobleClickParaTableViewCargaYEntrega()
+- void lanzarInformePDFConLaReservaHecha(ModeloConductor,ModeloVehiculo,int)
+~ void crearUnInformeDeLaReservaReciente()
++ void realizarReserva(ModeloConductor,ModeloVehiculo,ModeloCargaYEntrega)
+~ void mostrarTablaCargarYEntregas()
++ void rellenarDatosConductor()
++ void rellenarDatosVehiculo()
++ void cargaElSQLDesdeLaPantallaGestionVehiculo(String)
++ void inicializarLaEscenaConDatosPasados(String,String)
+~ void salir_app()
+~ void mi_salir_del_todo()
+}
+
+
+class es.israeldelamo.transportes.modelos.ModeloTipoDeBulto {
+- {static} Logger logger
+- int cod_tipo_bulto
+- String nombre_bulto
+- Blob imagen_bulto
++ Blob getImagen_bulto()
++ void setImagen_bulto(Blob)
++ int getCod_tipo_bulto()
++ void setCod_tipo_bulto(int)
++ String getNombre_bulto()
++ void setNombre_bulto(String)
++ String toString()
+}
+
+
+class es.israeldelamo.transportes.utilidades.DatosCompartidos {
+- {static} Logger logger
+- String informacion
++ String getInformacion()
+}
+
+
+class es.israeldelamo.transportes.utilidades.SeleccionadorImagenDisco {
+- {static} Logger logger
+- InputStream imagen
+}
+
+class es.israeldelamo.transportes.modelos.ModeloConductorTieneVehiculo {
+- {static} Logger logger
+- String conductor_dni
+- String vehiculos_cod_vehiculo
++ String getConductor_dni()
++ void setConductor_dni(String)
++ String getVehiculos_cod_vehiculo()
++ void setVehiculos_cod_vehiculo(String)
++ String toString()
++ boolean equals(Object)
++ int hashCode()
+}
+
+
+class es.israeldelamo.transportes.utilidades.VehiculoConverter {
+- {static} Logger logger
++ String toString(ModeloVehiculo)
++ ModeloVehiculo fromString(String)
+}
+
+
+class es.israeldelamo.transportes.dao.DaoPaisYProvincia {
+- {static} Logger logger
++ {static} ObservableList<ModeloPaisYProvincia> cargarListadoProvincias()
++ {static} ObservableList<ModeloPaisYProvincia> cargarListadoProvincias(String)
++ {static} boolean modificarProvincia(ModeloPaisYProvincia,ModeloPaisYProvincia)
++ {static} boolean nuevoPaisYProvincia(ModeloPaisYProvincia)
++ {static} boolean eliminarProvincia(ModeloPaisYProvincia)
+}
+
+
+class es.israeldelamo.transportes.dao.DaoCargaYEntrega {
+- {static} Logger logger
++ {static} void marcarComoPedido(String,int)
++ {static} int buscar_cod_carga_mas_alto()
++ {static} ObservableList<ModeloCargaYEntrega> cargarListadoEntregaYCargaSQL(String,boolean)
++ {static} ObservableList<ModeloCargaYEntrega> cargarListadoEntregaYCarga()
++ {static} boolean modificarModeloCargaYEntrega(Integer,ModeloCargaYEntrega)
++ {static} boolean nuevoModeloCargaYEntrega(ModeloCargaYEntrega)
++ {static} boolean eliminarModeloCargaYEntrega(String)
+}
+
+
+class es.israeldelamo.transportes.dao.DaoTipoDeCarnet {
+- {static} Logger logger
++ String[] tipoDeCarnetArray
++ {static} ObservableList<ModeloDeCarnet> cargarTiposDeCarnets()
++ {static} boolean nuevoCarnet(ModeloDeCarnet)
++ {static} boolean modificarCarnet(ModeloDeCarnet,String)
++ void cargarListadoTiposDeCarnetArray()
++ {static} boolean borrarTipoDeCarnet(ModeloDeCarnet)
+}
+
+
+class es.israeldelamo.transportes.utilidades.PaisYProvinciaLocalidadStringConverter {
+- {static} Logger logger
++ String toString(ModeloPaisYProvinciaYLocalidad)
++ ModeloPaisYProvinciaYLocalidad fromString(String)
+}
+
+
+class es.israeldelamo.transportes.controladores.GestionGerenteController {
+- {static} Logger logger
+- Stage previousStage
+- MenuItem mi_salir
+- GridPane gridCreacionCargas
+- Label lblNaturalezaPeligrosa
+- TableView<ModeloCargaYEntrega> tv_carga_entrega
+- TableColumn<ModeloCargaYEntrega,String> tc_cod_carga
+- TableColumn<ModeloCargaYEntrega,Timestamp> tc_franja_horario_recogida
+- TableColumn<ModeloCargaYEntrega,Timestamp> tc_franja_horario_entrega
+- TableColumn<ModeloCargaYEntrega,Timestamp> tc_fecha_creaccion
+- TableColumn<ModeloCargaYEntrega,Float> tc_dimension_l
+- TableColumn<ModeloCargaYEntrega,Float> tc_dimension_a
+- TableColumn<ModeloCargaYEntrega,Float> tc_dimension_h
+- TableColumn<ModeloCargaYEntrega,Float> tc_peso_unitario
+- TableColumn<ModeloCargaYEntrega,Boolean> tc_manipulacion_carga_bool
+- TableColumn<ModeloCargaYEntrega,Boolean> tc_remontable
+- TableColumn<ModeloCargaYEntrega,Boolean> tc_es_naturaleza_peligrosa
+- TableColumn<ModeloCargaYEntrega,Integer> tc_tipo_bulto
+- TableColumn<ModeloCargaYEntrega,Boolean> tc_doble_conductor
+- TableColumn<ModeloCargaYEntrega,Boolean> tc_carga_completa_o_grupaje
+- TableColumn<ModeloCargaYEntrega,Boolean> tc_necesita_rampa
+- TableColumn<ModeloCargaYEntrega,String> tc_NATURALEZAS_PELIGROSAS_cod_naturaleza_peligrosa
+- TableColumn<ModeloCargaYEntrega,String> tc_pais_origen
+- TableColumn<ModeloCargaYEntrega,String> tc_provincia_origen
+- TableColumn<ModeloCargaYEntrega,String> tc_localidad_origen
+- TableColumn<ModeloCargaYEntrega,String> tc_cp_origen
+- TableColumn<ModeloCargaYEntrega,String> tc_pais_destino
+- TableColumn<ModeloCargaYEntrega,String> tc_provincia_destino
+- TableColumn<ModeloCargaYEntrega,String> tc_localidad_destino
+- TableColumn<ModeloCargaYEntrega,String> tc_cp_destino
+- TableColumn<ModeloCargaYEntrega,String> tc_instrucciones
+- TableColumn<ModeloCargaYEntrega,String> tc_reembolso_cantidad
+- TableColumn<ModeloCargaYEntrega,Boolean> tc_con_vuelta
+- TableColumn<ModeloCargaYEntrega,String> tc_precio
+- TableColumn<ModeloCargaYEntrega,String> tc_seguro
+- TableColumn<ModeloCargaYEntrega,Boolean> tc_es_adr
+- TableColumn<ModeloCargaYEntrega,Boolean> tc_es_atp
+- TableColumn<ModeloCargaYEntrega,Integer> tc_cantidad_bultos
+- TextField tf_codigo_carga_tab_carga_entrega
+- DatePicker dp_fecha_creaccion
+- DatePicker dp_dia_inicio_carga_entrega
+- DatePicker dp_dia_fin_carga_entrega
+- TextField tf_hora_inicio_carga_entrega
+- TextField tf_hora_fin_carga_entrega
+- CheckBox cxbx_manipulacion_carga_entrega
+- ComboBox<ModeloNaturalezasPeligrosas> combo_naturaleza_peligrosa_carga_entrega
+- ComboBox<ModeloTipoDeBulto> combo_tipo_bulto_carga_entrega
+- ComboBox<ModeloPais> combo_pais_origen_carga_entrega
+- ComboBox<ModeloPaisYProvincia> combo_provincia_origen_carga_entrega
+- ComboBox<ModeloPaisYProvinciaYLocalidad> combo_localidad_origen_carga_entrega
+- ComboBox<ModeloPaisYProvinciaYLocalidadYCodigoPostal> combo_cp_origen_carga_entrega
+- ModeloCargaYEntrega cargaYEntregaTemporalDesdeDobleClick
+- ModeloPaisYProvinciaYLocalidadYCodigoPostal ambitoOrigenTemporal
+- ModeloPaisYProvinciaYLocalidadYCodigoPostal ambitoDestinoTemporal
++ void setPreviousStage(Stage)
+~ void salir_app(ActionEvent)
+~ void comb_pais_origen_cambio()
+~ void comb_pais_destino_cambio()
+~ void comb_provincia_origen_cambio()
+~ void comb_provincia_destino_cambio()
+~ void comb_localidad_origen_cambio()
+~ void comb_localidad_destino_cambio()
+~ void mostrarTablaCargaYEntrega()
+- void funcionDobleClickTableViewCargaYEntrega()
+- void rellenarComboPaises(ComboBox<ModeloPais>,String)
+- void rellenarComboProvincias(ComboBox<ModeloPaisYProvincia>,String,String)
+- void rellenarComboLocalidades(ComboBox<ModeloPaisYProvinciaYLocalidad>,String,String,String)
+- void relleneComboBoxTipoDeBulto()
+- void relleneComboBoxNaturalezaPeligrosa()
+- void rellenaComboBoxesPaises()
+- void rellenaComboBoxProvinciasOrigenes()
+- void rellenaComboBoxProvinciasDestinos()
+- void rellenaComboBoxLocalidadesOrigenes()
+- void rellenaComboBoxLocalidadesDestinos()
+- void rellenaComboBoxCPDestino()
+- void rellenaComboBoxCPOrigen()
+- void clickEnAdr()
+- void clickEnAtp()
+- void onBotonBorrarCargaEntrega()
+- void onBotonModificarCargaEntrega()
+- boolean veririficarCamposObligatorios()
+- void onBotonNuevaCargaEntrega()
+- void onBotonLimpiarCargaEntrega()
+- void limpiarGridPane(GridPane)
++ void initialize(URL,ResourceBundle)
+}
+
+
+class es.israeldelamo.transportes.modelos.ModeloPaisYProvincia {
+- {static} Logger logger
+- String pais
+- String provincia
++ String getPais()
++ String getProvincia()
++ void setPais(String)
++ void setProvincia(String)
++ String toString()
+}
+
+
+class es.israeldelamo.transportes.modelos.ModeloVehiculo {
+- {static} Logger logger
+- String cod_vehiculo
+- float MMA
+- float dimension_A
+- float dimension_L
+- float dimension_H
+- float carga_util
+- String cod_tipo_vehiculo
++ String getCod_tipo_vehiculo()
++ void setCod_tipo_vehiculo(String)
++ float getCarga_util()
++ void setCarga_util(float)
++ String getCod_vehiculo()
++ void setCod_vehiculo(String)
++ float getMMA()
++ void setMMA(float)
++ float getDimension_A()
++ void setDimension_A(float)
++ float getDimension_L()
++ void setDimension_L(float)
++ float getDimension_H()
++ void setDimension_H(float)
+}
+
+
+class es.israeldelamo.transportes.modelos.ModeloEmpresa {
+- {static} Logger logger
+- Integer cp
+- String cif
+- String nombre
+- String domicilio
+- String pais
+- String provincia
+- String localidad
+- String correo
+- String telefono
+- String persona_contacto
++ Integer getCp()
++ void setCp(Integer)
++ String getCorreo()
++ void setCorreo(String)
++ String getTelefono()
++ void setTelefono(String)
++ String getPersona_contacto()
++ void setPersona_contacto(String)
++ String getCif()
++ void setCif(String)
++ String getNombre()
++ void setNombre(String)
++ String getDomicilio()
++ void setDomicilio(String)
++ String getPais()
++ void setPais(String)
++ String getProvincia()
++ void setProvincia(String)
++ String getLocalidad()
++ void setLocalidad(String)
++ Integer getCP()
++ void setCP(Integer)
+}
+
+
+class es.israeldelamo.transportes.utilidades.NaturalezaPeligrosaStringConverter {
+- {static} Logger logger
++ String toString(ModeloNaturalezasPeligrosas)
++ ModeloNaturalezasPeligrosas fromString(String)
+}
+
+
+class es.israeldelamo.transportes.utilidades.ModeloTipoDeBultoStringConverter {
+- {static} Logger logger
++ String toString(ModeloTipoDeBulto)
++ ModeloTipoDeBulto fromString(String)
+}
+
+
+class es.israeldelamo.transportes.dao.DaoEmpresa {
+- {static} Logger logger
++ String[] cifArray
++ String[] nombreArray
++ String[] domicilioArray
++ String[] paisArray
++ String[] provinciaArray
++ String[] localidadArray
++ String[] cpArray
++ {static} ObservableList<ModeloEmpresa> cargarListadoEmpresas()
++ {static} boolean modificarEmpresa(ModeloEmpresa,ModeloEmpresa)
++ {static} boolean nuevaEmpresa(ModeloEmpresa)
++ {static} boolean eliminarEmpresa(ModeloEmpresa)
+}
+
+
+class es.israeldelamo.transportes.dao.DaoTipoDeBulto {
+- {static} Logger logger
++ {static} ObservableList<ModeloTipoDeBulto> cargarListadTiposDeBultos()
++ {static} boolean eliminarTipoDeBulto(ModeloTipoDeBulto)
++ {static} boolean nuevoTipoDeBulto(ModeloTipoDeBulto)
++ {static} boolean modificarTipoDeBulto(ModeloTipoDeBulto,ModeloTipoDeBulto)
++ {static} ModeloTipoDeBulto devuelvemeElTipoDeBultoCompletoPorCodigo(int)
+}
+
+
+class es.israeldelamo.transportes.modelos.ModeloDocumentoCapacitacion {
+- {static} Logger logger
+- String cod_capacitacion
+- Float peligrosidad
+- Blob foto
++ String getCod_capacitacion()
++ void setCod_capacitacion(String)
++ Float getPeligrosidad()
++ void setPeligrosidad(Float)
++ Blob getFoto()
++ void setFoto(Blob)
+}
+
+
+class es.israeldelamo.transportes.utilidades.ImageTableCellParaTipoBultos {
+- {static} Logger logger
+- ImageView imageView
+# void updateItem(Blob,boolean)
+}
+
+
+class es.israeldelamo.transportes.modelos.ModeloConductor {
+- {static} Logger logger
+- String dni
+- String nombre
+- String apellido
+- String contacto_recogida
+- String correo_electronico
+- Blob foto_humano
+- Boolean es_internacional
+- String nacionalidad
+- Integer codigo_postal
+- String localidad
+- String provincia
+- String pais
+- String motivo_lista_negra
+- String tipo_de_carnet
++ String telefono
++ String getMotivo_lista_negra()
++ void setMotivo_lista_negra(String)
++ String getNacionalidad()
++ void setNacionalidad(String)
++ String getTelefono()
++ void setTelefono(String)
++ String getDni()
++ void setDni(String)
++ String getNombre()
++ void setNombre(String)
++ String getApellido()
++ void setApellido(String)
++ String getContacto_recogida()
++ void setContacto_recogida(String)
++ String getCorreo_electronico()
++ void setCorreo_electronico(String)
++ Blob getFoto_humano()
++ void setFoto_humano(Blob)
++ Boolean getEs_internacional()
++ void setEs_internacional(Boolean)
++ String getLocalidad()
++ void setLocalidad(String)
++ Integer getCodigo_postal()
++ void setCodigo_postal(Integer)
++ void setPais_conductor(String)
++ String getTipo_de_carnet()
++ void setTipo_de_carnet(String)
++ String getProvincia()
++ void setProvincia(String)
++ String getPais()
++ void setPais(String)
++ String toString()
+}
+
+
+class es.israeldelamo.transportes.modelos.ModeloDeCarnet {
+- {static} Logger logger
+- String TipoDeCarnet
++ String getTipoDeCarnet()
++ void setTipoDeCarnet(String)
++ String toString()
++ int hashCode()
++ boolean equals(Object)
+}
+
+
+class es.israeldelamo.transportes.dao.DaoLogin {
+- {static} Logger logger
++ String[] nameArray
++ String[] passArray
++ String[] rollArray
++ {static} ObservableList<ModeloLogin> cargarListadoLogins()
++ {static} boolean modificarLogin(ModeloLogin,String)
++ {static} boolean borrarLogin(ModeloLogin)
++ {static} boolean nuevoLogin(ModeloLogin)
++ {static} boolean eliminarLogin(ModeloLogin)
+}
+
+
+class es.israeldelamo.transportes.dao.DaoConductorTieneVehiculo {
+- {static} Logger logger
++ String[] cod_vehiculoArray
++ String[] cod_conductorArray
++ {static} ObservableList<ModeloConductorTieneVehiculo> cargarListadoConductorTieneVehiculo()
++ {static} boolean modificarConductorTieneVehiculo(ModeloConductorTieneVehiculo,String)
++ {static} boolean nuevoConductorTieneVehiculo(ModeloConductorTieneVehiculo)
++ void cargarListadoConductoresTienenVehiculoAArrays()
++ {static} ObservableList<ModeloVehiculo> cargarListadoDeVehiculosQueTieneUnConductor(String)
++ {static} boolean borrarConductoresTienenVehiculo(ModeloConductorTieneVehiculo)
+}
+
+
+class es.israeldelamo.transportes.modelos.ModeloCargaYEntrega {
+- {static} Logger logger
+- int cod_carga
+- Timestamp franja_horario_recogida
+- Timestamp franja_horario_entrega
+- Timestamp fecha_creaccion
+- Float dimension_l
+- Float dimension_a
+- Float dimension_h
+- Float peso_unitario
+- Boolean manipulacion_carga_bool
+- Boolean remontable
+- Boolean doble_conductor
+- Boolean carga_completa_o_grupaje
+- Boolean necesita_rampa
+- Float cod_naturaleza_peligrosa
+- String localidad_origen
+- String provincia_origen
+- String pais_origen
+- Integer cp_origen
+- String localidad_destino
+- String provincia_destino
+- String pais_destino
+- Integer cp_destino
+- String instrucciones
+- String reembolso_cantidad
+- Boolean con_vuelta
+- String precio
+- String seguro
+- Boolean es_adr
+- Boolean es_atp
+- Integer tipo_bulto
+- Boolean ya_reservado
+- Integer cantidad_bultos
++ Timestamp getFecha_creaccion()
++ Integer getCantidad_bultos()
++ void setCantidad_bultos(Integer)
++ Boolean getYa_reservado()
++ void setYa_reservado(Boolean)
++ String getLocalidad_origen()
++ void setLocalidad_origen(String)
++ String getProvincia_origen()
++ void setProvincia_origen(String)
++ String getPais_origen()
++ void setPais_origen(String)
++ Integer getCp_origen()
++ void setCp_origen(Integer)
++ String getLocalidad_destino()
++ void setLocalidad_destino(String)
++ String getProvincia_destino()
++ void setProvincia_destino(String)
++ String getPais_destino()
++ void setPais_destino(String)
++ Integer getCp_destino()
++ void setCp_destino(Integer)
++ String getInstrucciones()
++ void setInstrucciones(String)
++ String getReembolso_cantidad()
++ void setReembolso_cantidad(String)
++ void setCod_naturaleza_peligrosa(Float)
++ Boolean getCon_vuelta()
++ void setCon_vuelta(Boolean)
++ String getPrecio()
++ void setPrecio(String)
++ String getSeguro()
++ void setSeguro(String)
++ Boolean getEs_adr()
++ void setEs_adr(Boolean)
++ Boolean getEs_atp()
++ void setEs_atp(Boolean)
++ String toString()
++ String toStringParaAlertas()
++ Timestamp getFranja_horario_recogida()
++ void setFranja_horario_recogida(Timestamp)
++ Timestamp getFranja_horario_entrega()
++ void setFranja_horario_entrega(Timestamp)
++ Float getDimension_l()
++ void setDimension_l(Float)
++ Float getDimension_a()
++ void setDimension_a(Float)
++ Float getDimension_h()
++ void setDimension_h(Float)
++ Float getPeso_unitario()
++ void setPeso_unitario(Float)
++ Boolean getManipulacion_carga_bool()
++ void setManipulacion_carga_bool(Boolean)
++ Boolean getRemontable()
++ void setRemontable(Boolean)
++ Integer getTipo_bulto()
++ void setTipo_bulto(Integer)
++ Boolean getDoble_conductor()
++ void setDoble_conductor(Boolean)
++ Boolean getCarga_completa_o_grupaje()
++ void setCarga_completa_o_grupaje(Boolean)
++ Boolean getNecesita_rampa()
++ void setNecesita_rampa(Boolean)
++ Float getCod_naturaleza_peligrosa()
++ int getCod_carga()
++ void setCod_carga(int)
+}
+
+
+class es.israeldelamo.transportes.dao.DaoVehiculo {
+- {static} Logger logger
++ String[] cod_vehiculo_Array
++ Float[] mma_Array
++ Float[] din_a_Array
++ Float[] din_l_Array
++ Float[] din_h_Array
++ Float[] carga_util_Array
++ String[] cod_tipo_vehiculo_Array
++ {static} ObservableList<ModeloVehiculo> cargarListadoVehiculos()
++ {static} boolean nuevoVehiculo(ModeloVehiculo)
++ {static} boolean modificarVehiculo(ModeloVehiculo,String)
++ {static} boolean elminarVehiculo(ModeloVehiculo)
+}
+
+
+class es.israeldelamo.transportes.modelos.ModeloPaisYProvinciaYLocalidadYCodigoPostal {
+- {static} Logger logger
+- Integer codigoPostal
+- String localidad
+- String provincia
+- String pais
++ String getPais()
++ void setPais(String)
++ String getProvincia()
++ void setProvincia(String)
++ Integer getCodigoPostal()
++ void setCodigoPostal(Integer)
++ String getLocalidad()
++ void setLocalidad(String)
++ String toString()
+}
+
+
+class es.israeldelamo.transportes.Iniciografico {
+- {static} Logger logger
++ void start(Stage)
++ {static} void main(String[])
+}
+
+
+class es.israeldelamo.transportes.utilidades.PaisYProvinciaStringConverter {
+- {static} Logger logger
++ String toString(ModeloPaisYProvincia)
++ ModeloPaisYProvincia fromString(String)
+}
+
+
+class es.israeldelamo.transportes.modelos.ModeloTipoDeVehiculo {
+- {static} Logger logger
+- String cod_tipo_vehiculo
+- Boolean es_carga_lateral
+- Boolean es_carga_superior
+- Boolean es_LOLO_o_RORO
+- String estipulacion
+- Blob foto
+- String instrucciones
+- Boolean puede_atp
+- Boolean puede_adr
+- Integer cod_sistema_carga
+- Boolean tiene_rampa
++ String getCod_tipo_vehiculo()
++ void setCod_tipo_vehiculo(String)
++ Boolean getEs_carga_lateral()
++ void setEs_carga_lateral(Boolean)
++ Boolean getEs_carga_superior()
++ void setEs_carga_superior(Boolean)
++ Boolean getEs_LOLO_o_RORO()
++ void setEs_LOLO_o_RORO(Boolean)
++ String getEstipulacion()
++ void setEstipulacion(String)
++ Blob getFoto()
++ void setFoto(Blob)
++ String getInstrucciones()
++ void setInstrucciones(String)
++ Boolean getPuede_atp()
++ void setPuede_atp(Boolean)
++ Boolean getPuede_adr()
++ void setPuede_adr(Boolean)
++ Integer getCod_sistema_carga()
++ void setCod_sistema_carga(Integer)
++ Boolean getTiene_rampa()
++ void setTiene_rampa(Boolean)
++ String toString()
+}
+
+
+class es.israeldelamo.transportes.utilidades.ImageViewABlob {
+- {static} Logger logger
++ {static} Blob conversorImageViewABlob(ImageView)
++ {static} Image convertBlobAImagen(Blob)
++ {static} BufferedImage convertBlobToImage(Blob)
+}
+
+
+class es.israeldelamo.transportes.dao.DaoPais {
+- {static} Logger logger
++ {static} ObservableList<ModeloPais> cargarListadoPaises()
++ {static} boolean modificarPais(ModeloPais,String)
++ {static} boolean nuevoPais(ModeloPais)
++ {static} boolean eliminarPais(ModeloPais)
+}
+
+
+class es.israeldelamo.transportes.bbdd.Propiedades {
+- {static} Logger logger
+- {static} Properties props
++ {static} String getValor(String)
+}
+
+
+class es.israeldelamo.transportes.controladores.LoginController {
+- {static} Logger logger
+- Button btn_salir
+- PasswordField fld_passw
+- TextField fld_user
+- void logeoAdministrador()
+~ void mostrarAyuda()
+~ void salirDeLaApp()
+~ void logueoConductor()
+~ void logueoGestor()
+~ boolean validarLogin(String)
+- void abreLaVentanaDe(String)
++ void initialize(URL,ResourceBundle)
+}
+
+
+class es.israeldelamo.transportes.controladores.GestionVehiculoController {
+- {static} Logger logger
+- Stage previousStage
+- MenuItem mi_salir
++ {static} ObservableList<ModeloPaisYProvinciaYLocalidadYCodigoPostal> daoPaisesYProvinciasYLocalidadesYCodigosPostales_origenes_Seleccionados
++ {static} ObservableList<ModeloPaisYProvinciaYLocalidadYCodigoPostal> daoPaisesYProvinciasYLocalidadesYCodigosPostales_destinos_Seleccionados
+- ModeloPaisYProvinciaYLocalidadYCodigoPostal paisYProvinciaYCodigoPostalSeleccionadoTemporalDesdeDobleClick
+- Button btn_anyadir_mas_origenes
+- Button btn_eliminar_origenes_seleccioandos
+- String elConductor
+- String cadenaSQLAenviar
+- TableColumn<ModeloPaisYProvinciaYLocalidadYCodigoPostal,String> tc_codigpostal_tv_origenes
+- TableColumn<ModeloPaisYProvinciaYLocalidadYCodigoPostal,String> tc_localidad_tv_origenes
+- TableColumn<ModeloPaisYProvinciaYLocalidadYCodigoPostal,String> tc_provincia_tv_origenes
+- TableColumn<ModeloPaisYProvinciaYLocalidadYCodigoPostal,String> tc_pais_tv_origenes
+- TableView<ModeloPaisYProvinciaYLocalidadYCodigoPostal> tv_origenes
+- Button btn_anyadir_mas_destinos
+- Button btn_eliminar_destinos_seleccioandos
+- TableColumn<ModeloPaisYProvinciaYLocalidadYCodigoPostal,String> tc_codigpostal_tv_destinos
+- TableColumn<ModeloPaisYProvinciaYLocalidadYCodigoPostal,String> tc_localidad_tv_destinos
+- TableColumn<ModeloPaisYProvinciaYLocalidadYCodigoPostal,String> tc_provincia_tv_destinos
+- TableColumn<ModeloPaisYProvinciaYLocalidadYCodigoPostal,String> tc_pais_tv_destinos
+- TableView<ModeloPaisYProvinciaYLocalidadYCodigoPostal> tv_destinos
+- ComboBox<ModeloNaturalezasPeligrosas> cmbbx_naturaleza_tv_origenes
+- DatePicker dp_dia_inicio
+- DatePicker dp_dia_fin
+- TextField tf_hora_inicio
+- TextField tf_hora_fin
+- Button btn_cerrar
+- MenuItem menuAyuda
+- CheckBox cbxADR
+- CheckBox cbxATP
+- CheckBox cbxCargaCompleta
+- CheckBox cbxDobleConductor
+- CheckBox cbxIdaYVuelta
+- CheckBox cbxVehiculoConRampa
+- StringBuilder cadenaOrigenes
+- StringBuilder cadenaDestinos
+- StringBuilder disponibilidadDeCargaDe
+- StringBuilder disponibilidadDeCargaA
+- StringBuilder idaYVuelta
+- StringBuilder conRampa
+- StringBuilder dblConductor
+- StringBuilder esAdr
+- StringBuilder esAtp
+- StringBuilder esCompleta
+- StringBuilder tieneNaturaleza
+- String SentenciaSQLParaEnvioController
+- VBox cuadranteNaturalezaMercancia
++ void setPreviousStage(Stage)
+~ void salir_app(ActionEvent)
+~ boolean verificarHoraReal(String)
+~ void mostrarAyuda(ActionEvent)
+~ void mostrarTablaPaisesYProvinciasYLocalidadesYCodigosPostalesOrigen()
+~ void mostrarTablaPaisesYProvinciasYLocalidadesYCodigosPostalesDestino()
+~ void mostrarNaturalezasPeligrosasEnComboBox()
+~ void clickEnATPRaton(MouseEvent)
+~ void clickEnATPTeclado(KeyEvent)
+~ void clickEnADRRaton(MouseEvent)
+~ void clickEnADRTeclado(KeyEvent)
+~ void anyadir_destinos(ActionEvent)
+~ void anyadir_origenes(ActionEvent)
+- void limpiarTodaLaPantalla()
+~ void borrar_origenes(ActionEvent)
+~ void borrar_destinos(ActionEvent)
+~ void mostrar_acercade(ActionEvent)
+~ void mostrarTodoSinFiltrar(ActionEvent)
+- void lanzarPantallaCrearNuevoEnvio(String)
+- void filtrarPorOpciones()
++ void initialize(URL,ResourceBundle)
++ void pasoDeParametros(String)
+- Text textoEnNegrita(String)
+- Text textoNormal(String)
++ void mostrarAlertaConCuerpoHTML()
+}
+
+
+class es.israeldelamo.transportes.modelos.ModeloConductoTieneDocuCapac {
+- {static} Logger logger
+- String dni_conductor
+- String cod_capacitacion
+- float doc_capac_cod_naturaleza
++ String getDni_conductor()
++ void setDni_conductor(String)
++ String getCod_capacitacion()
++ void setCod_capacitacion(String)
++ float getDoc_capac_cod_naturaleza()
++ void setDoc_capac_cod_naturaleza(float)
++ boolean equals(Object)
++ int hashCode()
++ String toString()
+}
+
+
+class es.israeldelamo.transportes.modelos.ModeloEnvioUnico {
+- {static} Logger logger
+- String cod_tracking
+- int cod_carga_entrega
+- String cod_conductor
+- String cod_vehiculo
++ String getCod_tracking()
++ void setCod_tracking(String)
++ int getCod_carga_entrega()
++ void setCod_carga_entrega(int)
++ String getCod_conductor()
++ void setCod_conductor(String)
++ String getCod_vehiculo()
++ void setCod_vehiculo(String)
++ int hashCode()
++ String toString()
+}
+
+
+class es.israeldelamo.transportes.utilidades.PaisStringConverter {
+- {static} Logger logger
++ String toString(ModeloPais)
++ ModeloPais fromString(String)
+}
+
+
+class es.israeldelamo.transportes.modelos.ModeloEnvio {
+- {static} Logger logger
+- String cod_tracking
+- int cod_carga_entrega
+- String cod_conductor
+- String cod_vehiculo
++ String getCod_tracking()
++ void setCod_tracking(String)
++ int getCod_carga_entrega()
++ void setCod_carga_entrega(int)
++ String getCod_conductor()
++ void setCod_conductor(String)
++ String getCod_vehiculo()
++ void setCod_vehiculo(String)
++ int hashCode()
++ String toString()
+}
+
+
+class es.israeldelamo.transportes.utilidades.EnvioCorreos {
+- {static} Logger logger
++ {static} void lanzaUnCorreoDeNoCargas(String)
+}
+
+
+class es.israeldelamo.transportes.controladores.ModificarConductorController {
+- {static} Logger logger
+- TextField tf_contacto_modal_conductor
+- TextField tf_correo_modal_conductor
+- TextField tf_dni_modal_conductor
+- TextField tf_apellidos_modal_conductor
+- TextField tf_nombre_modal_conductor
+- TextField tf_telefono_modal_conductor
+- TextField tf_negra_modal_conductor
+- Button btn_cancelar_modal_conductor
+- Button btn_modificar_modal_conductor
+- CheckBox ckbx_es_inter_modal_conductor
+- Button btn_carga_imagen_conductor
+- ComboBox<ModeloPais> cmb_pais_modal_conductor
+- ComboBox<ModeloPaisYProvincia> cmbbx_provincia_modal
+- ComboBox<ModeloPaisYProvinciaYLocalidad> cmb_localidad_modal_conductor
+- ComboBox<ModeloPaisYProvinciaYLocalidadYCodigoPostal> cmb_cp_modal_conductor
+- ComboBox<ModeloPais> cmb_nacionalidad_modal_conductor
+- ComboBox<ModeloDeCarnet> cmb_tipo_carnet_modal_conductor
+- ImageView img_foto_modal_conductor
+- ModeloConductor modeloConductorCambiado
+~ void salirDeLaVentanaModal()
+~ void cambioEnEsInternacional()
+~ void cambioEntf_telefono_modal_conductor()
+~ void cambioEntf_correo_modal_conductor()
+~ void cambioEntf_contacto_modal_conductor()
+~ void cambioEntf_dni_modal_conductor()
+~ void onKeyPressCampoNombre()
+~ void cambioEntf_apellidos_modal_conductor()
+~ void cambioEntf_negra_modal_conductor()
+~ void cmb_nacionalidad_modal_cambio()
+~ void cmb_pais_modal_cambio()
+~ void cmbbx_provincia_cambio()
+~ void cmb_localidad_modal_cambio()
+~ void cmb_codigo_postal_modal_cambio()
+- void rellenaComboBoxNacionalidad(ModeloConductor)
+- void rellenaComboBoxPais(ModeloConductor)
+- void rellenaComboBoxProvincias(ModeloConductor)
+- void rellenaComboBoxLocalidades(ModeloConductor)
+- void rellenaComboBoxCodigoPostales(ModeloConductor)
+- void rellenarComboBoxTipoCarnet(ModeloConductor)
+- void cargarImagenCarnet(ModeloConductor)
+- void modificar_modal_conductor()
+- void nuevo_modal_conductor()
+- void seleccionarImagenModificarConductor()
+- void seleccionarImagenNuevoConductor()
+~ void cargarUnConductorConcreto(ModeloConductor)
++ void initialize(URL,ResourceBundle)
+}
+
+
+class es.israeldelamo.transportes.modelos.ModeloPaisYProvinciaYLocalidad {
+- {static} Logger logger
+- String localidad
+- String provincia
+- String pais
++ String getPais()
++ String getProvincia()
++ String getLocalidad()
++ void setPais(String)
++ void setProvincia(String)
++ void setLocalidad(String)
++ String toString()
+}
+
+
+class es.israeldelamo.transportes.bbdd.ConexionBD {
+- {static} Logger logger
+- Connection conexion
++ Connection getConexion()
++ Connection CloseConexion()
+}
+
+
+
+
+javafx.scene.control.TableCell <|-- es.israeldelamo.transportes.utilidades.ImageTableCellParaDocumentosCapacitacion
+javafx.fxml.Initializable <|.. es.israeldelamo.transportes.controladores.GestionAdministradorController
+javafx.scene.control.TableCell <|-- es.israeldelamo.transportes.utilidades.ImageTableCellParaConductores
+javafx.util.StringConverter <|-- es.israeldelamo.transportes.utilidades.PaisYProvinciaYLocalidadYCodigoPostalStringConverter
+javafx.scene.control.TableCell <|-- es.israeldelamo.transportes.utilidades.ImageTableCellParaTipoDeVehiculos
+javafx.fxml.Initializable <|.. es.israeldelamo.transportes.controladores.SeleccionOrigenesController
+javafx.fxml.Initializable <|.. es.israeldelamo.transportes.controladores.SeleccionDestinosController
+javafx.fxml.Initializable <|.. es.israeldelamo.transportes.controladores.VisorAyudaController
+javafx.util.StringConverter <|-- es.israeldelamo.transportes.utilidades.VehiculoConverter
+javafx.util.StringConverter <|-- es.israeldelamo.transportes.utilidades.PaisYProvinciaLocalidadStringConverter
+javafx.fxml.Initializable <|.. es.israeldelamo.transportes.controladores.GestionGerenteController
+javafx.util.StringConverter <|-- es.israeldelamo.transportes.utilidades.NaturalezaPeligrosaStringConverter
+javafx.util.StringConverter <|-- es.israeldelamo.transportes.utilidades.ModeloTipoDeBultoStringConverter
+javafx.scene.control.TableCell <|-- es.israeldelamo.transportes.utilidades.ImageTableCellParaTipoBultos
+javafx.application.Application <|-- es.israeldelamo.transportes.Iniciografico
+javafx.util.StringConverter <|-- es.israeldelamo.transportes.utilidades.PaisYProvinciaStringConverter
+javafx.fxml.Initializable <|.. es.israeldelamo.transportes.controladores.LoginController
+javafx.fxml.Initializable <|.. es.israeldelamo.transportes.controladores.GestionVehiculoController
+javafx.util.StringConverter <|-- es.israeldelamo.transportes.utilidades.PaisStringConverter
+javafx.fxml.Initializable <|.. es.israeldelamo.transportes.controladores.ModificarConductorController
+@enduml

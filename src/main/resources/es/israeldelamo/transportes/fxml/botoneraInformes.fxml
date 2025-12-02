@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.layout.*?>
+<GridPane xmlns:fx="http://javafx.com/fxml/1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
+          prefHeight="396.0" prefWidth="600.0" styleClass="..\css\estilos.css"
+          xmlns="http://javafx.com/javafx/21.0.4"
+          fx:controller="es.israeldelamo.transportes.controladores.BotoneraInformesController">
+    <columnConstraints>
+        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" percentWidth="33.0" prefWidth="100.0"/>
+        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" percentWidth="33.0" prefWidth="100.0"/>
+        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" percentWidth="33.0" prefWidth="100.0"/>
+    </columnConstraints>
+    <rowConstraints>
+        <RowConstraints minHeight="10.0" percentHeight="50.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+        <RowConstraints minHeight="10.0" percentHeight="50.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+        <RowConstraints minHeight="10.0" percentHeight="50.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+    </rowConstraints>
+    <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false"
+            onAction="#crearInformeDeUltimos20CargasCreadas" styleClass="btn" stylesheets="@../css/estilos.css"
+            text="20 Últimas Cargas Creadas" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS"
+            GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+        <GridPane.margin>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+        </GridPane.margin>
+        <effect>
+            <DropShadow/>
+        </effect>
+    </Button>
+
+
+    <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false"
+            onAction="#crearInformeDeLogins" styleClass="btn" stylesheets="@../css/estilos.css"
+            text="Usuarios y contraseñas" GridPane.columnIndex="1">
+        <GridPane.margin>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+        </GridPane.margin>
+        <effect>
+            <DropShadow/>
+        </effect>
+    </Button>
+    <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false"
+            onAction="#crearInformeDeCargasPorPaisOrigen" styleClass="btn" stylesheets="@../css/estilos.css"
+            text="Cargas Por Origen" GridPane.columnIndex="2">
+        <GridPane.margin>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+        </GridPane.margin>
+        <effect>
+            <DropShadow/>
+        </effect>
+    </Button>
+    <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false"
+            onAction="#crearInformeDeCargasPorPaisDestino" styleClass="btn" stylesheets="@../css/estilos.css"
+            text="Cargas Por Destino" GridPane.columnIndex="2" GridPane.rowIndex="1">
+        <GridPane.margin>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+        </GridPane.margin>
+        <effect>
+            <DropShadow/>
+        </effect>
+    </Button>
+    <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false"
+            onAction="#crearInformeDeEmpresas" styleClass="btn" stylesheets="@../css/estilos.css" text="Empresas"
+            GridPane.rowIndex="1">
+        <GridPane.margin>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+        </GridPane.margin>
+        <effect>
+            <DropShadow/>
+        </effect>
+    </Button>
+    <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false"
+            onAction="#crearInformeDeConductor" styleClass="btn" stylesheets="@../css/estilos.css" text="Conductores"
+            GridPane.columnIndex="1" GridPane.rowIndex="1">
+        <GridPane.margin>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+        </GridPane.margin>
+        <effect>
+            <DropShadow/>
+        </effect>
+    </Button>
+    <Button layoutX="20.0" layoutY="152.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308"
+            mnemonicParsing="false" onAction="#crearInformeEnviosDetalle" styleClass="btn"
+            stylesheets="@../css/estilos.css" text="Envios en detalle" GridPane.columnIndex="1" GridPane.rowIndex="2">
+        <effect>
+            <DropShadow/>
+        </effect>
+        <GridPane.margin>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+        </GridPane.margin>
+    </Button>
+</GridPane>

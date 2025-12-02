@@ -1,0 +1,2142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.Tooltip?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import org.kordamp.ikonli.javafx.FontIcon?>
+
+<GridPane alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="1049.0" prefWidth="1545.0" stylesheets="@../css/estilos.css" xmlns="http://javafx.com/javafx/24" xmlns:fx="http://javafx.com/fxml/1" fx:controller="es.israeldelamo.transportes.controladores.GestionAdministradorController">
+    <columnConstraints>
+        <ColumnConstraints hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" percentWidth="100.0" />
+    </columnConstraints>
+    <rowConstraints>
+        <RowConstraints percentHeight="3.0" valignment="CENTER" vgrow="NEVER" />
+        <RowConstraints maxHeight="1.7976931348623157E308" percentHeight="3.0" valignment="CENTER" vgrow="SOMETIMES" />
+        <RowConstraints maxHeight="1.7976931348623157E308" percentHeight="94.0" valignment="CENTER" />
+    </rowConstraints>
+    <stylesheets>
+        <URL value="@../css/estilos.css" />
+    </stylesheets>
+    <Label alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" styleClass="h1" stylesheets="@../css/estilos.css" text="Administrador" textAlignment="CENTER" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+        <font>
+            <Font size="33.0" />
+        </font>
+    </Label>
+    <MenuBar maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.valignment="CENTER" GridPane.vgrow="NEVER">
+        <Menu mnemonicParsing="false" text="Archivo">
+            <MenuItem mnemonicParsing="false" onAction="#salir_programa" text="Volver al menú principal" />
+        </Menu>
+        <Menu mnemonicParsing="false" text="Informes">
+            <MenuItem mnemonicParsing="false" onAction="#lanzarVentaInformes" text="Pantalla De Informes" />
+        </Menu>
+        <Menu mnemonicParsing="false" text="Ayuda">
+            <MenuItem fx:id="mi_ayuda" mnemonicParsing="false" onAction="#lanzarVentanaAyuda" text="Ayuda" />
+            <MenuItem mnemonicParsing="false" text="Acerca de" />
+        </Menu>
+    </MenuBar>
+    <TabPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" tabClosingPolicy="UNAVAILABLE" tabMinHeight="30.0" tabMinWidth="70.0" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+        <Tab onSelectionChanged="#cargarTabDocumentosCapacitacion" text="%ControlConductores">
+            <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity">
+                <TabPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="2.0" AnchorPane.leftAnchor="2.0" AnchorPane.rightAnchor="1.0" AnchorPane.topAnchor="2.0">
+                    <padding>
+                        <Insets bottom="10.0" />
+                    </padding>
+                    <Tab fx:id="tab_documento_capacitacion" onSelectionChanged="#cargarTabDocumentosCapacitacion" text="Documentos de Capacitación">
+                        <tooltip>
+                            <Tooltip text="Listado de documentos de capacitación" />
+                        </tooltip>
+                        <AnchorPane>
+                            <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" AnchorPane.bottomAnchor="2.0" AnchorPane.leftAnchor="2.0" AnchorPane.rightAnchor="2.0" AnchorPane.topAnchor="2.0">
+                                <TableView fx:id="tv_documento_capacitacion" VBox.vgrow="ALWAYS">
+                                    <columns>
+                                        <TableColumn fx:id="tc_codigo_capactiaciontv_documento_capacitacion" prefWidth="226.0" text="Código de capacitación" />
+                                        <TableColumn fx:id="tc_peligrosidadtv_documento_capacitacion" minWidth="0.0" prefWidth="184.0" text="Peligrosidad" />
+                                        <TableColumn fx:id="tc_fototv_documento_capacitacion" prefWidth="444.7999572753906" text="Foto del carnet" />
+                                    </columns>
+                                    <VBox.margin>
+                                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                    </VBox.margin>
+                                    <columnResizePolicy>
+                                        <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                    </columnResizePolicy>
+                                </TableView>
+                                <GridPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity">
+                                    <columnConstraints>
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    </columnConstraints>
+                                    <rowConstraints>
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    </rowConstraints>
+                                    <VBox.margin>
+                                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                    </VBox.margin>
+                                    <Label text="Código de capacitación" GridPane.halignment="RIGHT">
+                                        <GridPane.margin>
+                                            <Insets right="10.0" />
+                                        </GridPane.margin>
+                                    </Label>
+                                    <TextField fx:id="tf_codigo_capactiacion_tab_documento_capacitacion" GridPane.columnIndex="1" />
+                                    <Label text="Peligrosidad asociada" GridPane.halignment="RIGHT" GridPane.rowIndex="2">
+                                        <GridPane.margin>
+                                            <Insets right="10.0" />
+                                        </GridPane.margin>
+                                    </Label>
+                                    <Label text="Foto del carnet en regla" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                                        <GridPane.margin>
+                                            <Insets right="10.0" />
+                                        </GridPane.margin>
+                                    </Label>
+                                    <ImageView fx:id="img_foto_tv_documento_capacitacion" fitHeight="119.0" fitWidth="160.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="1">
+                                        <Image url="@../imagenes/imagenNOdisponible.png" />
+                                    </ImageView>
+                                    <Button fx:id="btn_carga_imagen_documento_capacitacion" mnemonicParsing="false" onAction="#seleccionarImagenDocumentoCapacitacion" styleClass="btn" text="Elegir imagen desde el ordenador" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="2">
+                                        <tooltip>
+                                            <Tooltip text="Empty Tooltip" />
+                                        </tooltip>
+                                        <graphic>
+                                            <FontIcon accessibleText="Actualizar" fontSmoothingType="LCD" iconColor="WHITE" iconLiteral="fa-image" iconSize="20" selectionEnd="2" selectionFill="#1b293c" styleClass="h2" />
+                                        </graphic>
+                                    </Button>
+                                    <ComboBox fx:id="cmbx_peligrosidad_tab_documento_capacitacion" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                </GridPane>
+                                <HBox alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" VBox.vgrow="NEVER">
+                                    <VBox.margin>
+                                        <Insets bottom="10.0" top="10.0" />
+                                    </VBox.margin>
+                                    <Button mnemonicParsing="false" onAction="#mostrarTablaDocumentosCapacitacion" styleClass="btn" text="Actualizar tabla">
+                                        <tooltip>
+                                            <Tooltip text="Refresca la tabla" />
+                                        </tooltip>
+                                        <graphic>
+                                            <FontIcon accessibleText="Actualizar" fontSmoothingType="LCD" iconColor="WHITE" iconLiteral="fa-recycle" iconSize="20" selectionEnd="2" selectionFill="#1b293c" styleClass="h2" />
+                                        </graphic>
+                                    </Button>
+
+                                    <Button mnemonicParsing="false" onAction="#onBotonNuevoDocumentoCapacitacion" styleClass="btn" text="Añadir nuevo">
+                                        <tooltip>
+                                            <Tooltip text="Añade a la tabla según los campos de arriba" />
+                                        </tooltip>
+                                        <HBox.margin>
+                                            <Insets />
+                                        </HBox.margin>
+                                        <graphic>
+                                            <FontIcon accessibleText="Actualizar" iconColor="WHITE" iconLiteral="fa-file" iconSize="20" selectionEnd="2" selectionFill="#1b293c" styleClass="h2" />
+                                        </graphic>
+                                    </Button>
+                                    <Button mnemonicParsing="false" onAction="#onBotonModificarDocumentoCapacitacion" styleClass="btn" text="Modificar seleccionado">
+                                        <HBox.margin>
+                                            <Insets />
+                                        </HBox.margin>
+                                        <tooltip>
+                                            <Tooltip text="Empty Tooltip" />
+                                        </tooltip>
+                                        <graphic>
+                                            <FontIcon accessibleText="Actualizar" fontSmoothingType="LCD" iconColor="WHITE" iconLiteral="fa-edit" iconSize="20" selectionEnd="2" selectionFill="#1b293c" styleClass="h2" />
+                                        </graphic>
+                                    </Button>
+                                    <Button mnemonicParsing="false" onAction="#onBotonEliminarDocumentoCapactiacionTabDocumentosCapacitacion" styleClass="btn" text="Eliminar seleccionado">
+                                        <HBox.margin>
+                                            <Insets />
+                                        </HBox.margin>
+                                        <tooltip>
+                                            <Tooltip text="Empty Tooltip" />
+                                        </tooltip>
+                                        <graphic>
+                                            <FontIcon accessibleText="Actualizar" iconColor="WHITE" iconLiteral="fa-eraser" iconSize="22" selectionEnd="2" selectionFill="#1b293c" styleClass="h2" />
+                                        </graphic>
+                                    </Button>
+                                    <Button mnemonicParsing="false" onAction="#onBotonLimpiarTabDocumentoCapacitacion" styleClass="btn" text="Limpiar campos">
+                                        <HBox.margin>
+                                            <Insets />
+                                        </HBox.margin>
+                                        <tooltip>
+                                            <Tooltip text="Empty Tooltip" />
+                                        </tooltip>
+                                        <graphic>
+                                            <FontIcon accessibleText="Actualizar" fontSmoothingType="LCD" iconColor="WHITE" iconLiteral="fa-exchange" iconSize="20" selectionEnd="2" selectionFill="#1b293c" styleClass="h2" />
+                                        </graphic>
+                                    </Button>
+                                </HBox>
+                            </VBox>
+                        </AnchorPane>
+                    </Tab>
+                    <Tab fx:id="tab_conductorTieneVehiculo" onSelectionChanged="#cargarTabVehiculosConductores" text="Vehículos de los conductores">
+                        <tooltip>
+                            <Tooltip text="Listado de provincias" />
+                        </tooltip>
+                        <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308">
+                            <VBox alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+                                <TableView fx:id="tv_conductor_tiene_vehiculo" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" VBox.vgrow="ALWAYS">
+                                    <columns>
+                                        <TableColumn fx:id="tc_conductor_tv_conductor_tiene_vehiculo" prefWidth="335.9999375343323" text="Conductor" />
+                                        <TableColumn fx:id="tc_vehiculo_tv_conductor_tiene_vehiculo" prefWidth="335.60009765625" text="Vehículo" />
+                                    </columns>
+                                    <VBox.margin>
+                                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                    </VBox.margin>
+                                    <columnResizePolicy>
+                                        <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                    </columnResizePolicy>
+                                </TableView>
+                                <HBox prefHeight="125.0" prefWidth="704.0">
+                                    <GridPane prefHeight="65.0" prefWidth="703.0" HBox.hgrow="ALWAYS">
+                                        <columnConstraints>
+                                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                        </columnConstraints>
+                                        <rowConstraints>
+                                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                        </rowConstraints>
+                                        <HBox.margin>
+                                            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                        </HBox.margin>
+                                        <Label text="Código de conductor (DNI)" GridPane.halignment="RIGHT">
+                                            <GridPane.margin>
+                                                <Insets right="10.0" />
+                                            </GridPane.margin>
+                                        </Label>
+                                        <TextField fx:id="tf_codigo_conductor_conductor_tiene_vehiculo" GridPane.columnIndex="1" />
+                                        <Label text="Código de vehículo: (MATRÍCULA DEL VEHÍCULO)" GridPane.halignment="RIGHT" GridPane.rowIndex="1" />
+                                        <TextField fx:id="tf_codigo_vehiculo_conductor_tiene_vehiculo" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                    </GridPane>
+                                </HBox>
+                                <HBox alignment="CENTER" prefHeight="26.0" prefWidth="541.0" VBox.vgrow="NEVER">
+                                    <VBox.margin>
+                                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                    </VBox.margin>
+                                    <Button mnemonicParsing="false" onAction="#mostrarTablaConductorTieneVehiculo" styleClass="btn" text="Actualizar tabla">
+                                        <tooltip>
+                                            <Tooltip text="Refresca la tabla" />
+                                        </tooltip>
+                                        <graphic>
+                                            <FontIcon accessibleText="Actualizar" fontSmoothingType="LCD" iconColor="WHITE" iconLiteral="fa-recycle" iconSize="20" selectionEnd="2" selectionFill="#1b293c" styleClass="h2" />
+                                        </graphic>
+                                    </Button>
+                                    <Button mnemonicParsing="false" onAction="#onBotonNuevoTabConductorTieneVehiculo" styleClass="btn" text="Añadir nuevo">
+                                        <tooltip>
+                                            <Tooltip text="Añade a la tabla según los campos de arriba" />
+                                        </tooltip>
+                                        <opaqueInsets>
+                                            <Insets left="10.0" right="10.0" />
+                                        </opaqueInsets>
+                                        <HBox.margin>
+                                            <Insets left="10.0" right="10.0" />
+                                        </HBox.margin>
+                                        <graphic>
+                                            <FontIcon accessibleText="Actualizar" fontSmoothingType="LCD" iconColor="WHITE" iconLiteral="fa-file" iconSize="20" selectionEnd="2" selectionFill="#1b293c" styleClass="h2" />
+                                        </graphic>
+                                    </Button>
+                                    <Button mnemonicParsing="false" onAction="#onBotonModificarConductorTieneVehiculo" styleClass="btn" text="Modificar seleccionado">
+                                        <HBox.margin>
+                                            <Insets left="10.0" right="10.0" />
+                                        </HBox.margin>
+                                        <graphic>
+                                            <FontIcon accessibleText="Actualizar" fontSmoothingType="LCD" iconColor="WHITE" iconLiteral="fa-edit" iconSize="20" selectionEnd="2" selectionFill="#1b293c" styleClass="h2" />
+                                        </graphic>
+                                    </Button>
+                                    <Button mnemonicParsing="false" onAction="#onBotonEliminarConductorTieneVehiculoTabConductorTieneVehiculo" styleClass="btn" text="Eliminar seleccionado">
+                                        <opaqueInsets>
+                                            <Insets left="10.0" right="10.0" />
+                                        </opaqueInsets>
+                                        <HBox.margin>
+                                            <Insets left="10.0" right="10.0" />
+                                        </HBox.margin>
+                                        <graphic>
+                                            <FontIcon accessibleText="Actualizar" fontSmoothingType="LCD" iconColor="WHITE" iconLiteral="fa-eraser" iconSize="20" selectionEnd="2" selectionFill="#1b293c" styleClass="h2" />
+                                        </graphic>
+                                    </Button>
+                                    <Button mnemonicParsing="false" onAction="#onBotonLimpiarTabcConductorTieneVehiculo" styleClass="btn" text="Limpiar campos">
+                                        <HBox.margin>
+                                            <Insets left="10.0" right="10.0" />
+                                        </HBox.margin>
+                                        <graphic>
+                                            <FontIcon accessibleText="Actualizar" fontSmoothingType="LCD" iconColor="WHITE" iconLiteral="fa-exchange" iconSize="20" selectionEnd="2" selectionFill="#1b293c" styleClass="h2" />
+                                        </graphic>
+                                    </Button>
+                                </HBox>
+                            </VBox>
+                        </AnchorPane>
+                    </Tab>
+                    <Tab fx:id="tab_conductores" onSelectionChanged="#cargarTabConductores" text="Conductores">
+                        <tooltip>
+                            <Tooltip text="Listado de Conductores" />
+                        </tooltip>
+                        <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="672.0" prefWidth="1170.0">
+                            <VBox layoutX="2.0" layoutY="1.0" maxHeight="-Infinity" prefHeight="652.0" prefWidth="1474.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="1.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+                                <TableView fx:id="tv_conductores" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="400.0" prefWidth="1119.0" VBox.vgrow="ALWAYS">
+                                    <columns>
+                                        <TableColumn fx:id="tc_dni_tv_conductor" prefWidth="64.80002069473267" text="Dni" />
+                                        <TableColumn fx:id="tc_foto_tv_conductor" prefWidth="141.6666717529297" text="Foto" />
+                                        <TableColumn fx:id="tc_nombre_tv_conductor" prefWidth="94.33332824707031" text="Nombre" />
+                                        <TableColumn fx:id="tc_apellido_tv_conductor" prefWidth="111.33334350585938" text="Apellido" />
+                                        <TableColumn fx:id="tc_contacto_recogida_tv_conductor" prefWidth="122.66668701171875" text="Contacto Recogidas" />
+                                        <TableColumn fx:id="tc_correo_tv_conductor" minWidth="0.0" prefWidth="53.33331298828125" text="Correo" />
+                                        <TableColumn fx:id="tc_internacional_tv_conductor" prefWidth="107.0" text="Es Internacional" />
+                                        <TableColumn fx:id="tc_pais_conductor_tv_conductor" prefWidth="59.0" text="País" />
+                                        <TableColumn fx:id="tc_provincia_tv_conductor" prefWidth="107.66668701171875" text="Provincia" />
+                                        <TableColumn fx:id="tc_localidad_tv_conductor" prefWidth="101.33331298828125" text="Localidad" />
+                                        <TableColumn fx:id="tc_cp_tv_conductor" prefWidth="74.0" text="CP" />
+                                        <TableColumn fx:id="tc_tipo_carnet_tv_conductor" prefWidth="102.99993896484375" text="Carnet" />
+                                        <TableColumn fx:id="tc_telefono_tv_conductor" prefWidth="97.3333740234375" text="Teléfono" />
+                                        <TableColumn fx:id="tc_motivo_lista_negra_tv_conductor" prefWidth="137.6666259765625" text="Lista negra" />
+                                        <TableColumn fx:id="tc_nacionalidad_tv_conductor" prefWidth="151.0" text="Nacionalidad" />
+                                    </columns>
+                                    <columnResizePolicy>
+                                        <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                    </columnResizePolicy>
+                                </TableView>
+                                <HBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" VBox.vgrow="NEVER">
+                                    <VBox.margin>
+                                        <Insets bottom="10.0" top="10.0" />
+                                    </VBox.margin>
+                                    <GridPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" HBox.hgrow="ALWAYS">
+                                        <columnConstraints>
+                                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="298.40000915527344" minWidth="10.0" prefWidth="298.40000915527344" />
+                                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="268.0" minWidth="10.0" prefWidth="163.59999084472656" />
+                                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="648.0" minWidth="8.0" prefWidth="17.0" />
+                                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" />
+                                        </columnConstraints>
+                                        <rowConstraints>
+                                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                        </rowConstraints>
+                                        <HBox.margin>
+                                            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                        </HBox.margin>
+                                        <Label text="Dni del conductor a eliminar" GridPane.halignment="RIGHT">
+                                            <GridPane.margin>
+                                                <Insets right="10.0" />
+                                            </GridPane.margin>
+                                        </Label>
+                                        <TextField fx:id="tf_dni_conductores" GridPane.columnIndex="1" />
+                                    </GridPane>
+                                </HBox>
+                                <HBox alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" VBox.vgrow="NEVER">
+                                    <VBox.margin>
+                                        <Insets bottom="10.0" top="10.0" />
+                                    </VBox.margin>
+                                    <Button mnemonicParsing="false" onAction="#mostrarTablaConductores" styleClass="btn" text="Actualizar tabla">
+                                        <tooltip>
+                                            <Tooltip text="Refresca la tabla" />
+                                        </tooltip>
+                                        <graphic>
+                                            <FontIcon accessibleText="Actualizar" fontSmoothingType="LCD" iconColor="WHITE" iconLiteral="fa-recycle" iconSize="20" selectionEnd="2" selectionFill="#1b293c" styleClass="h2" />
+                                        </graphic>
+                                    </Button>
+                                    <Button mnemonicParsing="false" onAction="#onBotonNuevoTabConductor" styleClass="btn" text="Añadir nuevo">
+                                        <tooltip>
+                                            <Tooltip text="Añade a la tabla según los campos de arriba" />
+                                        </tooltip>
+                                        <HBox.margin>
+                                            <Insets left="10.0" right="10.0" />
+                                        </HBox.margin>
+                                        <graphic>
+                                            <FontIcon accessibleText="Actualizar" fontSmoothingType="LCD" iconColor="WHITE" iconLiteral="fa-file" iconSize="20" selectionEnd="2" selectionFill="#1b293c" styleClass="h2" />
+                                        </graphic>
+                                    </Button>
+                                    <Button mnemonicParsing="false" onAction="#onBotonModificarConductor" styleClass="btn" text="Modificar seleccionado">
+                                        <tooltip>
+                                            <Tooltip text="Empty Tooltip" />
+                                        </tooltip>
+                                        <HBox.margin>
+                                            <Insets left="10.0" right="10.0" />
+                                        </HBox.margin>
+                                        <graphic>
+                                            <FontIcon accessibleText="Actualizar" fontSmoothingType="LCD" iconColor="WHITE" iconLiteral="fa-edit" iconSize="20" selectionEnd="2" selectionFill="#1b293c" styleClass="h2" />
+                                        </graphic>
+                                    </Button>
+                                    <Button mnemonicParsing="false" onAction="#onBotonEliminarConductor" styleClass="btn" text="Eliminar seleccionado">
+                                        <HBox.margin>
+                                            <Insets left="10.0" />
+                                        </HBox.margin>
+                                        <graphic>
+                                            <FontIcon accessibleText="Actualizar" fontSmoothingType="LCD" iconColor="WHITE" iconLiteral="fa-eraser" iconSize="20" selectionEnd="2" selectionFill="#1b293c" styleClass="h2" />
+                                        </graphic>
+                                    </Button>
+                                </HBox>
+                            </VBox>
+                        </AnchorPane>
+                    </Tab>
+                    <Tab fx:id="tab_tipo_carnet" onSelectionChanged="#cargarTabTipoCarnet" text="Tipos de Carnet">
+                        <tooltip>
+                            <Tooltip text="Muestra la tabla de TIPOS DE CARNET" />
+                        </tooltip>
+                        <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308">
+                            <VBox alignment="TOP_CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" nodeOrientation="RIGHT_TO_LEFT" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+                                <TableView fx:id="tv_tipo_carnet" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" VBox.vgrow="ALWAYS">
+                                    <columns>
+                                        <TableColumn fx:id="tc_carnet_tv_tipo_carnet" prefWidth="1181.0" text="Tipos de carnet de conducir" />
+                                    </columns>
+                                    <VBox.margin>
+                                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                    </VBox.margin>
+                                    <columnResizePolicy>
+                                        <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                    </columnResizePolicy>
+                                </TableView>
+                                <HBox prefHeight="69.0" prefWidth="1188.0">
+                                    <GridPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" HBox.hgrow="ALWAYS">
+                                        <columnConstraints>
+                                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                        </columnConstraints>
+                                        <rowConstraints>
+                                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                        </rowConstraints>
+                                        <HBox.margin>
+                                            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                        </HBox.margin>
+                                        <Label text="Carnet" GridPane.halignment="RIGHT">
+                                            <GridPane.margin>
+                                                <Insets right="10.0" />
+                                            </GridPane.margin>
+                                        </Label>
+                                        <TextField fx:id="tf_carnet_tab_tipo_carnet" GridPane.columnIndex="1" />
+                                    </GridPane>
+                                </HBox>
+                                <HBox alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" VBox.vgrow="NEVER">
+                                    <VBox.margin>
+                                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                    </VBox.margin>
+                                    <Button mnemonicParsing="false" onAction="#onBotonLimpiarTabTipoDeCarnet" styleClass="btn" text="Limpiar campos">
+                                        <HBox.margin>
+                                            <Insets left="10.0" right="10.0" />
+                                        </HBox.margin>
+                                        <tooltip>
+                                            <Tooltip text="Empty Tooltip" />
+                                        </tooltip>
+                                        <graphic>
+                                            <FontIcon accessibleText="Actualizar" fontSmoothingType="LCD" iconColor="WHITE" iconLiteral="fa-exchange" iconSize="20" selectionEnd="2" selectionFill="#1b293c" styleClass="h2" />
+                                        </graphic>
+                                    </Button>
+                                    <Button mnemonicParsing="false" onAction="#onBotonEliminarTipoDeCarnetTabTipoDeCarnet" styleClass="btn" text="Eliminar seleccionado">
+                                        <HBox.margin>
+                                            <Insets left="10.0" right="10.0" />
+                                        </HBox.margin>
+                                        <tooltip>
+                                            <Tooltip text="Empty Tooltip" />
+                                        </tooltip>
+                                        <graphic>
+                                            <FontIcon accessibleText="Actualizar" fontSmoothingType="LCD" iconColor="WHITE" iconLiteral="fa-eraser" iconSize="20" selectionEnd="2" selectionFill="#1b293c" styleClass="h2" />
+                                        </graphic>
+                                    </Button>
+                                    <Button mnemonicParsing="false" onAction="#onBotonModificarTipoDeCarnetTabTipoDeCarnet" styleClass="btn" text="Modificar seleccionado">
+                                        <HBox.margin>
+                                            <Insets left="10.0" right="10.0" />
+                                        </HBox.margin>
+                                        <tooltip>
+                                            <Tooltip text="Empty Tooltip" />
+                                        </tooltip>
+                                        <graphic>
+                                            <FontIcon accessibleText="Actualizar" fontSmoothingType="LCD" iconColor="WHITE" iconLiteral="fa-edit" iconSize="20" selectionEnd="2" selectionFill="#1b293c" styleClass="h2" />
+                                        </graphic>
+                                    </Button>
+                                    <Button graphicTextGap="1.0" mnemonicParsing="false" onAction="#onBotonNuevoTipoDeCarnetTabTipoDeCarnet" styleClass="btn" text="Añadir nuevo">
+                                        <tooltip>
+                                            <Tooltip text="Añade a la tabla según los campos de arriba" />
+                                        </tooltip>
+                                        <HBox.margin>
+                                            <Insets left="10.0" right="10.0" />
+                                        </HBox.margin>
+                                        <graphic>
+                                            <FontIcon accessibleText="Actualizar" fontSmoothingType="LCD" iconColor="WHITE" iconLiteral="fa-file" iconSize="20" selectionEnd="2" selectionFill="#1b293c" styleClass="h2" />
+                                        </graphic>
+                                    </Button>
+                                    <Button mnemonicParsing="false" onAction="#mostrarTablaTipoDeCarnet" styleClass="btn" text="Actualizar tabla">
+                                        <tooltip>
+                                            <Tooltip text="Refresca la tabla" />
+                                        </tooltip>
+                                        <graphic>
+                                            <FontIcon accessibleText="Actualizar" fontSmoothingType="LCD" iconColor="WHITE" iconLiteral="fa-recycle" iconSize="20" selectionEnd="2" selectionFill="#1b293c" styleClass="h2" />
+                                        </graphic>
+                                    </Button>
+                                </HBox>
+                            </VBox>
+                        </AnchorPane>
+                    </Tab>
+                </TabPane>
+            </AnchorPane>
+        </Tab>
+        <Tab fx:id="tab_login" onSelectionChanged="#cargarTabLogin" text="Login">
+            <tooltip>
+                <Tooltip text="Listado de tabla LOGIN" />
+            </tooltip>
+            <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity">
+                <VBox layoutX="2.0" layoutY="1.0" prefHeight="679.0" prefWidth="1188.0" AnchorPane.bottomAnchor="2.0" AnchorPane.leftAnchor="2.0" AnchorPane.rightAnchor="2.0" AnchorPane.topAnchor="2.0">
+                    <TableView fx:id="tv_login" minHeight="-Infinity" minWidth="-Infinity" VBox.vgrow="ALWAYS">
+                        <columns>
+                            <TableColumn fx:id="tc_login_user" prefWidth="241.19994974136353" text="Usuario" />
+                            <TableColumn fx:id="tc_login_pass" prefWidth="216.80007934570312" text="Contraseña" />
+                            <TableColumn fx:id="tc_login_rol" prefWidth="241.60006713867188" text="Papel" />
+                        </columns>
+                        <VBox.margin>
+                            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                        </VBox.margin>
+                        <columnResizePolicy>
+                            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                        </columnResizePolicy>
+                    </TableView>
+                    <HBox prefHeight="143.0" prefWidth="930.0">
+                        <VBox.margin>
+                            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                        </VBox.margin>
+                        <GridPane HBox.hgrow="ALWAYS">
+                            <columnConstraints>
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                            </columnConstraints>
+                            <rowConstraints>
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            </rowConstraints>
+                            <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" text="Usuario" textAlignment="RIGHT" GridPane.halignment="RIGHT">
+                                <GridPane.margin>
+                                    <Insets right="10.0" />
+                                </GridPane.margin>
+                            </Label>
+                            <Label text="Contraseña" GridPane.halignment="RIGHT" GridPane.rowIndex="1">
+                                <GridPane.margin>
+                                    <Insets right="10.0" />
+                                </GridPane.margin>
+                            </Label>
+                            <Label text="Papel" GridPane.halignment="RIGHT" GridPane.rowIndex="2">
+                                <GridPane.margin>
+                                    <Insets right="10.0" />
+                                </GridPane.margin>
+                            </Label>
+                            <TextField fx:id="tf_usuario_tab_login" GridPane.columnIndex="1" />
+                            <TextField fx:id="tf_contrasenya_tab_login" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                            <TextField fx:id="tf_papel_tab_login" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        </GridPane>
+                    </HBox>
+                    <HBox alignment="CENTER" prefHeight="26.0" prefWidth="541.0" VBox.vgrow="NEVER">
+                        <VBox.margin>
+                            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                        </VBox.margin>
+                        <Button mnemonicParsing="false" onAction="#mostrarTablaLogin" styleClass="btn" text="Actualizar tabla">
+                            <tooltip>
+                                <Tooltip text="Refresca la tabla" />
+                            </tooltip>
+                            <graphic>
+                                <FontIcon accessibleText="Actualizar" fontSmoothingType="LCD" iconColor="WHITE" iconLiteral="fa-recycle" iconSize="20" selectionEnd="2" selectionFill="#1b293c" styleClass="h2" />
+                            </graphic>
+                        </Button>
+                        <Button mnemonicParsing="false" onAction="#onBotonNuevoTabLogin" styleClass="btn" text="Añadir nuevo">
+                            <tooltip>
+                                <Tooltip text="Añade a la tabla según los campos de arriba" />
+                            </tooltip>
+                            <HBox.margin>
+                                <Insets left="10.0" right="10.0" />
+                            </HBox.margin>
+                            <graphic>
+                                <FontIcon accessibleText="Actualizar" fontSmoothingType="LCD" iconColor="WHITE" iconLiteral="fa-file" iconSize="20" selectionEnd="2" selectionFill="#1b293c" styleClass="h2" />
+                            </graphic>
+                        </Button>
+                        <Button mnemonicParsing="false" onAction="#onBotonModificarRolTabLogin" styleClass="btn" text="Modificar seleccionado">
+                            <HBox.margin>
+                                <Insets left="10.0" right="10.0" />
+                            </HBox.margin>
+                            <tooltip>
+                                <Tooltip text="Empty Tooltip" />
+                            </tooltip>
+                            <graphic>
+                                <FontIcon accessibleText="Actualizar" fontSmoothingType="LCD" iconColor="WHITE" iconLiteral="fa-edit" iconSize="20" selectionEnd="2" selectionFill="#1b293c" styleClass="h2" />
+                            </graphic>
+                        </Button>
+                        <Button mnemonicParsing="false" onAction="#onEliminarRolTabLogin" styleClass="btn" text="Eliminar seleccionado">
+                            <HBox.margin>
+                                <Insets left="10.0" right="10.0" />
+                            </HBox.margin>
+                            <tooltip>
+                                <Tooltip text="Empty Tooltip" />
+                            </tooltip>
+                            <graphic>
+                                <FontIcon accessibleText="Actualizar" fontSmoothingType="LCD" iconColor="WHITE" iconLiteral="fa-eraser" iconSize="20" selectionEnd="2" selectionFill="#1b293c" styleClass="h2" />
+                            </graphic>
+                        </Button>
+                        <Button mnemonicParsing="false" onAction="#onBotonLimpiarTabLogin" styleClass="btn" text="Limpiar campos">
+                            <HBox.margin>
+                                <Insets left="10.0" right="10.0" />
+                            </HBox.margin>
+                            <tooltip>
+                                <Tooltip text="Empty Tooltip" />
+                            </tooltip>
+                            <graphic>
+                                <FontIcon accessibleText="Actualizar" fontSmoothingType="LCD" iconColor="WHITE" iconLiteral="fa-exchange" iconSize="20" selectionEnd="2" selectionFill="#1b293c" styleClass="h2" />
+                            </graphic>
+                        </Button>
+                    </HBox>
+                </VBox>
+            </AnchorPane>
+        </Tab>
+        <Tab onSelectionChanged="#cargarTabSistemaCargaVehiculos" text="Control Vehiculos">
+            <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity">
+                <TabPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" tabClosingPolicy="UNAVAILABLE" tabMinHeight="30.0" tabMinWidth="50.0" AnchorPane.bottomAnchor="2.0" AnchorPane.leftAnchor="2.0" AnchorPane.rightAnchor="2.0" AnchorPane.topAnchor="2.0">
+                    <Tab onSelectionChanged="#cargarTabSistemaCargaVehiculos" text="Sistema de Carga de Vehiculos">
+                        <AnchorPane minHeight="0.0" minWidth="0.0">
+                            <VBox alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+                                <TableView fx:id="tv_sistema_de_carga_de_vehiculo" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" VBox.vgrow="ALWAYS">
+                                    <columns>
+                                        <TableColumn fx:id="tc_cod_sistema_carga_tv_sistema_carga" prefWidth="299.0" text="Codigo Sistema de Carga" />
+                                        <TableColumn fx:id="tc_descripcion_tv_sistema_carga" prefWidth="689.0" text="Descripción" />
+                                    </columns>
+                                    <columnResizePolicy>
+                                        <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                    </columnResizePolicy>
+                                </TableView>
+                                <GridPane alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" VBox.vgrow="NEVER">
+                                    <columnConstraints>
+                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" percentWidth="50.0" />
+                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" percentWidth="50.0" />
+                                    </columnConstraints>
+                                    <rowConstraints>
+                                        <RowConstraints maxHeight="1.7976931348623157E308" vgrow="SOMETIMES" />
+                                        <RowConstraints maxHeight="1.7976931348623157E308" vgrow="SOMETIMES" />
+                                    </rowConstraints>
+                                    <VBox.margin>
+                                        <Insets bottom="20.0" left="10.0" right="10.0" top="20.0" />
+                                    </VBox.margin>
+                                    <Label text="Código del sistema de carga" GridPane.halignment="RIGHT" GridPane.hgrow="ALWAYS" GridPane.valignment="CENTER">
+                                        <GridPane.margin>
+                                            <Insets right="10.0" />
+                                        </GridPane.margin>
+                                    </Label>
+                                    <Label text="Descripción" GridPane.halignment="RIGHT" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                                        <GridPane.margin>
+                                            <Insets right="10.0" />
+                                        </GridPane.margin>
+                                    </Label>
+                                    <TextField fx:id="tf_cod_sistema_carga_tv_sistema_carga" GridPane.columnIndex="1" />
+                                    <TextField fx:id="tf_descripcion_tv_sistema_carga" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                </GridPane>
+                                <HBox alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308">
+                                    <VBox.margin>
+                                        <Insets bottom="20.0" left="10.0" right="10.0" top="20.0" />
+                                    </VBox.margin>
+                                    <Button mnemonicParsing="false" onAction="#mostrarTablaSistemaCargaVehiculos" styleClass="btn" text="Actualizar tabla">
+                                        <tooltip>
+                                            <Tooltip text="Refresca la tabla" />
+                                        </tooltip>
+                                        <graphic>
+                                            <FontIcon accessibleText="Actualizar" fontSmoothingType="LCD" iconColor="WHITE" iconLiteral="fa-recycle" iconSize="20" selectionEnd="2" selectionFill="#1b293c" styleClass="h2" />
+                                        </graphic>
+                                    </Button>
+                                    <Button mnemonicParsing="false" onAction="#onBotonNuevoSistemaCargaTabSistemaCargaVehiculo" styleClass="btn" text="Añadir nuevo">
+                                        <tooltip>
+                                            <Tooltip text="Añade a la tabla según los campos de arriba" />
+                                        </tooltip>
+                                        <HBox.margin>
+                                            <Insets />
+                                        </HBox.margin>
+                                        <graphic>
+                                            <FontIcon accessibleText="Actualizar" fontSmoothingType="LCD" iconColor="WHITE" iconLiteral="fa-file" iconSize="20" selectionEnd="2" selectionFill="#1b293c" styleClass="h2" />
+                                        </graphic>
+                                    </Button>
+                                    <Button mnemonicParsing="false" onAction="#onBotonModificarTabSistemaCargaVehiculo" styleClass="btn" text="Modificar seleccionado">
+                                        <HBox.margin>
+                                            <Insets />
+                                        </HBox.margin>
+                                        <graphic>
+                                            <FontIcon accessibleText="Actualizar" fontSmoothingType="LCD" iconColor="WHITE" iconLiteral="fa-edit" iconSize="20" selectionEnd="2" selectionFill="#1b293c" styleClass="h2" />
+                                        </graphic>
+                                    </Button>
+                                    <Button mnemonicParsing="false" onAction="#onBotonEliminarTabSistemaCargaVehiculo" styleClass="btn" text="Eliminar seleccionado">
+                                        <HBox.margin>
+                                            <Insets />
+                                        </HBox.margin>
+                                        <graphic>
+                                            <FontIcon accessibleText="Actualizar" fontSmoothingType="LCD" iconColor="WHITE" iconLiteral="fa-eraser" iconSize="20" selectionEnd="2" selectionFill="#1b293c" styleClass="h2" />
+                                        </graphic>
+                                    </Button>
+                                    <Button mnemonicParsing="false" onAction="#onBotonLimpiarTabSistemaDeCarga" styleClass="btn" text="Limpiar campos">
+                                        <HBox.margin>
+                                            <Insets />
+                                        </HBox.margin>
+                                        <graphic>
+                                            <FontIcon accessibleText="Actualizar" fontSmoothingType="LCD" iconColor="WHITE" iconLiteral="fa-exchange" iconSize="20" selectionEnd="2" selectionFill="#1b293c" styleClass="h2" />
+                                        </graphic>
+                                    </Button>
+                                </HBox>
+                            </VBox>
+                        </AnchorPane>
+                        <tooltip>
+                            <Tooltip text="Empty Tooltip" />
+                        </tooltip>
+                    </Tab>
+                    <Tab fx:id="tab_tipo_de_vehiculo" onSelectionChanged="#cargarTabTipoDeVehiculo" text="Tipo de Vehiculo">
+                        <tooltip>
+                            <Tooltip text="Muestra la Tabla De Tipos de Vehiculos" />
+                        </tooltip>
+                        <AnchorPane maxHeight="1.7976931348623157E308" minHeight="0.0" minWidth="0.0" prefHeight="682.0" prefWidth="989.0">
+                            <VBox alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+                                <TableView fx:id="tv_tipo_de_vehiculo" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" VBox.vgrow="ALWAYS">
+                                    <columns>
+                                        <TableColumn fx:id="tc_codigo_tipo_de_vehiculo_tab_tipo_de_vehiculo" prefWidth="150.0" text="Código Vehículo" />
+                                        <TableColumn fx:id="tc_foto_tab_tipo_de_vehiculo" prefWidth="219.0" text="Foto" />
+                                        <TableColumn fx:id="tc_adr_tab_tipo_de_vehiculo" prefWidth="45.0" text="ADR" />
+                                        <TableColumn fx:id="tc_atp_tab_tipo_de_vehiculo" prefWidth="48.0" text="ATP" />
+                                        <TableColumn fx:id="tc_rampa_tab_tipo_de_vehiculo" prefWidth="54.0" text="Rampa" />
+                                        <TableColumn fx:id="tc_estipulacion_tab_tipo_de_vehiculo" prefWidth="177.0" text="Estipulación" />
+                                        <TableColumn fx:id="tc_instrucciones_tab_tipo_de_vehiculo" prefWidth="143.0" text="Instrucciones" />
+                                        <TableColumn fx:id="tc_sistema_de_carga_tab_tipo_de_vehiculo" prefWidth="124.0" text="Sistema de Carga" />
+                                    </columns>
+                                    <columnResizePolicy>
+                                        <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                    </columnResizePolicy>
+                                </TableView>
+                                <GridPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" VBox.vgrow="NEVER">
+                                    <columnConstraints>
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    </columnConstraints>
+                                    <rowConstraints>
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    </rowConstraints>
+                                    <VBox.margin>
+                                        <Insets bottom="20.0" left="10.0" right="10.0" top="20.0" />
+                                    </VBox.margin>
+                                    <Label text="Código Vehículo" textAlignment="RIGHT" GridPane.halignment="RIGHT" GridPane.rowIndex="0">
+                                        <GridPane.margin>
+                                            <Insets right="10.0" />
+                                        </GridPane.margin>
+                                    </Label>
+                                    <TextField fx:id="tf_codigo_vehiculo_tab_tipo_vehiculo" GridPane.columnIndex="1" />
+                                    <Label text="Estipulación" GridPane.halignment="RIGHT" GridPane.rowIndex="1">
+                                        <GridPane.margin>
+                                            <Insets right="10.0" />
+                                        </GridPane.margin>
+                                    </Label>
+                                    <Label text="Instrucciones" GridPane.halignment="RIGHT" GridPane.rowIndex="2">
+                                        <GridPane.margin>
+                                            <Insets right="10.0" />
+                                        </GridPane.margin>
+                                    </Label>
+                                    <TextField fx:id="tf_estipulacion_tab_tipo_vehiculo" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                    <Label text="Foto del vehículo" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="7" />
+                                    <ImageView fx:id="img_foto_tv_tipo_vehiculo" fitHeight="123.0" fitWidth="231.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="2">
+                                        <Image url="@../imagenes/imagenNOdisponible.png" />
+                                    </ImageView>
+                                    <TextField fx:id="tf_instrucciones_tab_tipo_vehiculo" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                    <Label text="ATP" GridPane.columnIndex="2" GridPane.halignment="RIGHT">
+                                        <padding>
+                                            <Insets right="10.0" />
+                                        </padding>
+                                    </Label>
+                                    <Label text="ADR" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.rowIndex="1">
+                                        <GridPane.margin>
+                                            <Insets right="10.0" />
+                                        </GridPane.margin>
+                                    </Label>
+                                    <Label text="Sistema de Carga" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.rowIndex="2">
+                                        <padding>
+                                            <Insets right="10.0" />
+                                        </padding>
+                                        <GridPane.margin>
+                                            <Insets />
+                                        </GridPane.margin>
+                                    </Label>
+                                    <CheckBox fx:id="cxbx_atp_tab_tipo_vehiculo" mnemonicParsing="false" onAction="#cbATPExcluirADRenTipoDeVehiculos" GridPane.columnIndex="3" />
+                                    <CheckBox fx:id="cxbx_adr_tab_tipo_vehiculo" mnemonicParsing="false" onAction="#cbADRExcluirATPenTipoDeVehiculos" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                                    <Label text="Rampa" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.rowIndex="3">
+                                        <padding>
+                                            <Insets right="10.0" />
+                                        </padding>
+                                    </Label>
+                                    <CheckBox fx:id="cxbx_rampa_tab_tipo_vehiculo" mnemonicParsing="false" GridPane.columnIndex="3" GridPane.rowIndex="3" />
+                                    <Button alignment="CENTER" mnemonicParsing="false" onAction="#seleccionarImagenTipoVehiculo" styleClass="btn" text="Elegir imagen desdel ordenador" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.hgrow="NEVER" GridPane.rowIndex="6">
+                                        <graphic>
+                                            <FontIcon accessibleText="Actualizar" fontSmoothingType="LCD" iconColor="WHITE" iconLiteral="fa-image" iconSize="20" selectionEnd="2" selectionFill="#1b293c" styleClass="h2" />
+                                        </graphic>
+                                    </Button>
+                                    <ComboBox fx:id="cmbx_sistema_carga_tab_tipo_vehiculo" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
+                                </GridPane>
+                                <HBox alignment="CENTER" VBox.vgrow="NEVER">
+                                    <VBox.margin>
+                                        <Insets bottom="20.0" left="10.0" right="10.0" top="20.0" />
+                                    </VBox.margin>
+                                    <Button mnemonicParsing="false" onAction="#mostrarTablaTipoDeVehiculo" styleClass="btn" text="Actualizar tabla">
+                                        <tooltip>
+                                            <Tooltip text="Refresca la tabla" />
+                                        </tooltip>
+                                        <graphic>
+                                            <FontIcon accessibleText="Actualizar" fontSmoothingType="LCD" iconColor="WHITE" iconLiteral="fa-recycle" iconSize="20" selectionEnd="2" selectionFill="#1b293c" styleClass="h2" />
+                                        </graphic>
+                                    </Button>
+                                    <Button mnemonicParsing="false" onAction="#onBotonNuevoTipoDeVehiculoTabTipoDeVehiculo" styleClass="btn" text="Añadir nuevo">
+                                        <tooltip>
+                                            <Tooltip text="Añade a la tabla según los campos de arriba" />
+                                        </tooltip>
+                                        <opaqueInsets>
+                                            <Insets />
+                                        </opaqueInsets>
+                                        <HBox.margin>
+                                            <Insets />
+                                        </HBox.margin>
+                                        <graphic>
+                                            <FontIcon accessibleText="Actualizar" fontSmoothingType="LCD" iconColor="WHITE" iconLiteral="fa-file" iconSize="20" selectionEnd="2" selectionFill="#1b293c" styleClass="h2" />
+                                        </graphic>
+                                    </Button>
+                                    <Button mnemonicParsing="false" onAction="#onBotonModificarTipoDeVehiculoTabTipoDeVehiculo" styleClass="btn" text="Modificar seleccionado">
+                                        <HBox.margin>
+                                            <Insets />
+                                        </HBox.margin>
+                                        <graphic>
+                                            <FontIcon accessibleText="Actualizar" fontSmoothingType="LCD" iconColor="WHITE" iconLiteral="fa-edit" iconSize="20" selectionEnd="2" selectionFill="#1b293c" styleClass="h2" />
+                                        </graphic>
+                                    </Button>
+                                    <Button mnemonicParsing="false" onAction="#onBotonEliminarTipoDeVehiculoTabTipoDeVehiculo" styleClass="btn" text="Eliminar seleccionado">
+                                        <HBox.margin>
+                                            <Insets />
+                                        </HBox.margin>
+                                        <graphic>
+                                            <FontIcon accessibleText="Actualizar" fontSmoothingType="LCD" iconColor="WHITE" iconLiteral="fa-eraser" iconSize="20" selectionEnd="2" selectionFill="#1b293c" styleClass="h2" />
+                                        </graphic>
+                                    </Button>
+                                    <Button mnemonicParsing="false" onAction="#onBotonLimpiarTipoDeVehiculoTabTipoDeVehiculos" styleClass="btn" text="Limpiar campos">
+                                        <HBox.margin>
+                                            <Insets />
+                                        </HBox.margin>
+                                        <graphic>
+                                            <FontIcon accessibleText="Actualizar" fontSmoothingType="LCD" iconColor="WHITE" iconLiteral="fa-exchange" iconSize="20" selectionEnd="2" selectionFill="#1b293c" styleClass="h2" />
+                                        </graphic>
+                                    </Button>
+                                </HBox>
+                            </VBox>
+                        </AnchorPane>
+                    </Tab>
+                    <Tab fx:id="tab_vehiculos" onSelectionChanged="#cargarTabVehiculos" text="Vehículos">
+                        <tooltip>
+                            <Tooltip text="Muestra la Tabla De Vehiculos" />
+                        </tooltip>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                            <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+                                <TableView fx:id="tv_vehiculos" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" VBox.vgrow="ALWAYS">
+                                    <columns>
+                                        <TableColumn fx:id="tc_codigo_vehiculo_tv_vehiculos" prefWidth="166.00001227855682" text="Código Vehículo" />
+                                        <TableColumn fx:id="tc_mma_tv_vehiculos" prefWidth="105.60000610351562" text="MMA (kg)" />
+                                        <TableColumn fx:id="tc_dim_a_tv_vehiculos" prefWidth="199.33334350585938" text="Dimensiones A (cm)" />
+                                        <TableColumn fx:id="tc_dim_l_tv_vehiculos" prefWidth="240.66665649414062" text="Dimensiones L (cm)" />
+                                        <TableColumn fx:id="tc_dim_h_tv_vehiculos" prefWidth="187.6666259765625" text="Dimnesiones H (cm)" />
+                                        <TableColumn fx:id="tc_carga_util_tv_vehiculos" prefWidth="185.33331298828125" text="Carga Útil" />
+                                        <TableColumn fx:id="tc_cod_tipo_vehiculo_tv_vehiculos" prefWidth="241.0" text="Tipo De Vehículo" />
+                                    </columns>
+                                    <columnResizePolicy>
+                                        <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                    </columnResizePolicy>
+                                </TableView>
+                                <GridPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity">
+                                    <columnConstraints>
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    </columnConstraints>
+                                    <rowConstraints>
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    </rowConstraints>
+                                    <VBox.margin>
+                                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                    </VBox.margin>
+                                    <Label text="Codigo Vehículo (Matrícula)" textAlignment="RIGHT" GridPane.halignment="RIGHT" GridPane.rowIndex="0">
+                                        <GridPane.margin>
+                                            <Insets right="10.0" />
+                                        </GridPane.margin>
+                                    </Label>
+                                    <Label text="MMA (kg)" GridPane.halignment="RIGHT" GridPane.rowIndex="1">
+                                        <GridPane.margin>
+                                            <Insets right="10.0" />
+                                        </GridPane.margin>
+                                    </Label>
+                                    <Label text="Dimensiones A (cm)" GridPane.halignment="RIGHT" GridPane.rowIndex="2">
+                                        <GridPane.margin>
+                                            <Insets right="10.0" />
+                                        </GridPane.margin>
+                                    </Label>
+                                    <TextField fx:id="tf_codigo_vehiculo_tab_vehiculos" GridPane.columnIndex="1" />
+                                    <TextField fx:id="tf_mma_tab_vehiculos" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                    <TextField fx:id="tf_dim_a_tab_vehiculos" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                    <Label text="Dimensiones L (cm)" GridPane.halignment="RIGHT" GridPane.rowIndex="3">
+                                        <GridPane.margin>
+                                            <Insets right="10.0" />
+                                        </GridPane.margin>
+                                    </Label>
+                                    <Label text="Dimensiones H (cm)" GridPane.halignment="RIGHT" GridPane.rowIndex="4">
+                                        <GridPane.margin>
+                                            <Insets right="10.0" />
+                                        </GridPane.margin>
+                                    </Label>
+                                    <TextField fx:id="tf_dim_l_tab_vehiculos" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                                    <TextField fx:id="tf_dim_h_tab_vehiculos" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                                    <Label text="Carga Útil" GridPane.halignment="RIGHT" GridPane.rowIndex="5">
+                                        <GridPane.margin>
+                                            <Insets right="10.0" />
+                                        </GridPane.margin>
+                                    </Label>
+                                    <TextField fx:id="tf_carga_util_tab_vehiculos" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                                    <Label text="Código de tipo de Vehiculo (consultar los tipos de vehículos)" GridPane.halignment="RIGHT" GridPane.rowIndex="6">
+                                        <GridPane.margin>
+                                            <Insets right="10.0" />
+                                        </GridPane.margin>
+                                    </Label>
+                                    <ComboBox fx:id="combo_codigo_tipo_vehiculo_tab_vehiculos" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onAction="#combo_codigo_tipo_vehiculo_tab_vehiculos_cambio" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                                </GridPane>
+                                <HBox alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" VBox.vgrow="NEVER">
+                                    <VBox.margin>
+                                        <Insets bottom="10.0" top="10.0" />
+                                    </VBox.margin>
+                                    <Button mnemonicParsing="false" onAction="#mostrarTablaVehiculos" styleClass="btn" text="Actualizar tabla">
+                                        <tooltip>
+                                            <Tooltip text="Refresca la tabla" />
+                                        </tooltip>
+                                        <graphic>
+                                            <FontIcon accessibleText="Actualizar" fontSmoothingType="LCD" iconColor="WHITE" iconLiteral="fa-recycle" iconSize="20" selectionEnd="2" selectionFill="#1b293c" styleClass="h2" />
+                                        </graphic>
+                                    </Button>
+                                    <Button mnemonicParsing="false" onAction="#onBotonNuevoVehiculoTabVehiculos" styleClass="btn" text="Añadir nuevo">
+                                        <tooltip>
+                                            <Tooltip text="Añade a la tabla según los campos de arriba" />
+                                        </tooltip>
+                                        <HBox.margin>
+                                            <Insets />
+                                        </HBox.margin>
+                                        <graphic>
+                                            <FontIcon accessibleText="Actualizar" fontSmoothingType="LCD" iconColor="WHITE" iconLiteral="fa-file" iconSize="20" selectionEnd="2" selectionFill="#1b293c" styleClass="h2" />
+                                        </graphic>
+                                    </Button>
+                                    <Button mnemonicParsing="false" onAction="#onBotonModificarTabVehiculos" styleClass="btn" text="Modificar seleccionado">
+                                        <HBox.margin>
+                                            <Insets />
+                                        </HBox.margin>
+                                        <tooltip>
+                                            <Tooltip text="Empty Tooltip" />
+                                        </tooltip>
+                                        <graphic>
+                                            <FontIcon accessibleText="Actualizar" fontSmoothingType="LCD" iconColor="WHITE" iconLiteral="fa-edit" iconSize="20" selectionEnd="2" selectionFill="#1b293c" styleClass="h2" />
+                                        </graphic>
+                                    </Button>
+                                    <Button mnemonicParsing="false" onAction="#onBotonEliminarVehiculoTabVehiculos" styleClass="btn" text="Eliminar seleccionado">
+                                        <HBox.margin>
+                                            <Insets />
+                                        </HBox.margin>
+                                        <tooltip>
+                                            <Tooltip text="Empty Tooltip" />
+                                        </tooltip>
+                                        <graphic>
+                                            <FontIcon accessibleText="Actualizar" fontSmoothingType="LCD" iconColor="WHITE" iconLiteral="fa-eraser" iconSize="20" selectionEnd="2" selectionFill="#1b293c" styleClass="h2" />
+                                        </graphic>
+                                    </Button>
+                                    <Button mnemonicParsing="false" onAction="#onBotonLimpiarTabVehiculos" styleClass="btn" text="Limpiar campos">
+                                        <HBox.margin>
+                                            <Insets />
+                                        </HBox.margin>
+                                        <tooltip>
+                                            <Tooltip text="Empty Tooltip" />
+                                        </tooltip>
+                                        <graphic>
+                                            <FontIcon accessibleText="Actualizar" fontSmoothingType="LCD" iconColor="WHITE" iconLiteral="fa-exchange" iconSize="20" selectionEnd="2" selectionFill="#1b293c" styleClass="h2" />
+                                        </graphic>
+                                    </Button>
+                                </HBox>
+                            </VBox>
+                        </AnchorPane>
+                    </Tab>
+                </TabPane>
+            </AnchorPane>
+            <tooltip>
+                <Tooltip text="Empty Tooltip" />
+            </tooltip>
+        </Tab>
+        <Tab onSelectionChanged="#cargarTabPaises" text="Ubicaciones">
+            <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" nodeOrientation="LEFT_TO_RIGHT">
+                <TabPane layoutX="-2.0" prefHeight="674.0" prefWidth="1188.0" tabClosingPolicy="UNAVAILABLE" tabMinHeight="30.0" AnchorPane.bottomAnchor="4.0" AnchorPane.leftAnchor="-2.0" AnchorPane.rightAnchor="2.0" AnchorPane.topAnchor="2.0">
+                    <Tab fx:id="tab_paises" onSelectionChanged="#cargarTabPaises" text="Paises">
+                        <tooltip>
+                            <Tooltip text="Gestionar paises" />
+                        </tooltip>
+                        <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="581.0" prefWidth="1188.0">
+                            <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+                                <TableView fx:id="tv_paises" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" VBox.vgrow="ALWAYS">
+                                    <columns>
+                                        <TableColumn fx:id="tc_paises_tv_paises" prefWidth="698.0" text="Paises" />
+                                    </columns>
+                                </TableView>
+                                <GridPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" VBox.vgrow="NEVER">
+                                    <columnConstraints>
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    </columnConstraints>
+                                    <rowConstraints>
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    </rowConstraints>
+                                    <VBox.margin>
+                                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                    </VBox.margin>
+                                    <Label text="País" GridPane.halignment="RIGHT">
+                                        <GridPane.margin>
+                                            <Insets right="10.0" />
+                                        </GridPane.margin>
+                                    </Label>
+                                    <TextField fx:id="tf_pais_tab_paises" GridPane.columnIndex="1" />
+                                </GridPane>
+                                <HBox alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" VBox.vgrow="NEVER">
+                                    <VBox.margin>
+                                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                    </VBox.margin>
+                                    <Button mnemonicParsing="false" onAction="#mostrarTablaPaises" styleClass="btn" text="Actualizar tabla">
+                                        <tooltip>
+                                            <Tooltip text="Refresca la tabla" />
+                                        </tooltip>
+                                        <graphic>
+                                            <FontIcon accessibleText="Actualizar" fontSmoothingType="LCD" iconColor="WHITE" iconLiteral="fa-recycle" iconSize="20" selectionEnd="2" selectionFill="#1b293c" styleClass="h2" />
+                                        </graphic>
+                                    </Button>
+                                    <Button mnemonicParsing="false" onAction="#onBotonNuevoPaisTabPais" styleClass="btn" text="Añadir nuevo">
+                                        <tooltip>
+                                            <Tooltip text="Añade a la tabla según los campos de arriba" />
+                                        </tooltip>
+                                        <HBox.margin>
+                                            <Insets />
+                                        </HBox.margin>
+                                        <graphic>
+                                            <FontIcon accessibleText="Actualizar" fontSmoothingType="LCD" iconColor="WHITE" iconLiteral="fa-file" iconSize="20" selectionEnd="2" selectionFill="#1b293c" styleClass="h2" />
+                                        </graphic>
+                                    </Button>
+                                    <Button mnemonicParsing="false" styleClass="btn" text="Modificar seleccionado">
+                                        <tooltip>
+                                            <Tooltip text="Empty Tooltip" />
+                                        </tooltip>
+                                        <HBox.margin>
+                                            <Insets />
+                                        </HBox.margin>
+                                        <graphic>
+                                            <FontIcon accessibleText="Actualizar" fontSmoothingType="LCD" iconColor="WHITE" iconLiteral="fa-edit" iconSize="20" selectionEnd="2" selectionFill="#1b293c" styleClass="h2" />
+                                        </graphic>
+                                    </Button>
+                                    <Button mnemonicParsing="false" onAction="#onEliminarTabPaises" styleClass="btn" text="Eliminar seleccionado">
+                                        <tooltip>
+                                            <Tooltip text="Empty Tooltip" />
+                                        </tooltip>
+                                        <HBox.margin>
+                                            <Insets />
+                                        </HBox.margin>
+                                        <graphic>
+                                            <FontIcon accessibleText="Actualizar" fontSmoothingType="LCD" iconColor="WHITE" iconLiteral="fa-eraser" iconSize="20" selectionEnd="2" selectionFill="#1b293c" styleClass="h2" />
+                                        </graphic>
+                                    </Button>
+                                    <Button mnemonicParsing="false" onAction="#onBotonLimpiarTabPaises" styleClass="btn" text="Limpiar campos">
+                                        <tooltip>
+                                            <Tooltip text="Empty Tooltip" />
+                                        </tooltip>
+                                        <HBox.margin>
+                                            <Insets />
+                                        </HBox.margin>
+                                        <graphic>
+                                            <FontIcon accessibleText="Actualizar" fontSmoothingType="LCD" iconColor="WHITE" iconLiteral="fa-exchange" iconSize="20" selectionEnd="2" selectionFill="#1b293c" styleClass="h2" />
+                                        </graphic>
+                                    </Button>
+                                </HBox>
+                            </VBox>
+                        </AnchorPane>
+                    </Tab>
+                    <Tab fx:id="tab_provincias" onSelectionChanged="#cargarTabPaisesYProvincias" text="Provincias">
+                        <tooltip>
+                            <Tooltip text="Listado de provincias" />
+                        </tooltip>
+                        <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="573.0" prefWidth="1188.0">
+                            <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minWidth="-Infinity" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+                                <TableView fx:id="tv_provincias" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" VBox.vgrow="ALWAYS">
+                                    <columns>
+                                        <TableColumn fx:id="tc_paises_tv_provincias" maxWidth="1.7976931348623157E308" minWidth="300.0" prefWidth="-1.0" text="País" />
+                                        <TableColumn fx:id="tc_provincias_tv_provincias" maxWidth="1.7976931348623157E308" minWidth="300.0" prefWidth="-1.0" text="Provincia" />
+                                    </columns>
+                                    <VBox.margin>
+                                        <Insets />
+                                    </VBox.margin>
+                                </TableView>
+                                <HBox prefHeight="125.0" prefWidth="704.0">
+                                    <GridPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" HBox.hgrow="ALWAYS">
+                                        <columnConstraints>
+                                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                        </columnConstraints>
+                                        <rowConstraints>
+                                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                        </rowConstraints>
+                                        <Label text="País" GridPane.halignment="RIGHT">
+                                            <GridPane.margin>
+                                                <Insets right="10.0" />
+                                            </GridPane.margin>
+                                        </Label>
+                                        <TextField fx:id="tf_pais_tab_paisesyprovincias" GridPane.columnIndex="1" />
+                                        <Label text="Provincia" GridPane.halignment="RIGHT" GridPane.rowIndex="1">
+                                            <GridPane.margin>
+                                                <Insets right="10.0" />
+                                            </GridPane.margin>
+                                        </Label>
+                                        <TextField fx:id="tf_provincia_tab_paisesyprovincias" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                    </GridPane>
+                                </HBox>
+                                <HBox alignment="CENTER" prefHeight="26.0" prefWidth="541.0">
+                                    <VBox.margin>
+                                        <Insets bottom="10.0" top="10.0" />
+                                    </VBox.margin>
+                                    <Button mnemonicParsing="false" onAction="#mostrarTablaPaisesYProvincias" styleClass="btn" text="Actualizar tabla">
+                                        <tooltip>
+                                            <Tooltip text="Refresca la tabla" />
+                                        </tooltip>
+                                        <graphic>
+                                            <FontIcon accessibleText="Actualizar" fontSmoothingType="LCD" iconColor="WHITE" iconLiteral="fa-recycle" iconSize="20" selectionEnd="2" selectionFill="#1b293c" styleClass="h2" />
+                                        </graphic>
+                                    </Button>
+                                    <Button mnemonicParsing="false" onAction="#onBotonNuevoTabPaisesYProvincias" styleClass="btn" text="Añadir nuevo">
+                                        <tooltip>
+                                            <Tooltip text="Añade a la tabla según los campos de arriba" />
+                                        </tooltip>
+                                        <HBox.margin>
+                                            <Insets />
+                                        </HBox.margin>
+                                        <graphic>
+                                            <FontIcon accessibleText="Actualizar" fontSmoothingType="LCD" iconColor="WHITE" iconLiteral="fa-file" iconSize="20" selectionEnd="2" selectionFill="#1b293c" styleClass="h2" />
+                                        </graphic>
+                                    </Button>
+                                    <Button mnemonicParsing="false" onAction="#onModificarTabProvincia" styleClass="btn" text="Modificar seleccionado">
+                                        <HBox.margin>
+                                            <Insets />
+                                        </HBox.margin>
+                                        <graphic>
+                                            <FontIcon accessibleText="Actualizar" fontSmoothingType="LCD" iconColor="WHITE" iconLiteral="fa-edit" iconSize="20" selectionEnd="2" selectionFill="#1b293c" styleClass="h2" />
+                                        </graphic>
+                                    </Button>
+                                    <Button mnemonicParsing="false" onAction="#onEliminarTabProvincias" styleClass="btn" text="Eliminar seleccionado">
+                                        <HBox.margin>
+                                            <Insets />
+                                        </HBox.margin>
+                                        <graphic>
+                                            <FontIcon accessibleText="Actualizar" fontSmoothingType="LCD" iconColor="WHITE" iconLiteral="fa-eraser" iconSize="20" selectionEnd="2" selectionFill="#1b293c" styleClass="h2" />
+                                        </graphic>
+                                    </Button>
+                                    <Button mnemonicParsing="false" onAction="#onBotonLimpiarTabPaisesYProvincias" styleClass="btn" text="Limpiar campos">
+                                        <HBox.margin>
+                                            <Insets />
+                                        </HBox.margin>
+                                        <graphic>
+                                            <FontIcon accessibleText="Actualizar" fontSmoothingType="LCD" iconColor="WHITE" iconLiteral="fa-exchange" iconSize="20" selectionEnd="2" selectionFill="#1b293c" styleClass="h2" />
+                                        </graphic>
+                                    </Button>
+                                </HBox>
+                            </VBox>
+                        </AnchorPane>
+                    </Tab>
+                    <Tab fx:id="tab_localidades" onSelectionChanged="#cargarTabPaisesYProvinciasYLocalidades" text="Localidades">
+                        <tooltip>
+                            <Tooltip text="Listado de provincias" />
+                        </tooltip>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                            <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+                                <TableView fx:id="tv_localidades" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" VBox.vgrow="ALWAYS">
+                                    <columns>
+                                        <TableColumn fx:id="tc_pais_tv_localidades" prefWidth="335.9999375343323" text="País" />
+                                        <TableColumn fx:id="tc_provincia_tv_localidades" prefWidth="335.60009765625" text="Provincia" />
+                                        <TableColumn fx:id="tc_localidad_tv_localidades" prefWidth="335.60009765625" text="Localidad" />
+                                    </columns>
+                                </TableView>
+                                <HBox prefHeight="125.0" prefWidth="704.0">
+                                    <GridPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" HBox.hgrow="ALWAYS">
+                                        <columnConstraints>
+                                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                        </columnConstraints>
+                                        <rowConstraints>
+                                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                        </rowConstraints>
+                                        <Label text="País" GridPane.halignment="RIGHT">
+                                            <GridPane.margin>
+                                                <Insets right="10.0" />
+                                            </GridPane.margin>
+                                        </Label>
+                                        <TextField fx:id="tf_pais_tab_localidades" GridPane.columnIndex="1" />
+                                        <Label text="Provincia" GridPane.halignment="RIGHT" GridPane.rowIndex="1">
+                                            <padding>
+                                                <Insets right="10.0" />
+                                            </padding>
+                                        </Label>
+                                        <TextField fx:id="tf_provincia_tab_localidades" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                        <Label text="Localidad" GridPane.halignment="RIGHT" GridPane.rowIndex="2">
+                                            <GridPane.margin>
+                                                <Insets right="10.0" />
+                                            </GridPane.margin>
+                                        </Label>
+                                        <TextField fx:id="tf_localidad_tab_localidades" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                    </GridPane>
+                                </HBox>
+                                <HBox alignment="CENTER" prefHeight="26.0" prefWidth="541.0">
+                                    <VBox.margin>
+                                        <Insets bottom="10.0" top="10.0" />
+                                    </VBox.margin>
+                                    <Button mnemonicParsing="false" onAction="#mostrarTablaPaisesYProvinciasYLocalidades" styleClass="btn" text="Actualizar tabla">
+                                        <tooltip>
+                                            <Tooltip text="Refresca la tabla" />
+                                        </tooltip>
+                                        <graphic>
+                                            <FontIcon accessibleText="Actualizar" fontSmoothingType="LCD" iconColor="WHITE" iconLiteral="fa-recycle" iconSize="20" selectionEnd="2" selectionFill="#1b293c" styleClass="h2" />
+                                        </graphic>
+                                    </Button>
+                                    <Button mnemonicParsing="false" onAction="#onBotonNuevoTabLocalidad" styleClass="btn" text="Añadir nuevo">
+                                        <tooltip>
+                                            <Tooltip text="Añade a la tabla según los campos de arriba" />
+                                        </tooltip>
+                                        <HBox.margin>
+                                            <Insets />
+                                        </HBox.margin>
+                                        <graphic>
+                                            <FontIcon accessibleText="Actualizar" fontSmoothingType="LCD" iconColor="WHITE" iconLiteral="fa-file" iconSize="20" selectionEnd="2" selectionFill="#1b293c" styleClass="h2" />
+                                        </graphic>
+                                    </Button>
+                                    <Button mnemonicParsing="false" onAction="#onBotonModificarTabLocalidad" styleClass="btn" text="Modificar seleccionado">
+                                        <HBox.margin>
+                                            <Insets />
+                                        </HBox.margin>
+                                        <graphic>
+                                            <FontIcon accessibleText="Actualizar" fontSmoothingType="LCD" iconColor="WHITE" iconLiteral="fa-edit" iconSize="20" selectionEnd="2" selectionFill="#1b293c" styleClass="h2" />
+                                        </graphic>
+                                    </Button>
+                                    <Button mnemonicParsing="false" onAction="#onBotonEliminarTabLocalidad" styleClass="btn" text="Eliminar seleccionado">
+                                        <HBox.margin>
+                                            <Insets />
+                                        </HBox.margin>
+                                        <graphic>
+                                            <FontIcon accessibleText="Actualizar" fontSmoothingType="LCD" iconColor="WHITE" iconLiteral="fa-eraser" iconSize="20" selectionEnd="2" selectionFill="#1b293c" styleClass="h2" />
+                                        </graphic>
+                                    </Button>
+                                    <Button mnemonicParsing="false" onAction="#onBotonLimpiarTabPaisesYProvinciasYLocalidades" styleClass="btn" text="Limpiar campos">
+                                        <HBox.margin>
+                                            <Insets />
+                                        </HBox.margin>
+                                        <graphic>
+                                            <FontIcon accessibleText="Actualizar" fontSmoothingType="LCD" iconColor="WHITE" iconLiteral="fa-exchange" iconSize="20" selectionEnd="2" selectionFill="#1b293c" styleClass="h2" />
+                                        </graphic>
+                                    </Button>
+                                </HBox>
+                            </VBox>
+                        </AnchorPane>
+                    </Tab>
+                    <Tab fx:id="tab_codigos_postales" onSelectionChanged="#cargarTabPaisesYProvinciasYLocalidadesYCodigosPostales" text="Códigos Postales">
+                        <tooltip>
+                            <Tooltip text="Listado de CP" />
+                        </tooltip>
+                        <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308">
+                            <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+                                <TableView fx:id="tv_codigo_postal" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" VBox.vgrow="ALWAYS">
+                                    <columns>
+                                        <TableColumn fx:id="tc_pais_tv_codigo_postal" maxWidth="200.0" minWidth="200.0" prefWidth="-1.0" text="País" />
+                                        <TableColumn fx:id="tc_provincia_tv_codigo_postal" maxWidth="200.0" minWidth="200.0" prefWidth="-1.0" text="Provincia" />
+                                        <TableColumn fx:id="tc_localidad_tv_codigo_postal" maxWidth="200.0" minWidth="200.0" prefWidth="263.2000427246094" text="Localidad" />
+                                        <TableColumn fx:id="tc_codigo_postal_tv_codigo_postal" maxWidth="-Infinity" minWidth="200.0" prefWidth="-1.0" text="Codigo Postal" />
+                                    </columns>
+                                    <columnResizePolicy>
+                                        <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                    </columnResizePolicy>
+                                </TableView>
+                                <HBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity">
+                                    <VBox.margin>
+                                        <Insets bottom="10.0" top="10.0" />
+                                    </VBox.margin>
+                                    <GridPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" HBox.hgrow="ALWAYS">
+                                        <columnConstraints>
+                                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" percentWidth="50.0" prefWidth="100.0" />
+                                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                        </columnConstraints>
+                                        <rowConstraints>
+                                            <RowConstraints maxHeight="1.7976931348623157E308" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                        </rowConstraints>
+                                        <HBox.margin>
+                                            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                        </HBox.margin>
+                                        <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" text="Código Postal" textAlignment="RIGHT" GridPane.halignment="RIGHT">
+                                            <GridPane.margin>
+                                                <Insets right="10.0" />
+                                            </GridPane.margin>
+                                        </Label>
+                                        <Label text="Provincia" GridPane.halignment="RIGHT" GridPane.rowIndex="2">
+                                            <GridPane.margin>
+                                                <Insets right="10.0" />
+                                            </GridPane.margin>
+                                        </Label>
+                                        <Label text="País" GridPane.halignment="RIGHT" GridPane.rowIndex="3">
+                                            <GridPane.margin>
+                                                <Insets right="10.0" />
+                                            </GridPane.margin>
+                                        </Label>
+                                        <TextField fx:id="tf_codigo_postal_tab_codigo_postales" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+                                        <TextField fx:id="tf_provincia_tab_codigo_postales" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                        <TextField fx:id="tf_localidad_tab_codigo_postales" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                        <Label text="Localidad" GridPane.halignment="RIGHT" GridPane.rowIndex="1">
+                                            <GridPane.margin>
+                                                <Insets right="10.0" />
+                                            </GridPane.margin>
+                                        </Label>
+                                        <TextField fx:id="tf_pais_tab_codigo_postales" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                                            <GridPane.margin>
+                                                <Insets bottom="10.0" top="10.0" />
+                                            </GridPane.margin>
+                                        </TextField>
+                                    </GridPane>
+                                </HBox>
+                                <HBox alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity">
+                                    <VBox.margin>
+                                        <Insets bottom="10.0" top="10.0" />
+                                    </VBox.margin>
+                                    <Button mnemonicParsing="false" onAction="#mostrarTablaPaisesYProvinciasYLocalidadesYCodigosPostales" styleClass="btn" text="Actualizar tabla">
+                                        <tooltip>
+                                            <Tooltip text="Refresca la tabla" />
+                                        </tooltip>
+                                        <graphic>
+                                            <FontIcon accessibleText="Actualizar" fontSmoothingType="LCD" iconColor="WHITE" iconLiteral="fa-recycle" iconSize="20" selectionEnd="2" selectionFill="#1b293c" styleClass="h2" />
+                                        </graphic>
+                                    </Button>
+                                    <Button mnemonicParsing="false" onAction="#onBotonNuevoCodigoPostalTabCodigoPostal" styleClass="btn" text="Añadir nuevo">
+                                        <tooltip>
+                                            <Tooltip text="Añade a la tabla según los campos de arriba" />
+                                        </tooltip>
+                                        <HBox.margin>
+                                            <Insets />
+                                        </HBox.margin>
+                                        <graphic>
+                                            <FontIcon accessibleText="Actualizar" fontSmoothingType="LCD" iconColor="WHITE" iconLiteral="fa-file" iconSize="20" selectionEnd="2" selectionFill="#1b293c" styleClass="h2" />
+                                        </graphic>
+                                    </Button>
+                                    <Button mnemonicParsing="false" styleClass="btn" text="Modificar seleccionado">
+                                        <HBox.margin>
+                                            <Insets />
+                                        </HBox.margin>
+                                        <tooltip>
+                                            <Tooltip text="Empty Tooltip" />
+                                        </tooltip>
+                                        <graphic>
+                                            <FontIcon accessibleText="Actualizar" fontSmoothingType="LCD" iconColor="WHITE" iconLiteral="fa-edit" iconSize="20" selectionEnd="2" selectionFill="#1b293c" styleClass="h2" />
+                                        </graphic>
+                                    </Button>
+                                    <Button mnemonicParsing="false" onAction="#onBotonEliminarTabPaisesYProvinciasYLocalidadesYCodigosPostales" styleClass="btn" text="Eliminar seleccionado">
+                                        <HBox.margin>
+                                            <Insets />
+                                        </HBox.margin>
+                                        <tooltip>
+                                            <Tooltip text="Empty Tooltip" />
+                                        </tooltip>
+                                        <graphic>
+                                            <FontIcon accessibleText="Actualizar" fontSmoothingType="LCD" iconColor="WHITE" iconLiteral="fa-eraser" iconSize="20" selectionEnd="2" selectionFill="#1b293c" styleClass="h2" />
+                                        </graphic>
+                                    </Button>
+                                    <Button mnemonicParsing="false" onAction="#onBotonLimpiarTabPaisesYProvinciasYLocalidadesYCodigosPostales" styleClass="btn" text="Limpiar campos">
+                                        <HBox.margin>
+                                            <Insets left="10.0" right="10.0" />
+                                        </HBox.margin>
+                                        <tooltip>
+                                            <Tooltip text="Empty Tooltip" />
+                                        </tooltip>
+                                        <graphic>
+                                            <FontIcon accessibleText="Actualizar" fontSmoothingType="LCD" iconColor="WHITE" iconLiteral="fa-exchange" iconSize="20" selectionEnd="2" selectionFill="#1b293c" styleClass="h2" />
+                                        </graphic>
+                                    </Button>
+                                </HBox>
+                            </VBox>
+                        </AnchorPane>
+                    </Tab>
+                </TabPane>
+            </AnchorPane>
+        </Tab>
+        <Tab fx:id="tab_naturalezas_peligrosas" onSelectionChanged="#cargarTabNaturalezaPeligrosa" text="Naturalezas Peligrosas">
+            <tooltip>
+                <Tooltip text="Listado de naturalezas peligrosas" />
+            </tooltip>
+            <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity">
+                <VBox alignment="CENTER" prefHeight="677.0" prefWidth="1188.0" AnchorPane.bottomAnchor="2.0" AnchorPane.leftAnchor="2.0" AnchorPane.rightAnchor="2.0" AnchorPane.topAnchor="2.0">
+                    <TableView fx:id="tv_naturaleza_peligrosa" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" VBox.vgrow="ALWAYS">
+                        <columns>
+                            <TableColumn fx:id="tc_codigo_naturaleza_peligrosa_tv_naturaleza_peligrosa" prefWidth="318.0" text="Código de Naturaleza peligrosa" />
+                            <TableColumn fx:id="tc_descripcion_naturaleza_peligrosa_tv_naturaleza_peligrosa" minWidth="0.0" prefWidth="385.0" text="Descripción de Naturaleza Peligrosa" />
+                        </columns>
+                    </TableView>
+                    <GridPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308">
+                        <columnConstraints>
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        </columnConstraints>
+                        <rowConstraints>
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        </rowConstraints>
+                        <VBox.margin>
+                            <Insets bottom="20.0" top="20.0" />
+                        </VBox.margin>
+                        <Label text="Código de Naturaleza" GridPane.halignment="RIGHT">
+                            <GridPane.margin>
+                                <Insets right="10.0" />
+                            </GridPane.margin>
+                        </Label>
+                        <TextField fx:id="tf_codigo_naturaleza_peligrosa_tab_naturaleza_peligrosa" GridPane.columnIndex="1" />
+                        <Label text="Descripción de Naturaleza" GridPane.halignment="RIGHT" GridPane.rowIndex="1" />
+                        <TextField fx:id="tf_descripcion_naturaleza_peligrosa_tab_naturaleza_peligrosa" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                    </GridPane>
+                    <HBox alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308">
+                        <padding>
+                            <Insets bottom="20.0" top="20.0" />
+                        </padding>
+                        <Button mnemonicParsing="false" onAction="#mostrarTablaNaturalezaPeligrosa" styleClass="btn" text="Actualizar tabla">
+                            <tooltip>
+                                <Tooltip text="Refresca la tabla" />
+                            </tooltip>
+                            <graphic>
+                                <FontIcon accessibleText="Actualizar" fontSmoothingType="LCD" iconColor="WHITE" iconLiteral="fa-recycle" iconSize="20" selectionEnd="2" selectionFill="#1b293c" styleClass="h2" />
+                            </graphic>
+                        </Button>
+                        <Button mnemonicParsing="false" onAction="#onBotonNuevaNaturalezaPeligrosaTabNaturalezaPeligrosa" styleClass="btn" text="Añadir nuevo">
+                            <tooltip>
+                                <Tooltip text="Añade a la tabla según los campos de arriba" />
+                            </tooltip>
+                            <HBox.margin>
+                                <Insets />
+                            </HBox.margin>
+                            <graphic>
+                                <FontIcon accessibleText="Actualizar" fontSmoothingType="LCD" iconColor="WHITE" iconLiteral="fa-file" iconSize="20" selectionEnd="2" selectionFill="#1b293c" styleClass="h2" />
+                            </graphic>
+                        </Button>
+                        <Button mnemonicParsing="false" onAction="#onBotonModificarNaturalezaPeligrosaTabNaturalezaPeligrosa" styleClass="btn" text="Modificar seleccionado">
+                            <tooltip>
+                                <Tooltip text="Empty Tooltip" />
+                            </tooltip>
+                            <HBox.margin>
+                                <Insets />
+                            </HBox.margin>
+                            <graphic>
+                                <FontIcon accessibleText="Actualizar" fontSmoothingType="LCD" iconColor="WHITE" iconLiteral="fa-edit" iconSize="20" selectionEnd="2" selectionFill="#1b293c" styleClass="h2" />
+                            </graphic>
+                        </Button>
+                        <Button mnemonicParsing="false" onAction="#onBotonEliminarNaturalezaPeligrosaTabNaturalezaPeligrosa" styleClass="btn" text="Eliminar seleccionado">
+                            <tooltip>
+                                <Tooltip text="Empty Tooltip" />
+                            </tooltip>
+                            <HBox.margin>
+                                <Insets />
+                            </HBox.margin>
+                            <graphic>
+                                <FontIcon accessibleText="Actualizar" fontSmoothingType="LCD" iconColor="WHITE" iconLiteral="fa-eraser" iconSize="20" selectionEnd="2" selectionFill="#1b293c" styleClass="h2" />
+                            </graphic>
+                        </Button>
+                        <Button mnemonicParsing="false" onAction="#onBotonLimpiarTabNaturalezaPeligrosa" styleClass="btn" text="Limpiar campos">
+                            <tooltip>
+                                <Tooltip text="Empty Tooltip" />
+                            </tooltip>
+                            <HBox.margin>
+                                <Insets />
+                            </HBox.margin>
+                            <graphic>
+                                <FontIcon accessibleText="Actualizar" fontSmoothingType="LCD" iconColor="WHITE" iconLiteral="fa-exchange" iconSize="20" selectionEnd="2" selectionFill="#1b293c" styleClass="h2" />
+                            </graphic>
+                        </Button>
+                    </HBox>
+                </VBox>
+            </AnchorPane>
+        </Tab>
+        <Tab fx:id="tab_tipo_bulto" onSelectionChanged="#cargarTabTiposDeBulto" text="Tipos de bulto">
+            <tooltip>
+                <Tooltip text="Listados de tipos de bultos" />
+            </tooltip>
+            <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity">
+                <VBox alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+                    <TableView fx:id="tv_tipo_bulto" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" VBox.vgrow="ALWAYS">
+                        <columns>
+                            <TableColumn fx:id="tc_codigo_bulto_tv_tipo_bulto" prefWidth="199.0" text="Código de tipo de bulto" />
+                            <TableColumn fx:id="tc_nombre_bulto_tv_tipo_bulto" minWidth="0.0" prefWidth="209.0" text="Nombre de tipo de bulto" />
+                            <TableColumn fx:id="tc_imageColumn_tv_tipo_bulto" prefWidth="283.0" text="Imagen de tipo de bulto" />
+                        </columns>
+                    </TableView>
+                    <HBox prefHeight="125.0" prefWidth="704.0" VBox.vgrow="NEVER">
+                        <GridPane prefHeight="125.0" prefWidth="1188.0">
+                            <columnConstraints>
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                            </columnConstraints>
+                            <rowConstraints>
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            </rowConstraints>
+                            <Label text="Código de tipo de bulto" GridPane.halignment="RIGHT">
+                                <GridPane.margin>
+                                    <Insets />
+                                </GridPane.margin>
+                                <padding>
+                                    <Insets right="10.0" />
+                                </padding>
+                            </Label>
+                            <TextField fx:id="tf_codigo_tipo_bulto_tab_tipo_bulto" GridPane.columnIndex="1" />
+                            <Label text="Nombre de tipo de bulto" GridPane.halignment="RIGHT" GridPane.rowIndex="2">
+                                <GridPane.margin>
+                                    <Insets />
+                                </GridPane.margin>
+                                <padding>
+                                    <Insets right="10.0" />
+                                </padding>
+                            </Label>
+                            <TextField fx:id="tf_nombre_tipo_bulto_tab_tipo_bulto" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                            <Label text="Imágen de tipo de bulto" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.rowIndex="1">
+                                <GridPane.margin>
+                                    <Insets right="10.0" />
+                                </GridPane.margin>
+                            </Label>
+                            <ImageView fx:id="img_imagen_tipo_bulto_tab_tipo_bulto" fitHeight="119.0" fitWidth="160.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="1">
+                                <Image url="@../imagenes/imagenNOdisponible.png" />
+                            </ImageView>
+                            <Button fx:id="btn_carga_imagen_tipo_bulto" mnemonicParsing="false" onAction="#seleccionarImagenTipoBulto" styleClass="btn" text="Elegir imagen desdel ordenador" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.rowIndex="2">
+                                <graphic>
+                                    <FontIcon accessibleText="Actualizar" fontSmoothingType="LCD" iconColor="WHITE" iconLiteral="fa-image" iconSize="20" selectionEnd="2" selectionFill="#1b293c" styleClass="h2" />
+                                </graphic>
+                            </Button>
+                        </GridPane>
+                    </HBox>
+                    <HBox alignment="CENTER" prefHeight="59.0" prefWidth="989.0" VBox.vgrow="NEVER">
+                        <Button mnemonicParsing="false" onAction="#mostrarTablaTiposDeBulto" styleClass="btn" text="Actualizar tabla">
+                            <tooltip>
+                                <Tooltip text="Refresca la tabla" />
+                            </tooltip>
+                            <graphic>
+                                <FontIcon accessibleText="Actualizar" fontSmoothingType="LCD" iconColor="WHITE" iconLiteral="fa-recycle" iconSize="20" selectionEnd="2" selectionFill="#1b293c" styleClass="h2" />
+                            </graphic>
+                        </Button>
+                        <Button mnemonicParsing="false" onAction="#onBotonNuevoTipoDeBultoTabTipoDeBultos" styleClass="btn" text="Añadir nuevo">
+                            <tooltip>
+                                <Tooltip text="Añade a la tabla según los campos de arriba" />
+                            </tooltip>
+                            <HBox.margin>
+                                <Insets />
+                            </HBox.margin>
+                            <graphic>
+                                <FontIcon accessibleText="Actualizar" fontSmoothingType="LCD" iconColor="WHITE" iconLiteral="fa-file" iconSize="20" selectionEnd="2" selectionFill="#1b293c" styleClass="h2" />
+                            </graphic>
+                        </Button>
+                        <Button mnemonicParsing="false" onAction="#onBotonModificarTipoDeBultoTabTipoDeBultos" styleClass="btn" text="Modificar seleccionado">
+                            <HBox.margin>
+                                <Insets />
+                            </HBox.margin>
+                            <tooltip>
+                                <Tooltip text="Empty Tooltip" />
+                            </tooltip>
+                            <graphic>
+                                <FontIcon accessibleText="Actualizar" fontSmoothingType="LCD" iconColor="WHITE" iconLiteral="fa-edit" iconSize="20" selectionEnd="2" selectionFill="#1b293c" styleClass="h2" />
+                            </graphic>
+                        </Button>
+                        <Button mnemonicParsing="false" onAction="#onBotonEliminarTipoDeBultoTabTipoDeBulto" styleClass="btn" text="Eliminar seleccionado">
+                            <HBox.margin>
+                                <Insets />
+                            </HBox.margin>
+                            <tooltip>
+                                <Tooltip text="Empty Tooltip" />
+                            </tooltip>
+                            <graphic>
+                                <FontIcon accessibleText="Actualizar" fontSmoothingType="LCD" iconColor="WHITE" iconLiteral="fa-eraser" iconSize="20" selectionEnd="2" selectionFill="#1b293c" styleClass="h2" />
+                            </graphic>
+                        </Button>
+                        <Button mnemonicParsing="false" onAction="#onBotonLimpiarTabTipoBultos" styleClass="btn" text="Limpiar campos">
+                            <HBox.margin>
+                                <Insets />
+                            </HBox.margin>
+                            <tooltip>
+                                <Tooltip text="Empty Tooltip" />
+                            </tooltip>
+                            <graphic>
+                                <FontIcon accessibleText="Actualizar" fontSmoothingType="LCD" iconColor="WHITE" iconLiteral="fa-exchange" iconSize="20" selectionEnd="2" selectionFill="#1b293c" styleClass="h2" />
+                            </graphic>
+                        </Button>
+                    </HBox>
+                </VBox>
+            </AnchorPane>
+        </Tab>
+        <Tab fx:id="tab_empresas" onSelectionChanged="#cargarTabEmpresas" text="Empresa">
+            <tooltip>
+                <Tooltip text="AyudaEmpresa" />
+            </tooltip>
+            <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity">
+                <VBox alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+                    <TableView fx:id="tv_empresa" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" VBox.vgrow="ALWAYS">
+                        <columns>
+                            <TableColumn fx:id="tc_empresas_cif" prefWidth="75.0" text="CIF" />
+                            <TableColumn fx:id="tc_empresas_nombre" prefWidth="116.0" text="Nombre" />
+                            <TableColumn fx:id="tc_empresas_domicilio" prefWidth="142.4000244140625" text="Domicilio" />
+                            <TableColumn fx:id="tc_empresas_pais" prefWidth="115.60003662109375" text="País" />
+                            <TableColumn fx:id="tc_empresas_provincia" prefWidth="112.39999389648438" text="Provincia" />
+                            <TableColumn fx:id="tc_empresas_localidad" prefWidth="116.0" text="Localidad" />
+                            <TableColumn fx:id="tc_empresas_codigo_postal" prefWidth="106.7999267578125" text="Código Postal" />
+                            <TableColumn fx:id="tc_empresas_correo" prefWidth="175.2000732421875" text="Correo" />
+                            <TableColumn fx:id="tc_empresas_telefono" prefWidth="87.5999755859375" text="Teléfono" />
+                            <TableColumn fx:id="tc_empresas_persona_contacto" prefWidth="135.2000732421875" text="Persona de Contacto" />
+                        </columns>
+                        <columnResizePolicy>
+                            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                        </columnResizePolicy>
+                    </TableView>
+                    <GridPane alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="208.0" prefWidth="1135.0">
+                        <columnConstraints>
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        </columnConstraints>
+                        <rowConstraints>
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints />
+                        </rowConstraints>
+                        <VBox.margin>
+                            <Insets bottom="10.0" top="10.0" />
+                        </VBox.margin>
+                        <Label text="CIF" GridPane.halignment="RIGHT">
+                            <padding>
+                                <Insets right="10.0" />
+                            </padding>
+                        </Label>
+                        <Label text="Nombre" GridPane.halignment="RIGHT" GridPane.rowIndex="1">
+                            <padding>
+                                <Insets right="10.0" />
+                            </padding>
+                        </Label>
+                        <Label text="Domicilio" GridPane.halignment="RIGHT" GridPane.rowIndex="2">
+                            <padding>
+                                <Insets right="10.0" />
+                            </padding>
+                        </Label>
+                        <Label text="País" GridPane.halignment="RIGHT" GridPane.rowIndex="3">
+                            <padding>
+                                <Insets right="10.0" />
+                            </padding>
+                        </Label>
+                        <Label text="Provincia" GridPane.halignment="RIGHT" GridPane.rowIndex="4">
+                            <padding>
+                                <Insets right="10.0" />
+                            </padding>
+                        </Label>
+                        <Label text="Localidad" GridPane.halignment="RIGHT" GridPane.rowIndex="5">
+                            <padding>
+                                <Insets right="10.0" />
+                            </padding>
+                        </Label>
+                        <Label text="Código Postal" GridPane.halignment="RIGHT" GridPane.rowIndex="6">
+                            <padding>
+                                <Insets right="10.0" />
+                            </padding>
+                        </Label>
+                        <TextField fx:id="tf_cif_tab_empresas" GridPane.columnIndex="1" />
+                        <TextField fx:id="tf_nombre_tab_empresas" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <TextField fx:id="tf_domicilio_tab_empresas" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        <Label text="Correo electrónico" GridPane.columnIndex="2" GridPane.halignment="RIGHT">
+                            <padding>
+                                <Insets right="10.0" />
+                            </padding>
+                        </Label>
+                        <Label text="Teléfono" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.rowIndex="1">
+                            <padding>
+                                <Insets right="10.0" />
+                            </padding>
+                        </Label>
+                        <Label text="Persona de contacto" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.rowIndex="2">
+                            <padding>
+                                <Insets right="10.0" />
+                            </padding>
+                        </Label>
+                        <TextField fx:id="tf_correo_tab_empresas" GridPane.columnIndex="3" />
+                        <TextField fx:id="tf_telefono_tab_empresas" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                        <TextField fx:id="tf_persona_contacto_tab_empresas" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+                        <ComboBox fx:id="cmb_pais_empresas" maxWidth="1.7976931348623157E308" onAction="#cmb_pais_empresas_cambio" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                        <ComboBox fx:id="cmb_provincias_empresas" maxWidth="1.7976931348623157E308" onAction="#comb_provincia_empresa_cambio" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                        <ComboBox fx:id="cmb_localidad_empresas" maxWidth="1.7976931348623157E308" onAction="#comb_localidad_empresa_cambio" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                        <ComboBox fx:id="cmb_cp_empresas" maxWidth="1.7976931348623157E308" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+
+                    </GridPane>
+                    <HBox alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" VBox.vgrow="NEVER">
+                        <VBox.margin>
+                            <Insets bottom="10.0" top="10.0" />
+                        </VBox.margin>
+                        <Button mnemonicParsing="false" onAction="#mostrarTablaEmpresas" styleClass="btn" text="Actualizar tabla">
+                            <tooltip>
+                                <Tooltip text="Refresca la tabla" />
+                            </tooltip>
+                            <graphic>
+                                <FontIcon accessibleText="Actualizar" fontSmoothingType="LCD" iconColor="WHITE" iconLiteral="fa-recycle" iconSize="20" selectionEnd="2" selectionFill="#1b293c" styleClass="h2" />
+                            </graphic>
+                        </Button>
+                        <Button alignment="CENTER" mnemonicParsing="false" onAction="#onBotonNuevaEmpresaTabEmpresa" styleClass="btn" text="Añadir nuevo">
+                            <tooltip>
+                                <Tooltip text="Añade a la tabla según los campos de arriba" />
+                            </tooltip>
+                            <HBox.margin>
+                                <Insets />
+                            </HBox.margin>
+                            <graphic>
+                                <FontIcon accessibleText="Actualizar" fontSmoothingType="LCD" iconColor="WHITE" iconLiteral="fa-file" iconSize="20" selectionEnd="2" selectionFill="#1b293c" styleClass="h2" />
+                            </graphic>
+                        </Button>
+                        <Button alignment="CENTER" mnemonicParsing="false" onAction="#onBotonModificarEmpresaTabEmpresas" styleClass="btn" text="Modificar seleccionado">
+                            <HBox.margin>
+                                <Insets />
+                            </HBox.margin>
+                            <tooltip>
+                                <Tooltip text="Empty Tooltip" />
+                            </tooltip>
+                            <graphic>
+                                <FontIcon accessibleText="Actualizar" fontSmoothingType="LCD" iconColor="WHITE" iconLiteral="fa-edit" iconSize="20" selectionEnd="2" selectionFill="#1b293c" styleClass="h2" />
+                            </graphic>
+                        </Button>
+                        <Button alignment="CENTER" mnemonicParsing="false" onAction="#onBotonEliminarEmpresaTabEmpresa" styleClass="btn" text="Eliminar seleccionado">
+                            <HBox.margin>
+                                <Insets />
+                            </HBox.margin>
+                            <tooltip>
+                                <Tooltip text="Empty Tooltip" />
+                            </tooltip>
+                            <graphic>
+                                <FontIcon accessibleText="Actualizar" fontSmoothingType="LCD" iconColor="WHITE" iconLiteral="fa-eraser" iconSize="20" selectionEnd="2" selectionFill="#1b293c" styleClass="h2" />
+                            </graphic>
+                        </Button>
+                        <Button alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#onBotonLimpiarTabEmpresas" styleClass="btn" text="Limpiar campos">
+                            <HBox.margin>
+                                <Insets />
+                            </HBox.margin>
+                            <tooltip>
+                                <Tooltip text="Empty Tooltip" />
+                            </tooltip>
+                            <graphic>
+                                <FontIcon accessibleText="Actualizar" fontSmoothingType="LCD" iconColor="WHITE" iconLiteral="fa-exchange" iconSize="20" selectionEnd="2" selectionFill="#1b293c" styleClass="h2" />
+                            </graphic>
+                        </Button>
+                    </HBox>
+                </VBox>
+            </AnchorPane>
+        </Tab>
+        <Tab fx:id="tab_carga_entrega" onSelectionChanged="#cargarTabCargaYEntrega" text="Cargas">
+            <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity">
+                <VBox alignment="TOP_CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+                    <children>
+                        <TableView id="tablaApaisada" fx:id="tv_carga_entrega" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="30.0" prefWidth="1505.0" style="-fx-rotate: 0;" tableMenuButtonVisible="true" VBox.vgrow="ALWAYS">
+                            <columns>
+                                <TableColumn fx:id="tc_cod_carga" maxWidth="112.0" minWidth="60.0" prefWidth="87.0" style="-fx-rorate: 90;" text="Cód. Carga" />
+                                <TableColumn fx:id="tc_ya_servido" maxWidth="105.0" minWidth="8.0" prefWidth="101.0" style="-fx-rorate: 90;" text="Ya servido" />
+                                <TableColumn fx:id="tc_franja_horario_recogida" maxWidth="158.0" minWidth="60.0" prefWidth="152.0" text="Franja recogida" />
+                                <TableColumn fx:id="tc_franja_horario_entrega" maxWidth="131.0" minWidth="43.0" prefWidth="131.0" text="Franja entrega" />
+                                <TableColumn fx:id="tc_dimension_l" editable="false" maxWidth="90.0" minWidth="1.0" prefWidth="90.0" text="Dim L (cm)" />
+                                <TableColumn fx:id="tc_dimension_a" maxWidth="95.0" minWidth="2.0" prefWidth="95.0" text="Dim A (cm)" />
+                                <TableColumn fx:id="tc_dimension_h" maxWidth="94.0" minWidth="25.0" prefWidth="94.0" text="Dim H (cm)" />
+                                <TableColumn fx:id="tc_peso_unitario" maxWidth="109.0" minWidth="26.0" prefWidth="109.0" text="Peso/ud (kg)" />
+                                <TableColumn fx:id="tc_manipulacion_carga_bool" maxWidth="85.0" minWidth="11.0" prefWidth="73.0" text="Manipulación carga" />
+                                <TableColumn fx:id="tc_remontable" maxWidth="75.0" minWidth="0.0" prefWidth="74.0" text="Remontable" />
+                                <TableColumn fx:id="tc_tipo_bulto" maxWidth="100.0" minWidth="27.0" prefWidth="100.0" text="Tipo de bulto" />
+                                <TableColumn fx:id="tc_doble_conductor" prefWidth="69.0" text="DblConductor" visible="false" />
+                                <TableColumn fx:id="tc_es_naturaleza_peligrosa" maxWidth="60.0" minWidth="60.0" prefWidth="60.0" text="Peligrosidad" />
+                                <TableColumn fx:id="tc_carga_completa_o_grupaje" prefWidth="60.0" text="Grupaje" visible="false" />
+                                <TableColumn fx:id="tc_necesita_rampa" prefWidth="58.0" text="Necesita Rampa" visible="false" />
+                                <TableColumn fx:id="tc_NATURALEZAS_PELIGROSAS_cod_naturaleza_peligrosa" maxWidth="78.0" prefWidth="61.0" text="Naturaleza Peligrosa" visible="false" />
+                                <TableColumn fx:id="tc_pais_origen" prefWidth="75.0" text="País origen" visible="false" />
+                                <TableColumn fx:id="tc_provincia_origen" prefWidth="75.0" text="Provincia origen" visible="false" />
+                                <TableColumn fx:id="tc_localidad_origen" prefWidth="75.0" text="Localidad origen" visible="false" />
+                                <TableColumn fx:id="tc_cp_origen" prefWidth="75.0" text="CP Origen" visible="false" />
+                                <TableColumn fx:id="tc_pais_destino" prefWidth="75.0" text="País Destino" visible="false" />
+                                <TableColumn fx:id="tc_provincia_destino" prefWidth="75.0" text="Provincia Destino" visible="false" />
+                                <TableColumn fx:id="tc_localidad_destino" prefWidth="75.0" text="Localidad Destino" visible="false" />
+                                <TableColumn fx:id="tc_cp_destino" prefWidth="75.0" text="CP Destino" visible="false" />
+                                <TableColumn fx:id="tc_instrucciones" prefWidth="75.0" text="Instrucciones" visible="false" />
+                                <TableColumn fx:id="tc_reembolso_cantidad" prefWidth="75.0" text="Reembolso (€)" visible="false" />
+                                <TableColumn fx:id="tc_con_vuelta" prefWidth="75.0" text="Con vuelta" visible="false" />
+                                <TableColumn fx:id="tc_precio" maxWidth="100.0" prefWidth="75.0" text="Precio (€)" />
+                                <TableColumn fx:id="tc_seguro" prefWidth="75.0" text="Seguro (€)" visible="false" />
+                                <TableColumn fx:id="tc_es_adr" prefWidth="75.0" text="ADR" visible="false" />
+                                <TableColumn fx:id="tc_es_atp" prefWidth="75.0" text="ATP" visible="false" />
+                                <TableColumn fx:id="tc_cantidad_bultos" prefWidth="75.0" text="Cantidad de Bultos" visible="false" />
+                                <TableColumn fx:id="tc_fecha_creaccion" prefWidth="75.0" text="Fecha Creacción de la carga" visible="false" />
+                                <TableColumn fx:id="tc_empresa" maxWidth="100.0" prefWidth="75.0" text="Empresa" />
+
+                            </columns>
+                            <opaqueInsets>
+                                <Insets />
+                            </opaqueInsets>
+                            <columnResizePolicy>
+                                <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                            </columnResizePolicy>
+                        </TableView>
+                        <GridPane alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="520.0" prefWidth="1505.0" VBox.vgrow="NEVER">
+                            <columnConstraints>
+                                <ColumnConstraints halignment="CENTER" hgrow="ALWAYS" maxWidth="1.7976931348623157E308" percentWidth="10.0" />
+                                <ColumnConstraints hgrow="ALWAYS" maxWidth="1.7976931348623157E308" percentWidth="10.0" />
+                                <ColumnConstraints hgrow="ALWAYS" maxWidth="1.7976931348623157E308" percentWidth="10.0" />
+                                <ColumnConstraints hgrow="ALWAYS" maxWidth="1.7976931348623157E308" percentWidth="10.0" />
+                                <ColumnConstraints hgrow="ALWAYS" maxWidth="1.7976931348623157E308" />
+                                <ColumnConstraints hgrow="ALWAYS" maxWidth="1.7976931348623157E308" percentWidth="10.0" />
+                                <ColumnConstraints hgrow="ALWAYS" maxWidth="1.7976931348623157E308" percentWidth="10.0" />
+                                <ColumnConstraints hgrow="ALWAYS" maxWidth="1.7976931348623157E308" percentWidth="1.0" />
+                                <ColumnConstraints hgrow="ALWAYS" maxWidth="1.7976931348623157E308" percentWidth="10.0" />
+                                <ColumnConstraints hgrow="ALWAYS" maxWidth="1.7976931348623157E308" percentWidth="10.0" />
+                            </columnConstraints>
+                            <Label text="Codigo Carga" GridPane.columnIndex="8" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
+                            <Label text="Franja recogida" GridPane.rowIndex="6" />
+                            <Label text="Franja Entrega" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="8" GridPane.valignment="CENTER" />
+                            <Label text="Dim. A (cm)" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="9" GridPane.valignment="CENTER" />
+                            <Label text="Dim. L (cm)" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="10" GridPane.valignment="CENTER" />
+                            <Label text="Dim. H (cm)" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="8" GridPane.valignment="CENTER" />
+                            <Label text="Peso Unidad (kg)" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="11" GridPane.valignment="CENTER" />
+                            <Label lineSpacing="2.0" text="Manipulación de carga" wrapText="true" GridPane.columnIndex="6" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER" />
+                            <Label text="Remontable" GridPane.columnIndex="6" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
+                            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="361.0" text="Tipo de Bulto" GridPane.columnIndex="8" GridPane.columnSpan="2" GridPane.rowIndex="2" />
+                            <Label text="Doble Conductor" wrapText="true" GridPane.columnIndex="6" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER" />
+                            <Label text="Grupaje" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
+                                <GridPane.margin>
+                                    <Insets />
+                                </GridPane.margin>
+                            </Label>
+                            <Label text="Necesita rampa" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
+                            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="390.0" text="NATURALEZA DE LA MERCANCÍA" GridPane.columnSpan="4" GridPane.rowIndex="10">
+                                <font>
+                                    <Font name="System Bold" size="20.0" />
+                                </font>
+                            </Label>
+                            <Label text="País de origen" wrapText="true" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.valignment="CENTER" GridPane.vgrow="NEVER" />
+                            <Label text="Provincia de origen" wrapText="true" GridPane.rowIndex="2" />
+                            <Label text="Localidad de origen" wrapText="true" GridPane.rowIndex="3" />
+                            <Label text="Codigo postal de origen" wrapText="true" GridPane.rowIndex="4" />
+                            <Label text="País de destino" wrapText="true" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
+                            <Label text="Provincia de destino" wrapText="true" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
+                            <Label text="Localidad de destino" wrapText="true" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER" />
+                            <Label text="Código postal de destino" wrapText="true" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER" />
+                            <Label text="ADR" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
+                            <Label text="ATP" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER" />
+                            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="351.0" text="INSTRUCCIONES" textAlignment="CENTER" GridPane.columnIndex="8" GridPane.columnSpan="2" GridPane.rowIndex="8">
+                                <font>
+                                    <Font name="System Bold" size="22.0" />
+                                </font>
+                            </Label>
+                            <Label text="Reembolso (€)" GridPane.columnIndex="8" GridPane.rowIndex="6" />
+                            <Label text="Precio (€)" GridPane.columnIndex="8" GridPane.rowIndex="4" />
+                            <Label text="Seguro (€)" GridPane.columnIndex="8" GridPane.rowIndex="5" />
+                            <TextField fx:id="tf_codigo_carga_tab_carga_entrega" prefHeight="25.0" prefWidth="100.0" GridPane.columnIndex="9" GridPane.rowIndex="1" />
+                            <TextField fx:id="tf_franja_entrega_tab_carga_entrega" GridPane.columnIndex="3" GridPane.rowIndex="8" />
+                            <TextField fx:id="tf_dim_l_tab_carga_entrega" GridPane.columnIndex="5" GridPane.rowIndex="10" />
+                            <TextField fx:id="tf_dim_a_tab_carga_entrega" GridPane.columnIndex="5" GridPane.rowIndex="9" />
+                            <TextField fx:id="tf_dim_h_tab_carga_entrega" GridPane.columnIndex="5" GridPane.rowIndex="8" />
+                            <TextField fx:id="tf_peso_unidad_tab_carga_entrega" GridPane.columnIndex="5" GridPane.rowIndex="11" />
+                            <TextField fx:id="tf_instrucciones_tab_carga_entrega" alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" GridPane.columnIndex="8" GridPane.columnSpan="2" GridPane.rowIndex="9" GridPane.rowSpan="3">
+                                <GridPane.margin>
+                                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                </GridPane.margin>
+                            </TextField>
+                            <ComboBox fx:id="combo_pais_origen_carga_entrega" maxWidth="1.7976931348623157E308" onAction="#comb_pais_origen_cambio" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.hgrow="NEVER" GridPane.rowIndex="1" GridPane.valignment="CENTER" GridPane.vgrow="NEVER" />
+                            <ComboBox fx:id="combo_provincia_origen_carga_entrega" maxWidth="1.7976931348623157E308" onAction="#comb_provincia_origen_cambio" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.hgrow="NEVER" GridPane.rowIndex="2" GridPane.valignment="CENTER" GridPane.vgrow="NEVER" />
+                            <ComboBox fx:id="combo_localidad_origen_carga_entrega" maxWidth="1.7976931348623157E308" onAction="#comb_localidad_origen_cambio" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.hgrow="NEVER" GridPane.rowIndex="3" GridPane.valignment="CENTER" GridPane.vgrow="NEVER" />
+                            <ComboBox fx:id="combo_cp_origen_carga_entrega" maxWidth="1.7976931348623157E308" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.hgrow="NEVER" GridPane.rowIndex="4" GridPane.valignment="CENTER" GridPane.vgrow="NEVER">
+                                <GridPane.margin>
+                                    <Insets />
+                                </GridPane.margin>
+                            </ComboBox>
+                            <ComboBox fx:id="combo_pais_destino_carga_entrega" maxWidth="1.7976931348623157E308" onAction="#comb_pais_destino_cambio" GridPane.columnIndex="3" GridPane.hgrow="NEVER" GridPane.rowIndex="1" />
+                            <ComboBox fx:id="combo_provincia_destino_carga_entrega" maxWidth="1.7976931348623157E308" onAction="#comb_provincia_destino_cambio" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.hgrow="NEVER" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
+                            <ComboBox fx:id="combo_localidad_destino_carga_entrega" maxWidth="1.7976931348623157E308" onAction="#comb_localidad_destino_cambio" GridPane.columnIndex="3" GridPane.hgrow="NEVER" GridPane.rowIndex="3" GridPane.vgrow="NEVER" />
+                            <ComboBox fx:id="combo_cp_destino_carga_entrega" maxWidth="1.7976931348623157E308" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.hgrow="NEVER" GridPane.rowIndex="4" GridPane.valignment="CENTER" GridPane.vgrow="NEVER" />
+                            <ComboBox fx:id="combo_naturaleza_peligrosa_carga_entrega" maxWidth="1.7976931348623157E308" GridPane.columnSpan="4" GridPane.halignment="CENTER" GridPane.hgrow="NEVER" GridPane.rowIndex="11" GridPane.valignment="CENTER" GridPane.vgrow="NEVER" />
+                            <TextField fx:id="tf_reembolso_tab_carga_entrega" GridPane.columnIndex="9" GridPane.rowIndex="6" />
+                            <TextField fx:id="tf_precio_tab_carga_entrega" GridPane.columnIndex="9" GridPane.rowIndex="4" />
+                            <TextField fx:id="tf_seguro_tab_carga_entrega" GridPane.columnIndex="9" GridPane.rowIndex="5" />
+                            <CheckBox fx:id="cxbx_manipulacion_carga_entrega" mnemonicParsing="false" GridPane.columnIndex="7" GridPane.rowIndex="4" />
+                            <CheckBox fx:id="cbx_remontable_carga_entrega" mnemonicParsing="false" GridPane.columnIndex="7" GridPane.rowIndex="1" />
+                            <CheckBox fx:id="cxbx_dblconductor_carga_entrega" mnemonicParsing="false" GridPane.columnIndex="7" GridPane.rowIndex="3" />
+                            <CheckBox fx:id="cxbx_peligrosidad_carga_entrega" mnemonicParsing="false" GridPane.columnIndex="7" GridPane.rowIndex="6" />
+                            <CheckBox fx:id="cxbx_adr_carga_entrega" mnemonicParsing="false" onAction="#cbADRExcluirATP" GridPane.columnIndex="5" GridPane.rowIndex="2" />
+                            <CheckBox fx:id="cxbx_atp_carga_entrega" mnemonicParsing="false" onAction="#cbATPExcluirADR" GridPane.columnIndex="5" GridPane.rowIndex="4" />
+                            <CheckBox fx:id="cxbx_grupaje_carga_entrega" mnemonicParsing="false" GridPane.columnIndex="5" GridPane.rowIndex="3" />
+                            <CheckBox fx:id="cxbx_necesita_rampa_carga_entrega" mnemonicParsing="false" GridPane.columnIndex="5" GridPane.rowIndex="1" />
+                            <CheckBox fx:id="cxbx_con_vuelta_carga_entrega" mnemonicParsing="false" GridPane.columnIndex="7" GridPane.rowIndex="2" />
+                            <Label text="Ida y Vuelta" GridPane.columnIndex="6" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
+                            <VBox alignment="CENTER" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="6" GridPane.valignment="CENTER">
+                                <DatePicker fx:id="dp_dia_inicio_carga_entrega" />
+                                <TextField fx:id="tf_hora_inicio_carga_entrega" alignment="CENTER" text="12:00" />
+                            </VBox>
+                            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="3" GridPane.rowIndex="6">
+                                <DatePicker fx:id="dp_dia_fin_carga_entrega" />
+                                <TextField fx:id="tf_hora_fin_carga_entrega" alignment="CENTER" text="12:00" />
+                            </VBox>
+                            <Label text="Cantidad Bultos" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="6" GridPane.valignment="CENTER" />
+                            <TextField fx:id="tf_cantidad_bultos_carga_entrega" GridPane.columnIndex="5" GridPane.rowIndex="6" />
+                            <ComboBox fx:id="combo_tipo_bulto_carga_entrega" maxWidth="1.7976931348623157E308" GridPane.columnIndex="8" GridPane.columnSpan="2" GridPane.hgrow="NEVER" GridPane.rowIndex="3" GridPane.vgrow="NEVER" />
+                            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="361.0" styleClass="h1" text="INFO ADICIONAL" GridPane.columnIndex="8" GridPane.columnSpan="2">
+                                <font>
+                                    <Font name="System Bold" size="20.0" />
+                                </font>
+                            </Label>
+                            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="390.0" styleClass="h1" text="ÁMBITO DE CARGA" GridPane.columnSpan="4">
+                                <font>
+                                    <Font name="System Bold" size="21.0" />
+                                </font>
+                            </Label>
+                            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="390.0" styleClass="h1" text="INFO DE LA CARGA" GridPane.columnIndex="4" GridPane.columnSpan="4">
+                                <font>
+                                    <Font name="System Bold" size="21.0" />
+                                </font>
+                            </Label>
+                            <Label text="Fecha creacción" GridPane.rowIndex="8" />
+                            <DatePicker fx:id="dp_fecha_creaccion" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+                            <Label text="Ya servida" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="CENTER" />
+                            <CheckBox fx:id="cxbx_ya_servida" mnemonicParsing="false" GridPane.columnIndex="5" GridPane.rowIndex="5" />
+                            <ComboBox fx:id="combo_empresa_carga_entrega" prefWidth="150.0" GridPane.columnIndex="9" GridPane.rowIndex="7" />
+                            <Label text="Empresa" GridPane.columnIndex="8" GridPane.rowIndex="7" />
+                            <rowConstraints>
+                                <RowConstraints percentHeight="10.0" valignment="CENTER" vgrow="NEVER" />
+                                <RowConstraints percentHeight="8.0" valignment="CENTER" vgrow="NEVER" />
+                                <RowConstraints percentHeight="8.0" valignment="CENTER" vgrow="NEVER" />
+                                <RowConstraints percentHeight="8.0" valignment="CENTER" vgrow="NEVER" />
+                                <RowConstraints percentHeight="8.0" valignment="CENTER" vgrow="NEVER" />
+                                <RowConstraints percentHeight="8.0" valignment="CENTER" vgrow="NEVER" />
+                                <RowConstraints maxHeight="190.40002441406247" minHeight="78.00006408691405" percentHeight="16.0" prefHeight="78.00006408691405" valignment="CENTER" vgrow="NEVER" />
+                                <RowConstraints maxHeight="190.40002441406247" minHeight="78.00006408691405" percentHeight="8.0" prefHeight="78.00006408691405" valignment="CENTER" vgrow="NEVER" />
+                                <RowConstraints maxHeight="151.59993591308597" minHeight="38.79997558593749" percentHeight="8.0" prefHeight="40.400048828124966" valignment="CENTER" vgrow="NEVER" />
+                                <RowConstraints maxHeight="140.399951171875" minHeight="38.00004882812499" percentHeight="8.0" prefHeight="49.999975585937534" valignment="CENTER" vgrow="NEVER" />
+                                <RowConstraints maxHeight="119.60002441406249" minHeight="31.2000732421875" percentHeight="8.0" prefHeight="44.0" valignment="CENTER" vgrow="NEVER" />
+                                <RowConstraints maxHeight="117.99992675781249" minHeight="37.99992675781249" percentHeight="8.0" prefHeight="105.19999999999999" vgrow="ALWAYS" />
+                            </rowConstraints>
+                            <VBox.margin>
+                                <Insets />
+                            </VBox.margin>
+                        </GridPane>
+                        <HBox alignment="CENTER" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" VBox.vgrow="NEVER">
+                            <Button mnemonicParsing="false" onAction="#mostrarTablaCargaYEntrega" styleClass="btn" text="Actualizar tabla">
+                                <HBox.margin>
+                                    <Insets />
+                                </HBox.margin>
+                                <tooltip>
+                                    <Tooltip text="Refresca la tabla" />
+                                </tooltip>
+                                <graphic>
+                                    <FontIcon accessibleText="Actualizar" fontSmoothingType="LCD" iconColor="WHITE" iconLiteral="fa-recycle" iconSize="20" selectionEnd="2" selectionFill="#1b293c" styleClass="h2" />
+                                </graphic>
+                            </Button>
+                            <Button mnemonicParsing="false" onAction="#onBotonNuevaCargaEntrega" styleClass="btn" text="Añadir nuevo">
+                                <tooltip>
+                                    <Tooltip text="Añade a la tabla según los campos de arriba" />
+                                </tooltip>
+                                <HBox.margin>
+                                    <Insets />
+                                </HBox.margin>
+                                <graphic>
+                                    <FontIcon accessibleText="Actualizar" fontSmoothingType="LCD" iconColor="WHITE" iconLiteral="fa-file" iconSize="20" selectionEnd="2" selectionFill="#1b293c" styleClass="h2" />
+                                </graphic>
+                            </Button>
+                            <Button mnemonicParsing="false" onAction="#onBotonModificarCargaEntrega" styleClass="btn" text="Modificar seleccionado">
+                                <HBox.margin>
+                                    <Insets />
+                                </HBox.margin>
+                                <tooltip>
+                                    <Tooltip text="Empty Tooltip" />
+                                </tooltip>
+                                <graphic>
+                                    <FontIcon accessibleText="Actualizar" fontSmoothingType="LCD" iconColor="WHITE" iconLiteral="fa-edit" iconSize="20" selectionEnd="2" selectionFill="#1b293c" styleClass="h2" />
+                                </graphic>
+                            </Button>
+                            <Button mnemonicParsing="false" onAction="#onBotonBorrarCargaEntrega" styleClass="btn" text="Eliminar seleccionado">
+                                <HBox.margin>
+                                    <Insets />
+                                </HBox.margin>
+                                <tooltip>
+                                    <Tooltip text="Empty Tooltip" />
+                                </tooltip>
+                                <graphic>
+                                    <FontIcon accessibleText="Actualizar" fontSmoothingType="LCD" iconColor="WHITE" iconLiteral="fa-eraser" iconSize="20" selectionEnd="2" selectionFill="#1b293c" styleClass="h2" />
+                                </graphic>
+                            </Button>
+                            <Button mnemonicParsing="false" onAction="#onBotonLimpiarCargaEntrega" styleClass="btn" text="Limpiar campos">
+                                <HBox.margin>
+                                    <Insets />
+                                </HBox.margin>
+                                <tooltip>
+                                    <Tooltip text="Empty Tooltip" />
+                                </tooltip>
+                                <graphic>
+                                    <FontIcon accessibleText="Actualizar" fontSmoothingType="LCD" iconColor="WHITE" iconLiteral="fa-exchange" iconSize="20" selectionEnd="2" selectionFill="#1b293c" styleClass="h2" />
+                                </graphic>
+                            </Button>
+                            <VBox.margin>
+                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                            </VBox.margin>
+                        </HBox>
+                    </children>
+                </VBox>
+            </AnchorPane>
+            <tooltip>
+                <Tooltip text="Gestión de cargas" />
+            </tooltip>
+        </Tab>
+        <Tab fx:id="tab_envios" onSelectionChanged="#cargarTabEnvios" text="Cargas asignadas">
+            <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity">
+                <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" />
+                <VBox alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+                    <TableView fx:id="tv_envios" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" VBox.vgrow="ALWAYS">
+                        <columns>
+                            <TableColumn fx:id="tc_tracker_tv_envio" maxWidth="1.7976931348623157E308" minWidth="-Infinity" prefWidth="200.0" text="Tracker" />
+                            <TableColumn fx:id="tc_carga_entrega_tv_envio" maxWidth="1.7976931348623157E308" minWidth="-1.0" prefWidth="346.39996337890625" text="Carga y Entrega" />
+                            <TableColumn fx:id="tc_conductor_tv_envio" maxWidth="392.39996337890625" minWidth="200.0" prefWidth="392.39996337890625" text="Conductor" />
+                            <TableColumn fx:id="tc_vehiculo_tv_envio" maxWidth="1.7976931348623157E308" minWidth="-1.0" prefWidth="306.800048828125" text="Vehículo" />
+                        </columns>
+                    </TableView>
+                    <HBox minHeight="-Infinity" minWidth="-Infinity" VBox.vgrow="ALWAYS">
+                        <GridPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" HBox.hgrow="ALWAYS">
+                            <columnConstraints>
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                            </columnConstraints>
+                            <rowConstraints>
+                                <RowConstraints percentHeight="25.0" vgrow="SOMETIMES" />
+                                <RowConstraints percentHeight="25.0" vgrow="SOMETIMES" />
+                                <RowConstraints percentHeight="25.0" vgrow="SOMETIMES" />
+                                <RowConstraints percentHeight="25.0" vgrow="NEVER" />
+                            </rowConstraints>
+                            <HBox.margin>
+                                <Insets left="10.0" right="10.0" />
+                            </HBox.margin>
+                            <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" text="Tracker" textAlignment="RIGHT" GridPane.halignment="RIGHT">
+                                <GridPane.margin>
+                                    <Insets right="10.0" />
+                                </GridPane.margin>
+                            </Label>
+                            <Label text="Conductor" GridPane.halignment="RIGHT" GridPane.rowIndex="2">
+                                <GridPane.margin>
+                                    <Insets right="10.0" />
+                                </GridPane.margin>
+                            </Label>
+                            <Label text="Vehículo" GridPane.halignment="RIGHT" GridPane.rowIndex="3">
+                                <GridPane.margin>
+                                    <Insets right="10.0" />
+                                </GridPane.margin>
+                            </Label>
+                            <TextField fx:id="tf_tracker_tv_envio" GridPane.columnIndex="1" />
+                            <TextField fx:id="tf_conductor_tv_envio" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                            <TextField fx:id="tf_carga_entrega_tv_envio" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                            <Label text="Carga y Entrega" GridPane.halignment="RIGHT" GridPane.rowIndex="1">
+                                <GridPane.margin>
+                                    <Insets right="10.0" />
+                                </GridPane.margin>
+                            </Label>
+                            <TextField fx:id="tf_vehiculo_tv_envio" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                        </GridPane>
+                    </HBox>
+                    <HBox alignment="CENTER" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" VBox.vgrow="NEVER">
+                        <Button mnemonicParsing="false" onAction="#mostrarTablaEnvios" styleClass="btn" text="Actualizar tabla">
+                            <tooltip>
+                                <Tooltip text="Refresca la tabla" />
+                            </tooltip>
+                            <graphic>
+                                <FontIcon accessibleText="Actualizar" fontSmoothingType="LCD" iconColor="WHITE" iconLiteral="fa-recycle" iconSize="20" selectionEnd="2" selectionFill="#1b293c" styleClass="h2" />
+                            </graphic>
+                        </Button>
+                        <Button mnemonicParsing="false" onAction="#onBotonNuevoEnvio" styleClass="btn" text="Añadir nuevo">
+                            <tooltip>
+                                <Tooltip text="Añade a la tabla según los campos de arriba" />
+                            </tooltip>
+                            <HBox.margin>
+                                <Insets />
+                            </HBox.margin>
+                            <graphic>
+                                <FontIcon accessibleText="Actualizar" fontSmoothingType="LCD" iconColor="WHITE" iconLiteral="fa-file" iconSize="20" selectionEnd="2" selectionFill="#1b293c" styleClass="h2" />
+                            </graphic>
+                        </Button>
+                        <Button mnemonicParsing="false" onAction="#onBotonModificarEnvio" styleClass="btn" text="Modificar seleccionado">
+                            <HBox.margin>
+                                <Insets />
+                            </HBox.margin>
+                            <tooltip>
+                                <Tooltip text="Empty Tooltip" />
+                            </tooltip>
+                            <graphic>
+                                <FontIcon accessibleText="Actualizar" fontSmoothingType="LCD" iconColor="WHITE" iconLiteral="fa-edit" iconSize="20" selectionEnd="2" selectionFill="#1b293c" styleClass="h2" />
+                            </graphic>
+                        </Button>
+                        <Button mnemonicParsing="false" onAction="#onBotonEliminarEnvio" styleClass="btn" text="Eliminar seleccionado">
+                            <HBox.margin>
+                                <Insets />
+                            </HBox.margin>
+                            <tooltip>
+                                <Tooltip text="Empty Tooltip" />
+                            </tooltip>
+                            <graphic>
+                                <FontIcon accessibleText="Actualizar" fontSmoothingType="LCD" iconColor="WHITE" iconLiteral="fa-eraser" iconSize="20" selectionEnd="2" selectionFill="#1b293c" styleClass="h2" />
+                            </graphic>
+                        </Button>
+                        <Button mnemonicParsing="false" onAction="#onBotonLimpiarEnvio" styleClass="btn" text="Limpiar campos">
+                            <HBox.margin>
+                                <Insets />
+                            </HBox.margin>
+                            <tooltip>
+                                <Tooltip text="Empty Tooltip" />
+                            </tooltip>
+                            <graphic>
+                                <FontIcon accessibleText="Actualizar" fontSmoothingType="LCD" iconColor="WHITE" iconLiteral="fa-exchange" iconSize="20" selectionEnd="2" selectionFill="#1b293c" styleClass="h2" />
+                            </graphic>
+                        </Button>
+                    </HBox>
+                </VBox>
+            </AnchorPane>
+            <tooltip>
+                <Tooltip text="Gestión de las cargas" />
+            </tooltip>
+        </Tab>
+    </TabPane>
+    <padding>
+        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+    </padding>
+</GridPane>

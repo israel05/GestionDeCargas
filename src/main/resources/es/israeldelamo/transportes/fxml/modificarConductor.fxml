@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.*?>
+<GridPane xmlns:fx="http://javafx.com/fxml/1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
+          prefHeight="800.0" prefWidth="480.0" stylesheets="@../css/estilos.css"
+          xmlns="http://javafx.com/javafx/21.0.4"
+          fx:controller="es.israeldelamo.transportes.controladores.ModificarConductorController">
+    <columnConstraints>
+        <ColumnConstraints hgrow="SOMETIMES" maxWidth="115.0" minWidth="8.0" prefWidth="27.0"/>
+        <ColumnConstraints hgrow="SOMETIMES" maxWidth="232.0" minWidth="10.0" prefWidth="200.0"/>
+        <ColumnConstraints hgrow="SOMETIMES" maxWidth="212.0" minWidth="10.0" prefWidth="211.0"/>
+        <ColumnConstraints hgrow="SOMETIMES" maxWidth="105.0" minWidth="10.0" prefWidth="29.0"/>
+    </columnConstraints>
+    <rowConstraints>
+        <RowConstraints maxHeight="45.0" minHeight="7.4000055313110344" prefHeight="17.000003051757812"
+                        vgrow="SOMETIMES"/>
+        <RowConstraints maxHeight="184.99999446868895" minHeight="10.0" prefHeight="142.19998779296876"
+                        vgrow="SOMETIMES"/>
+        <RowConstraints maxHeight="116.0" minHeight="10.0" prefHeight="30.20001220703125" vgrow="SOMETIMES"/>
+        <RowConstraints maxHeight="116.0" minHeight="0.0" prefHeight="28.800006103515614" vgrow="SOMETIMES"/>
+        <RowConstraints maxHeight="112.0" minHeight="10.0" prefHeight="36.0" vgrow="SOMETIMES"/>
+        <RowConstraints maxHeight="115.0" minHeight="10.0" prefHeight="27.0" vgrow="SOMETIMES"/>
+        <RowConstraints maxHeight="129.0" minHeight="10.0" prefHeight="29.0" vgrow="SOMETIMES"/>
+        <RowConstraints maxHeight="119.0" minHeight="10.0" prefHeight="35.0" vgrow="SOMETIMES"/>
+        <RowConstraints maxHeight="112.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+        <RowConstraints maxHeight="112.0" minHeight="10.0" prefHeight="29.0" vgrow="SOMETIMES"/>
+        <RowConstraints maxHeight="112.0" minHeight="9.0" prefHeight="31.0" vgrow="SOMETIMES"/>
+        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+    </rowConstraints>
+    <Label text="DNI" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="3">
+        <GridPane.margin>
+            <Insets right="10.0"/>
+        </GridPane.margin>
+    </Label>
+    <Label text="Nombre" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="4">
+        <GridPane.margin>
+            <Insets right="10.0"/>
+        </GridPane.margin>
+    </Label>
+    <Label text="Apellidos" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="5">
+        <GridPane.margin>
+            <Insets right="10.0"/>
+        </GridPane.margin>
+    </Label>
+    <Label text="Contacto Recogida" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="6">
+        <GridPane.margin>
+            <Insets right="10.0"/>
+        </GridPane.margin>
+    </Label>
+    <Label text="Correo electrónico" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="7">
+        <GridPane.margin>
+            <Insets right="10.0"/>
+        </GridPane.margin>
+    </Label>
+    <Label text="Es Internacional" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="9">
+        <GridPane.margin>
+            <Insets right="10.0"/>
+        </GridPane.margin>
+    </Label>
+    <Label text="Foto" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="1">
+        <padding>
+            <Insets right="10.0"/>
+        </padding>
+    </Label>
+    <ImageView fx:id="img_foto_modal_conductor" fitHeight="128.0" fitWidth="106.0" pickOnBounds="true"
+               preserveRatio="true" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1"/>
+    <CheckBox fx:id="ckbx_es_inter_modal_conductor" mnemonicParsing="false" onMouseClicked="#cambioEnEsInternacional"
+              text="Sí lo es" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="9"/>
+    <Label text="Código Postal" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="13">
+        <padding>
+            <Insets right="10.0"/>
+        </padding>
+    </Label>
+    <Label text="País de residencia" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="10"/>
+    <Label text="Provincia de residencia" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="11">
+        <padding>
+            <Insets right="10.0"/>
+        </padding>
+    </Label>
+    <Label text="Tipo de carnet" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="14">
+        <padding>
+            <Insets right="10.0"/>
+        </padding>
+    </Label>
+    <Button fx:id="btn_modificar_modal_conductor" mnemonicParsing="false" onAction="#modificar_modal_conductor"
+            styleClass="btn" text="Modificar" GridPane.columnIndex="1" GridPane.halignment="CENTER"
+            GridPane.rowIndex="18"/>
+    <Button fx:id="btn_cancelar_modal_conductor" mnemonicParsing="false" onAction="#salirDeLaVentanaModal"
+            styleClass="btn" text="Cancelar" GridPane.columnIndex="2" GridPane.halignment="CENTER"
+            GridPane.rowIndex="18"/>
+    <TextField fx:id="tf_dni_modal_conductor" onKeyPressed="#cambioEntf_dni_modal_conductor" GridPane.columnIndex="2"
+               GridPane.rowIndex="3"/>
+    <TextField fx:id="tf_nombre_modal_conductor" onKeyPressed="#onKeyPressCampoNombre" GridPane.columnIndex="2"
+               GridPane.rowIndex="4"/>
+    <TextField fx:id="tf_apellidos_modal_conductor" onKeyPressed="#cambioEntf_apellidos_modal_conductor"
+               GridPane.columnIndex="2" GridPane.rowIndex="5"/>
+    <TextField fx:id="tf_contacto_modal_conductor" onKeyPressed="#cambioEntf_contacto_modal_conductor"
+               GridPane.columnIndex="2" GridPane.rowIndex="6"/>
+    <TextField fx:id="tf_correo_modal_conductor" onKeyPressed="#cambioEntf_correo_modal_conductor"
+               GridPane.columnIndex="2" GridPane.rowIndex="7">
+        <tooltip>
+            <Tooltip text="Pulsa enter cuando termines de modificar"/>
+        </tooltip>
+    </TextField>
+    <ComboBox fx:id="cmb_pais_modal_conductor" maxWidth="1.7976931348623157E308" onAction="#cmb_pais_modal_cambio"
+              GridPane.columnIndex="2" GridPane.rowIndex="10"/>
+    <ComboBox fx:id="cmb_cp_modal_conductor" maxWidth="1.7976931348623157E308"
+              onAction="#cmb_codigo_postal_modal_cambio" GridPane.columnIndex="2" GridPane.rowIndex="13"/>
+    <ComboBox fx:id="cmb_tipo_carnet_modal_conductor" maxWidth="1.7976931348623157E308" GridPane.columnIndex="2"
+              GridPane.rowIndex="14"/>
+    <Label text="Teléfono" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="8">
+        <GridPane.margin>
+            <Insets right="10.0"/>
+        </GridPane.margin>
+    </Label>
+    <TextField fx:id="tf_telefono_modal_conductor" onKeyPressed="#cambioEntf_telefono_modal_conductor"
+               GridPane.columnIndex="2" GridPane.rowIndex="8">
+        <tooltip>
+            <Tooltip text="Pulsa enter cuando termines de modificar"/>
+        </tooltip>
+    </TextField>
+    <Label text="Localidad" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="12">
+        <padding>
+            <Insets right="10.0"/>
+        </padding>
+    </Label>
+    <ComboBox fx:id="cmb_localidad_modal_conductor" maxWidth="1.7976931348623157E308"
+              onAction="#cmb_localidad_modal_cambio" GridPane.columnIndex="2" GridPane.rowIndex="12"/>
+    <Button fx:id="btn_carga_imagen_conductor" maxWidth="1.7976931348623157E308" mnemonicParsing="false"
+            onAction="#seleccionarImagenModificarConductor" text="Elegir imagen desde el ordenador"
+            GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="2"/>
+    <ComboBox fx:id="cmbbx_provincia_modal" maxWidth="1.7976931348623157E308" onAction="#cmbbx_provincia_cambio"
+              GridPane.columnIndex="2" GridPane.rowIndex="11"/>
+    <Label text="Lista negra" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="15">
+        <padding>
+            <Insets right="10.0"/>
+        </padding>
+    </Label>
+    <Label text="Nacionalidad" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="16">
+        <padding>
+            <Insets right="10.0"/>
+        </padding>
+    </Label>
+    <ComboBox fx:id="cmb_nacionalidad_modal_conductor" maxWidth="1.7976931348623157E308"
+              onAction="#cmb_nacionalidad_modal_cambio" GridPane.columnIndex="2" GridPane.rowIndex="16"/>
+    <TextField fx:id="tf_negra_modal_conductor" onKeyReleased="#cambioEntf_negra_modal_conductor"
+               GridPane.columnIndex="2" GridPane.rowIndex="15"/>
+</GridPane>

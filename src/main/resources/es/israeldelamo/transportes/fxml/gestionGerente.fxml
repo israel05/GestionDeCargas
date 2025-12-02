@@ -1,0 +1,484 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import java.net.URL?>
+<GridPane xmlns:fx="http://javafx.com/fxml/1" alignment="CENTER" maxHeight="1.7976931348623157E308"
+          maxWidth="1.7976931348623157E308" xmlns="http://javafx.com/javafx/23.0.1"
+          fx:controller="es.israeldelamo.transportes.controladores.GestionGerenteController">
+    <columnConstraints>
+        <ColumnConstraints halignment="CENTER" hgrow="ALWAYS" maxWidth="1.7976931348623157E308"/>
+    </columnConstraints>
+    <rowConstraints>
+        <RowConstraints percentHeight="5.0" valignment="CENTER" vgrow="NEVER"/>
+        <RowConstraints percentHeight="5.0" vgrow="SOMETIMES"/>
+        <RowConstraints percentHeight="40.0" valignment="CENTER" vgrow="ALWAYS"/>
+        <RowConstraints maxHeight="-Infinity" percentHeight="40.0" valignment="CENTER" vgrow="ALWAYS"/>
+        <RowConstraints maxHeight="-Infinity" percentHeight="10.0" valignment="CENTER" vgrow="SOMETIMES"/>
+    </rowConstraints>
+    <stylesheets>
+        <URL value="@../css/estilos.css"/>
+        <URL value="@../css/especialCargaYEntrega.css"/>
+    </stylesheets>
+    <MenuBar maxWidth="1.7976931348623157E308" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.vgrow="ALWAYS">
+        <Menu mnemonicParsing="false" text="Archivo">
+            <MenuItem fx:id="mi_salir" mnemonicParsing="false" onAction="#salir_app" text="Volver al menú principal"/>
+        </Menu>
+        <Menu mnemonicParsing="false" text="Ayuda">
+            <MenuItem mnemonicParsing="false" onAction="#lanzarVentanaAyuda" text="VideoTutorial"/>
+        </Menu>
+    </MenuBar>
+    <HBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" GridPane.halignment="CENTER"
+          GridPane.hgrow="ALWAYS" GridPane.rowIndex="2" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+        <GridPane.margin>
+            <Insets left="10.0" right="10.0"/>
+        </GridPane.margin>
+        <GridPane fx:id="gridCreacionCargas" alignment="CENTER" maxHeight="1.7976931348623157E308"
+                  maxWidth="1.7976931348623157E308" styleClass="recuadrado" HBox.hgrow="ALWAYS">
+            <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="154.0" minWidth="10.0" prefWidth="83.0"/>
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="167.0" minWidth="10.0" prefWidth="142.00003662109376"/>
+                <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" maxWidth="-Infinity" percentWidth="1.0"/>
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="128.0" minWidth="10.0" prefWidth="110.19999999999999"/>
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="160.39999999999998" minWidth="10.0"
+                                   prefWidth="125.20002441406251"/>
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" percentWidth="1.0"/>
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="211.80000000000007" minWidth="10.0"
+                                   prefWidth="137.79997558593743"/>
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="157.79998779296875" minWidth="10.0"
+                                   prefWidth="91.80001220703127"/>
+                <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" minWidth="-Infinity" percentWidth="1.0"/>
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="174.0" minWidth="10.0" prefWidth="107.5999755859375"/>
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="140.0" minWidth="10.0" prefWidth="100.60002441406255"/>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="-Infinity" percentWidth="1.0"/>
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="187.0" minWidth="10.0" prefWidth="122.0"/>
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="168.0" minWidth="10.0" prefWidth="79.0"/>
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="141.0" minWidth="10.0" prefWidth="113.0"/>
+                <ColumnConstraints/>
+                <ColumnConstraints/>
+            </columnConstraints>
+            <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                <RowConstraints maxHeight="44.0" minHeight="5.0" prefHeight="38.0"/>
+                <RowConstraints maxHeight="56.0" minHeight="10.0" prefHeight="47.0" vgrow="SOMETIMES"/>
+                <RowConstraints maxHeight="95.0" minHeight="10.0" prefHeight="37.0" vgrow="SOMETIMES"/>
+                <RowConstraints maxHeight="83.0" minHeight="10.0" prefHeight="47.0" vgrow="SOMETIMES"/>
+                <RowConstraints maxHeight="89.0" minHeight="10.0" prefHeight="52.0" vgrow="SOMETIMES"/>
+                <RowConstraints maxHeight="78.0" minHeight="10.0" prefHeight="44.39999999999998" vgrow="SOMETIMES"/>
+                <RowConstraints maxHeight="88.0" minHeight="10.0" prefHeight="28.399999999999977" vgrow="SOMETIMES"/>
+                <RowConstraints maxHeight="84.0" minHeight="10.0" prefHeight="50.20000610351565" vgrow="SOMETIMES"/>
+            </rowConstraints>
+            <padding>
+                <Insets left="10.0"/>
+            </padding>
+            <Label text="Código Carga" wrapText="true" GridPane.columnIndex="12" GridPane.hgrow="ALWAYS"
+                   GridPane.rowIndex="1" GridPane.vgrow="ALWAYS">
+                <tooltip>
+                    <Tooltip text="Código autonumérico de la carga"/>
+                </tooltip>
+            </Label>
+            <Label text="*Franja recogida" wrapText="true" GridPane.rowIndex="5">
+                <tooltip>
+                    <Tooltip text="La franja horaria del origen de la carga"/>
+                </tooltip>
+            </Label>
+            <Label text="Franja Entrega" wrapText="true" GridPane.columnIndex="3" GridPane.rowIndex="5">
+                <tooltip>
+                    <Tooltip text="La franja de entrega de la carga"/>
+                </tooltip>
+            </Label>
+            <Label text="*Dim. A (cm)" GridPane.columnIndex="6" GridPane.hgrow="ALWAYS" GridPane.rowIndex="6"
+                   GridPane.vgrow="ALWAYS">
+                <tooltip>
+                    <Tooltip text="Indica la dimensión de A en cm."/>
+                </tooltip>
+            </Label>
+            <Label text="*Dim. L (cm)" GridPane.columnIndex="6" GridPane.hgrow="ALWAYS" GridPane.rowIndex="5"
+                   GridPane.vgrow="ALWAYS">
+                <tooltip>
+                    <Tooltip text="Indica la dimensión de L en cm."/>
+                </tooltip>
+            </Label>
+            <Label text="*Dim. H (cm)" wrapText="true" GridPane.columnIndex="6" GridPane.halignment="LEFT"
+                   GridPane.hgrow="ALWAYS" GridPane.rowIndex="7" GridPane.vgrow="ALWAYS">
+                <tooltip>
+                    <Tooltip text="Indica la dimensión de H en cm."/>
+                </tooltip>
+            </Label>
+            <Label maxHeight="1.7976931348623157E308" text="*Peso Unidad (kg)" wrapText="true" GridPane.columnIndex="9"
+                   GridPane.rowIndex="7">
+                <tooltip>
+                    <Tooltip text="Indica el peso unitario de la carge en Kg."/>
+                </tooltip>
+            </Label>
+            <Label lineSpacing="2.0" text="Manipulación de carga" wrapText="true" GridPane.columnIndex="9"
+                   GridPane.hgrow="ALWAYS" GridPane.rowIndex="4" GridPane.vgrow="ALWAYS">
+                <tooltip>
+                    <Tooltip text="Marca si la carga necesita manipuación"/>
+                </tooltip>
+            </Label>
+            <Label text="Remontable" GridPane.columnIndex="9" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1">
+                <tooltip>
+                    <Tooltip text="Marca si es remontable"/>
+                </tooltip>
+            </Label>
+            <Label text="Doble Conductor" wrapText="true" GridPane.columnIndex="9" GridPane.hgrow="ALWAYS"
+                   GridPane.rowIndex="3">
+                <tooltip>
+                    <Tooltip text="Marca si necesita doble conductor"/>
+                </tooltip>
+            </Label>
+            <Label text="Grupaje" GridPane.columnIndex="6" GridPane.hgrow="ALWAYS" GridPane.rowIndex="3"
+                   GridPane.vgrow="ALWAYS">
+                <tooltip>
+                    <Tooltip text="Marcar si es una carga de grupaje"/>
+                </tooltip>
+            </Label>
+            <Label text="Necesita rampa" GridPane.columnIndex="6" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2"
+                   GridPane.vgrow="ALWAYS">
+                <tooltip>
+                    <Tooltip text="Maraca si necesita una rampa para poder cargar"/>
+                </tooltip>
+            </Label>
+            <Label fx:id="lblNaturalezaPeligrosa" alignment="CENTER" contentDisplay="CENTER"
+                   maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" styleClass="h2"
+                   text="NATURALEZA DE LA MERCANCÍA" textAlignment="CENTER" wrapText="true" GridPane.columnSpan="5"
+                   GridPane.hgrow="ALWAYS" GridPane.rowIndex="7" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+                <font>
+                    <Font name="System Bold Italic" size="24.0"/>
+                </font>
+                <tooltip>
+                    <Tooltip text="La naturaleza peligrosa de la carga si es que la tiene"/>
+                </tooltip>
+            </Label>
+            <Label text="*País de origen" wrapText="true" GridPane.rowIndex="1">
+                <tooltip>
+                    <Tooltip text="El país desde donde sale la carga"/>
+                </tooltip>
+            </Label>
+            <Label text="*Provincia de origen" wrapText="true" GridPane.rowIndex="2">
+                <tooltip>
+                    <Tooltip text="La provincia desde donde sale la carga"/>
+                </tooltip>
+            </Label>
+            <Label text="CP origen" GridPane.rowIndex="4">
+                <tooltip>
+                    <Tooltip text="El código postal desde donde sale la carga"/>
+                </tooltip>
+            </Label>
+            <Label text="*País de destino" wrapText="true" GridPane.columnIndex="3" GridPane.rowIndex="1">
+                <tooltip>
+                    <Tooltip text="El país de destino de la carga"/>
+                </tooltip>
+            </Label>
+            <Label text="*Provincia de destino" wrapText="true" GridPane.columnIndex="3" GridPane.rowIndex="2">
+                <tooltip>
+                    <Tooltip text="La provincia de destino de la carga"/>
+                </tooltip>
+            </Label>
+            <Label text="*Localidad destino" wrapText="true" GridPane.columnIndex="3" GridPane.rowIndex="3">
+                <tooltip>
+                    <Tooltip text="La localidad de destino de la carga"/>
+                </tooltip>
+            </Label>
+            <Label text="*CP destino" GridPane.columnIndex="3" GridPane.rowIndex="4">
+                <tooltip>
+                    <Tooltip text="El código postal de destino de la carga"/>
+                </tooltip>
+            </Label>
+            <Label text="ADR" GridPane.hgrow="ALWAYS" GridPane.rowIndex="6" GridPane.vgrow="ALWAYS">
+                <tooltip>
+                    <Tooltip text="Marca si es ADR"/>
+                </tooltip>
+            </Label>
+            <Label text="ATP" GridPane.columnIndex="6" GridPane.hgrow="ALWAYS" GridPane.rowIndex="4"
+                   GridPane.vgrow="ALWAYS">
+                <tooltip>
+                    <Tooltip text="Marca si es ATP"/>
+                </tooltip>
+            </Label>
+            <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308"
+                   styleClass="h2" text="INSTRUCCIONES ADICIONALES" GridPane.columnIndex="12" GridPane.columnSpan="4"
+                   GridPane.hgrow="ALWAYS" GridPane.rowIndex="6" GridPane.vgrow="ALWAYS">
+                <font>
+                    <Font name="System Bold" size="20.0"/>
+                </font>
+            </Label>
+            <Label text="Reembolso (€)" GridPane.columnIndex="12" GridPane.hgrow="ALWAYS" GridPane.rowIndex="5"
+                   GridPane.vgrow="ALWAYS">
+                <tooltip>
+                    <Tooltip text="La cuantía del reembolso"/>
+                </tooltip>
+            </Label>
+            <Label text="*Precio (€)" GridPane.columnIndex="12" GridPane.hgrow="ALWAYS" GridPane.rowIndex="3"
+                   GridPane.vgrow="ALWAYS">
+                <tooltip>
+                    <Tooltip text="El precio de la carga"/>
+                </tooltip>
+            </Label>
+            <Label text="Seguro (€)" GridPane.columnIndex="12" GridPane.hgrow="ALWAYS" GridPane.rowIndex="4"
+                   GridPane.vgrow="ALWAYS">
+                <tooltip>
+                    <Tooltip text="La cuantía del seguro"/>
+                </tooltip>
+            </Label>
+            <TextField fx:id="tf_codigo_carga_tab_carga_entrega" disable="true" editable="false"
+                       GridPane.columnIndex="13" GridPane.rowIndex="1"/>
+            <TextField fx:id="tf_franja_entrega_tab_carga_entrega" visible="false" GridPane.columnIndex="1"
+                       GridPane.rowIndex="6"/>
+            <TextField fx:id="tf_dim_l_tab_carga_entrega" GridPane.columnIndex="7" GridPane.rowIndex="5"/>
+            <TextField fx:id="tf_dim_a_tab_carga_entrega" GridPane.columnIndex="7" GridPane.rowIndex="6"/>
+            <TextField fx:id="tf_dim_h_tab_carga_entrega" GridPane.columnIndex="7" GridPane.rowIndex="7"/>
+            <TextField fx:id="tf_peso_unidad_tab_carga_entrega" GridPane.columnIndex="10" GridPane.rowIndex="7"/>
+            <TextField fx:id="tf_instrucciones_tab_carga_entrega" prefHeight="131.0" prefWidth="358.0"
+                       GridPane.columnIndex="12" GridPane.columnSpan="3" GridPane.rowIndex="7" GridPane.rowSpan="2">
+                <GridPane.margin>
+                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+                </GridPane.margin>
+            </TextField>
+            <ComboBox fx:id="combo_pais_origen_carga_entrega" onAction="#comb_pais_origen_cambio" prefWidth="150.0"
+                      GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+            <ComboBox fx:id="combo_provincia_origen_carga_entrega" onAction="#comb_provincia_origen_cambio"
+                      prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+            <ComboBox fx:id="combo_localidad_origen_carga_entrega" onAction="#comb_localidad_origen_cambio"
+                      prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="3"/>
+            <ComboBox fx:id="combo_cp_origen_carga_entrega" prefWidth="150.0" GridPane.columnIndex="1"
+                      GridPane.rowIndex="4"/>
+            <ComboBox fx:id="combo_pais_destino_carga_entrega" onAction="#comb_pais_destino_cambio" prefWidth="150.0"
+                      GridPane.columnIndex="4" GridPane.rowIndex="1"/>
+            <ComboBox fx:id="combo_provincia_destino_carga_entrega" onAction="#comb_provincia_destino_cambio"
+                      prefWidth="150.0" GridPane.columnIndex="4" GridPane.rowIndex="2"/>
+            <ComboBox fx:id="combo_localidad_destino_carga_entrega" onAction="#comb_localidad_destino_cambio"
+                      prefWidth="150.0" GridPane.columnIndex="4" GridPane.rowIndex="3"/>
+            <ComboBox fx:id="combo_cp_destino_carga_entrega" prefWidth="150.0" GridPane.columnIndex="4"
+                      GridPane.rowIndex="4"/>
+            <ComboBox fx:id="combo_naturaleza_peligrosa_carga_entrega" disable="true" maxHeight="1.7976931348623157E308"
+                      maxWidth="1.7976931348623157E308" GridPane.columnIndex="1" GridPane.columnSpan="5"
+                      GridPane.rowIndex="8"/>
+            <TextField fx:id="tf_reembolso_tab_carga_entrega" GridPane.columnIndex="13" GridPane.rowIndex="5"/>
+            <TextField fx:id="tf_precio_tab_carga_entrega" GridPane.columnIndex="13" GridPane.rowIndex="3"/>
+            <TextField fx:id="tf_seguro_tab_carga_entrega" GridPane.columnIndex="13" GridPane.rowIndex="4"/>
+            <CheckBox fx:id="cxbx_manipulacion_carga_entrega" mnemonicParsing="false" GridPane.columnIndex="10"
+                      GridPane.rowIndex="4"/>
+            <CheckBox fx:id="cbx_remontable_carga_entrega" mnemonicParsing="false" GridPane.columnIndex="10"
+                      GridPane.rowIndex="1"/>
+            <CheckBox fx:id="cxbx_dblconductor_carga_entrega" mnemonicParsing="false" GridPane.columnIndex="10"
+                      GridPane.rowIndex="3"/>
+            <CheckBox fx:id="cxbx_adr_carga_entrega" mnemonicParsing="false" onAction="#clickEnAdr"
+                      GridPane.columnIndex="1" GridPane.rowIndex="6"/>
+            <CheckBox fx:id="cxbx_atp_carga_entrega" mnemonicParsing="false" onAction="#clickEnAtp"
+                      GridPane.columnIndex="7" GridPane.rowIndex="4"/>
+            <CheckBox fx:id="cxbx_grupaje_carga_entrega" mnemonicParsing="false" GridPane.columnIndex="7"
+                      GridPane.rowIndex="3"/>
+            <CheckBox fx:id="cxbx_necesita_rampa_carga_entrega" mnemonicParsing="false" GridPane.columnIndex="7"
+                      GridPane.rowIndex="2"/>
+            <CheckBox fx:id="cxbx_con_vuelta_carga_entrega" mnemonicParsing="false" GridPane.columnIndex="10"
+                      GridPane.rowIndex="2"/>
+            <Label text="Con retorno" wrapText="true" GridPane.columnIndex="9" GridPane.hgrow="ALWAYS"
+                   GridPane.rowIndex="2">
+                <tooltip>
+                    <Tooltip text="Marca si es un paquete de ida y vuelta"/>
+                </tooltip>
+            </Label>
+            <VBox prefWidth="100.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="5"
+                  GridPane.valignment="CENTER">
+                <DatePicker fx:id="dp_dia_inicio_carga_entrega" promptText="01/01/2000" showWeekNumbers="true"/>
+                <TextField fx:id="tf_hora_inicio_carga_entrega" alignment="CENTER" text="12:00"/>
+            </VBox>
+            <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="4" GridPane.rowIndex="5">
+                <DatePicker fx:id="dp_dia_fin_carga_entrega" promptText="01/01/2000" showWeekNumbers="true"/>
+                <TextField fx:id="tf_hora_fin_carga_entrega" alignment="CENTER" text="12:00"/>
+            </VBox>
+            <Label text="*Cantidad Bultos" wrapText="true" GridPane.columnIndex="9" GridPane.rowIndex="6">
+                <tooltip>
+                    <Tooltip text="Indica la cantidad de bultos de la carga"/>
+                </tooltip>
+            </Label>
+            <TextField fx:id="tf_cantidad_bultos_carga_entrega" GridPane.columnIndex="10" GridPane.rowIndex="6"/>
+            <Label alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308"
+                   maxWidth="1.7976931348623157E308" styleClass="h1" stylesheets="@../css/estilos.css"
+                   text="ÁMBITO DE CARGA" textAlignment="CENTER" GridPane.columnSpan="5" GridPane.halignment="CENTER"
+                   GridPane.hgrow="ALWAYS" GridPane.vgrow="ALWAYS">
+                <font>
+                    <Font name="Arial Black" size="20.0"/>
+                </font>
+            </Label>
+            <Label alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308"
+                   maxWidth="1.7976931348623157E308" styleClass="h1" text="INFO DE LA CARGA" GridPane.columnIndex="6"
+                   GridPane.columnSpan="4" GridPane.halignment="CENTER">
+                <font>
+                    <Font name="Arial Black" size="20.0"/>
+                </font>
+            </Label>
+            <Label alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308"
+                   maxWidth="1.7976931348623157E308" styleClass="h1" text="INFO ADICIONAL" GridPane.columnIndex="12"
+                   GridPane.columnSpan="4" GridPane.halignment="CENTER">
+                <font>
+                    <Font name="Arial Black" size="20.0"/>
+                </font>
+            </Label>
+            <Label prefHeight="28.0" prefWidth="380.0" text="* Tipo de Bulto" GridPane.columnIndex="9"
+                   GridPane.rowIndex="5">
+                <tooltip>
+                    <Tooltip text="Tipo de bulto que es la carga"/>
+                </tooltip>
+                <font>
+                    <Font name="System Bold" size="19.0"/>
+                </font>
+            </Label>
+            <ComboBox fx:id="combo_tipo_bulto_carga_entrega" maxHeight="1.7976931348623157E308"
+                      maxWidth="1.7976931348623157E308" GridPane.columnIndex="10" GridPane.rowIndex="5">
+                <GridPane.margin>
+                    <Insets/>
+                </GridPane.margin>
+            </ComboBox>
+            <Label text="Localidad origen" wrapText="true" GridPane.rowIndex="3">
+                <tooltip>
+                    <Tooltip text="La localidad de destino de la carga"/>
+                </tooltip>
+            </Label>
+            <Label text="Fecha de creacción de la carga" wrapText="true" GridPane.columnIndex="12"
+                   GridPane.rowIndex="2"/>
+            <DatePicker fx:id="dp_fecha_creaccion" disable="true" editable="false" showWeekNumbers="true"
+                        GridPane.columnIndex="13" GridPane.columnSpan="2" GridPane.rowIndex="2"/>
+        </GridPane>
+    </HBox>
+    <TableView id="tablaApaisada" fx:id="tv_carga_entrega" maxHeight="1.7976931348623157E308"
+               maxWidth="1.7976931348623157E308" style="-fx-rotate: 0;" tableMenuButtonVisible="true"
+               GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="3" GridPane.valignment="CENTER"
+               GridPane.vgrow="ALWAYS">
+        <columns>
+            <TableColumn fx:id="tc_cod_carga" prefWidth="49.59997808933258" style="-fx-rorate: 90;" text="Cod. Carga"/>
+            <TableColumn fx:id="tc_ya_servida" prefWidth="75.0" text="Ya Servida"/>
+            <TableColumn fx:id="tc_franja_horario_recogida" minWidth="3.9999923706054688" prefWidth="70.39999389648438"
+                         text="Franja recogida"/>
+            <TableColumn fx:id="tc_franja_horario_entrega" prefWidth="64.79998016357422" text="Franja entrega"/>
+            <TableColumn fx:id="tc_dimension_l" editable="false" maxWidth="1.7976931348623157E308" minWidth="-1.0"
+                         prefWidth="-1.0" text="Dim L (cm)"/>
+            <TableColumn fx:id="tc_dimension_a" prefWidth="57.60003662109375" text="Dim A (cm)"/>
+            <TableColumn fx:id="tc_dimension_h" prefWidth="44.0" text="Dim H (cm)"/>
+            <TableColumn fx:id="tc_peso_unitario" prefWidth="46.39996337890625" text="Peso (kg)"/>
+            <TableColumn fx:id="tc_manipulacion_carga_bool" prefWidth="63.199951171875" text="Manipulación carga"/>
+            <TableColumn fx:id="tc_remontable" minWidth="0.0" prefWidth="52.00006103515625" text="Remontable"/>
+            <TableColumn fx:id="tc_tipo_bulto" prefWidth="64.800048828125" text="Tipo de bulto"/>
+            <TableColumn fx:id="tc_doble_conductor" prefWidth="85.5999755859375" text="Doble Conductor"/>
+            <TableColumn fx:id="tc_es_naturaleza_peligrosa" prefWidth="65.60003662109375" text="Peligrosidad"/>
+            <TableColumn fx:id="tc_carga_completa_o_grupaje" prefWidth="64.800048828125" text="Grupaje"
+                         visible="false"/>
+            <TableColumn fx:id="tc_necesita_rampa" prefWidth="72.79998779296875" text="Necesita Rampa" visible="false"/>
+            <TableColumn fx:id="tc_NATURALEZAS_PELIGROSAS_cod_naturaleza_peligrosa" maxWidth="92.79998779296875"
+                         prefWidth="90.39996337890625" text="Naturaleza Peligrosa" visible="false"/>
+            <TableColumn fx:id="tc_pais_origen" prefWidth="54.39990234375" text="País origen" visible="false"/>
+            <TableColumn fx:id="tc_provincia_origen" prefWidth="76.0001220703125" text="Provincia origen"
+                         visible="false"/>
+            <TableColumn fx:id="tc_localidad_origen" prefWidth="80.800048828125" text="Localidad origen"
+                         visible="false"/>
+            <TableColumn fx:id="tc_cp_origen" prefWidth="69.5999755859375" text="CP Origen" visible="false"/>
+            <TableColumn fx:id="tc_pais_destino" prefWidth="75.0" text="País Destino" visible="false"/>
+            <TableColumn fx:id="tc_provincia_destino" prefWidth="75.0" text="Provincia Destino" visible="false"/>
+            <TableColumn fx:id="tc_localidad_destino" prefWidth="75.0" text="Localidad Destino" visible="false"/>
+            <TableColumn fx:id="tc_cp_destino" prefWidth="75.0" text="CP Destino" visible="false"/>
+            <TableColumn fx:id="tc_instrucciones" prefWidth="75.0" text="Instrucciones" visible="false"/>
+            <TableColumn fx:id="tc_reembolso_cantidad" prefWidth="75.0" text="Reembolso" visible="false"/>
+            <TableColumn fx:id="tc_con_vuelta" prefWidth="75.0" text="Con vuelta" visible="false"/>
+            <TableColumn fx:id="tc_precio" prefWidth="75.0" text="Precio"/>
+            <TableColumn fx:id="tc_seguro" prefWidth="75.0" text="Seguro" visible="false"/>
+            <TableColumn fx:id="tc_es_adr" prefWidth="75.0" text="ADR"/>
+            <TableColumn fx:id="tc_es_atp" prefWidth="75.0" text="ATP"/>
+            <TableColumn fx:id="tc_cantidad_bultos" prefWidth="75.0" text="Cantidad Bultos" visible="false"/>
+            <TableColumn fx:id="tc_fecha_creaccion" prefWidth="75.0" text="Fecha de Creacción"/>
+            <TableColumn fx:id="tc_empresa" prefWidth="75.0" text="Empresa Creadora"/>
+        </columns>
+        <opaqueInsets>
+            <Insets/>
+        </opaqueInsets>
+        <GridPane.margin>
+            <Insets left="10.0" right="10.0"/>
+        </GridPane.margin>
+    </TableView>
+    <HBox alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="87.0"
+          prefWidth="1326.0" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="4"
+          GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+        <HBox alignment="CENTER">
+            <HBox.margin>
+                <Insets bottom="10.0" top="10.0"/>
+            </HBox.margin>
+            <Button mnemonicParsing="false" onAction="#onBotonNuevaCargaEntrega" styleClass="btn"
+                    text="Dar de alta esta carga">
+                <tooltip>
+                    <Tooltip text="Añade a la tabla según los campos de arriba"/>
+                </tooltip>
+                <HBox.margin>
+                    <Insets left="10.0" right="10.0"/>
+                </HBox.margin>
+            </Button>
+            <Button mnemonicParsing="false" onAction="#onBotonBorrarCargaEntrega" styleClass="btn"
+                    text="Eliminar seleccionado">
+                <HBox.margin>
+                    <Insets left="10.0" right="10.0"/>
+                </HBox.margin>
+                <tooltip>
+                    <Tooltip text="Eliminar la linea seleccionada"/>
+                </tooltip>
+            </Button>
+            <Button mnemonicParsing="false" onAction="#onBotonModificarCargaEntrega" styleClass="btn"
+                    text="Guardar cambios">
+                <HBox.margin>
+                    <Insets left="10.0" right="10.0"/>
+                </HBox.margin>
+                <tooltip>
+                    <Tooltip text="Guardar todos los campos"/>
+                </tooltip>
+            </Button>
+            <Button fx:id="botonRefresacar" mnemonicParsing="false" onAction="#onBotonRefrescar" styleClass="btn"
+                    text="Refrescar (F5)">
+                <tooltip>
+                    <Tooltip text="Limpiar todos los campos"/>
+                </tooltip>
+            </Button>
+            <Button mnemonicParsing="false" onAction="#onBotonLimpiarCargaEntrega" styleClass="btn"
+                    text="Limpiar campos">
+                <HBox.margin>
+                    <Insets left="10.0" right="10.0"/>
+                </HBox.margin>
+                <tooltip>
+                    <Tooltip text="Limpiar todos los campos"/>
+                </tooltip>
+            </Button>
+            <Button mnemonicParsing="false" onAction="#onBotonSalir" styleClass="btn"
+                    text="Volver a la pantalla anterior">
+                <tooltip>
+                    <Tooltip text="Volver a la pantalla anterior"/>
+                </tooltip>
+            </Button>
+        </HBox>
+    </HBox>
+    <HBox alignment="CENTER" prefHeight="21.0" prefWidth="1326.0" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS"
+          GridPane.valignment="CENTER" GridPane.vgrow="NEVER">
+        <children>
+            <Label alignment="CENTER" contentDisplay="CENTER" styleClass="h1" text="Creacción de Cargas"
+                   textAlignment="CENTER" HBox.hgrow="NEVER">
+                <font>
+                    <Font name="System Bold" size="39.0"/>
+                </font>
+                <HBox.margin>
+                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+                </HBox.margin>
+            </Label>
+            <Label layoutX="669.0" layoutY="28.0" text="Empresa que crea la carga"/>
+            <Label fx:id="lbl_titulo_empresa" styleClass="h1" text="EMPRESA" textFill="#5aa7bc">
+                <HBox.margin>
+                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+                </HBox.margin>
+            </Label>
+            <Label alignment="CENTER_RIGHT" text="Ya servida" textAlignment="RIGHT">
+                <HBox.margin>
+                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+                </HBox.margin>
+            </Label>
+            <CheckBox fx:id="cxbx_ya_servida_carga_entrega" disable="true" mnemonicParsing="false"/>
+        </children>
+    </HBox>
+</GridPane>

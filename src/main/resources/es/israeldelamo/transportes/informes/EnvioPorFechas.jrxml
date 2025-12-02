@@ -1,0 +1,127 @@
+<!-- Created with Jaspersoft Studio version 7.0.1.final using JasperReports Library version 7.0.1-573496633c2b4074e32f433154b543003f7d2498  -->
+<jasperReport name="Empresas" language="java" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20"
+              rightMargin="20" topMargin="20" bottomMargin="20" whenResourceMissingType="Error"
+              uuid="605c2bde-ba4c-42c0-9e0f-cba3f47cd7fd">
+    <property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+    <property name="com.jaspersoft.studio.data.defaultdataadapter" value="ConrtraICJ"/>
+    <style name="Title" fontName="Times New Roman" fontSize="50.0" bold="true"/>
+    <style name="SubTitle" forecolor="#736343" fontName="Arial" fontSize="18.0"/>
+    <style name="Column header" forecolor="#666666" fontName="Arial" fontSize="12.0" bold="true"/>
+    <style name="Detail" fontName="Arial" fontSize="12.0"/>
+    <style name="Row" mode="Transparent">
+        <conditionalStyle backcolor="#E6DAC3">
+            <conditionExpression><![CDATA[$V{REPORT_COUNT}%2 == 0]]></conditionExpression>
+        </conditionalStyle>
+    </style>
+    <parameter name="FECHAINICIO" class="java.lang.String"/>
+    <parameter name="FECHAFINAL" class="java.lang.String"/>
+    <query language="sql"><![CDATA[select  transportes.`CARGA_Y_ENTREGA`.cod_carga ,
+ transportes.`CARGA_Y_ENTREGA`.fecha_creaccion, 
+ transportes.`CARGA_Y_ENTREGA`.ya_reservado 
+ FROM  transportes.`CARGA_Y_ENTREGA` 
+ WHERE  transportes.`CARGA_Y_ENTREGA`.fecha_creaccion
+ BETWEEN  $P{FECHAINICIO}  AND  $P{FECHAFINAL} 
+ AND  transportes.`CARGA_Y_ENTREGA`.ya_reservado ="0" ]]></query>
+    <field name="cod_carga" class="java.lang.Integer">
+        <property name="com.jaspersoft.studio.field.name" value="cod_carga"/>
+        <property name="com.jaspersoft.studio.field.label" value="cod_carga"/>
+        <property name="com.jaspersoft.studio.field.tree.path" value="CARGA_Y_ENTREGA"/>
+    </field>
+    <field name="fecha_creaccion" class="java.sql.Timestamp">
+        <property name="com.jaspersoft.studio.field.name" value="fecha_creaccion"/>
+        <property name="com.jaspersoft.studio.field.label" value="fecha_creaccion"/>
+        <property name="com.jaspersoft.studio.field.tree.path" value="CARGA_Y_ENTREGA"/>
+    </field>
+    <field name="ya_reservado" class="java.lang.Boolean">
+        <property name="com.jaspersoft.studio.field.name" value="ya_reservado"/>
+        <property name="com.jaspersoft.studio.field.label" value="ya_reservado"/>
+        <property name="com.jaspersoft.studio.field.tree.path" value="CARGA_Y_ENTREGA"/>
+    </field>
+    <background height="520" splitType="Stretch">
+        <element kind="image" uuid="7143089b-0916-42ee-af03-8deef2c70836" x="10" y="10" width="534" height="510">
+            <expression><![CDATA[$P{IMAGE_PATH}+"fondo.png"]]></expression>
+        </element>
+    </background>
+    <title height="97" splitType="Stretch">
+        <element kind="frame" uuid="9683148f-fc9f-48a1-83a4-d16d2b0f3af0" mode="Opaque" x="1" y="0" width="554"
+                 height="94" forecolor="#006699" backcolor="#006699">
+            <element kind="image" uuid="d3e99303-be2c-421e-8b66-3cf67793bbbc" x="-1" y="0" width="98" height="94"/>
+        </element>
+        <element kind="staticText" uuid="1a652692-054a-40f3-ade5-68d8da36626d" x="120" y="0" width="432" height="62"
+                 forecolor="#FFFFFF" fontSize="18.0" vTextAlign="Middle" style="Title">
+            <text><![CDATA[Cargas Entre fechas sin atender]]></text>
+        </element>
+        <element kind="textField" uuid="172dbb74-fc6a-4764-ba37-490d21d568e3" x="170" y="50" width="100" height="30">
+            <expression><![CDATA[$P{FECHAINICIO}]]></expression>
+        </element>
+        <element kind="textField" uuid="d673bd4d-9698-49f8-b3cb-76ff3fcc135b" x="300" y="50" width="100" height="30">
+            <expression><![CDATA[$P{FECHAFINAL}]]></expression>
+        </element>
+    </title>
+    <pageHeader splitType="Stretch"/>
+    <columnHeader height="38" splitType="Stretch">
+        <element kind="line" uuid="1a61a836-d137-48b1-ad67-6ff64600bf93" positionType="FixRelativeToBottom" x="0" y="15"
+                 width="555" height="1">
+            <pen lineWidth="0.5" lineColor="#999999"/>
+        </element>
+        <element kind="staticText" uuid="09a52a15-7896-4be0-8462-c67620f2bfaf" x="118" y="0" width="100" height="30">
+            <text><![CDATA[cod_carga]]></text>
+            <property name="com.jaspersoft.studio.spreadsheet.connectionID"
+                      value="923f0d28-5177-42be-83f1-1751400d8b11"/>
+        </element>
+        <element kind="staticText" uuid="152b7a13-47ef-4acf-a58a-560dae6cc202" x="294" y="0" width="100" height="30">
+            <text><![CDATA[fecha_creaccion]]></text>
+            <property name="com.jaspersoft.studio.spreadsheet.connectionID"
+                      value="3479e5eb-fd24-478e-bf3c-0e27d5394b0d"/>
+        </element>
+        <element kind="staticText" uuid="5db7bf67-6952-4f20-8ccb-cbf36fd2543c" x="444" y="0" width="100" height="30">
+            <text><![CDATA[ya_reservado]]></text>
+            <property name="com.jaspersoft.studio.spreadsheet.connectionID"
+                      value="a09fdf40-0fbb-4149-92dc-0daeb488e057"/>
+        </element>
+    </columnHeader>
+    <detail>
+        <band height="56" splitType="Stretch">
+            <element kind="textField" uuid="ea187d0e-8812-41bf-a22f-924d4a30316e" x="118" y="10" width="100"
+                     height="30">
+                <expression><![CDATA[$F{cod_carga}]]></expression>
+                <property name="com.jaspersoft.studio.spreadsheet.connectionID"
+                          value="923f0d28-5177-42be-83f1-1751400d8b11"/>
+            </element>
+            <element kind="textField" uuid="3f834e19-5f5e-47ff-ba51-e72b4c9f62be" x="294" y="17" width="100"
+                     height="30">
+                <expression><![CDATA[$F{fecha_creaccion}]]></expression>
+                <property name="com.jaspersoft.studio.spreadsheet.connectionID"
+                          value="3479e5eb-fd24-478e-bf3c-0e27d5394b0d"/>
+            </element>
+            <element kind="textField" uuid="ce639aea-bfb9-4b18-975c-d7bf705ecd7c" x="440" y="17" width="100"
+                     height="30">
+                <expression><![CDATA[$F{ya_reservado}]]></expression>
+                <property name="com.jaspersoft.studio.spreadsheet.connectionID"
+                          value="a09fdf40-0fbb-4149-92dc-0daeb488e057"/>
+            </element>
+        </band>
+    </detail>
+    <columnFooter height="7" splitType="Stretch"/>
+    <pageFooter height="30" splitType="Stretch">
+        <element kind="frame" uuid="183682bc-d976-4756-83e0-6625a3f98ed1" mode="Opaque" x="-21" y="1" width="597"
+                 height="24" forecolor="#D0B48E" backcolor="#006699">
+            <element kind="textField" uuid="0193f9b3-1559-491a-8580-b6988863b6a1" x="533" y="0" width="40" height="20"
+                     forecolor="#FFFFFF" fontSize="10.0" evaluationTime="Report" bold="false" vTextAlign="Middle"
+                     style="Column header">
+                <expression><![CDATA[" " + $V{PAGE_NUMBER}]]></expression>
+            </element>
+            <element kind="textField" uuid="d00b105e-494b-418b-8ac9-8b1b4824f4f0" x="453" y="0" width="80" height="20"
+                     forecolor="#FFFFFF" fontSize="10.0" bold="false" hTextAlign="Right" vTextAlign="Middle"
+                     style="Column header">
+                <expression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></expression>
+            </element>
+            <element kind="textField" uuid="0616f3fe-0354-456f-8911-ec30ec51a5ae" x="22" y="1" width="197" height="20"
+                     forecolor="#FFFFFF" fontSize="10.0" pattern="EEEEE dd MMMMM yyyy" bold="false" vTextAlign="Middle"
+                     style="Column header">
+                <expression><![CDATA[new java.util.Date()]]></expression>
+            </element>
+        </element>
+    </pageFooter>
+    <summary splitType="Stretch"/>
+</jasperReport>

@@ -1,0 +1,9 @@
+.table-view .column-header .label {
+    -fx-rotate: 90;
+    -fx-pref-height: 80pt;
+    -fx-wrap-text: true;
+
+
+}
+
+
